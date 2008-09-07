@@ -1,0 +1,141 @@
+<ui version="4.0" >
+ <class>TinyOrganizerClass</class>
+ <widget class="QMainWindow" name="TinyOrganizerClass" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>380</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>TinyOrganizer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QVBoxLayout" name="verticalLayout_2" >
+    <item>
+     <layout class="QGridLayout" name="gridLayout" >
+      <item row="1" column="0" >
+       <widget class="QTabWidget" name="tabWidget" >
+        <property name="currentIndex" >
+         <number>0</number>
+        </property>
+        <property name="iconSize" >
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <widget class="QWidget" name="tabCalendar" >
+         <attribute name="title" >
+          <string>Calendar</string>
+         </attribute>
+         <attribute name="icon" >
+          <iconset>
+           <normalon>:/gfx/icons/gfx/calendar.png</normalon>
+          </iconset>
+         </attribute>
+         <layout class="QGridLayout" name="gridLayout_3" >
+          <item row="0" column="0" >
+           <layout class="QGridLayout" name="gridLayout_2" >
+            <item row="0" column="0" >
+             <widget class="QCalendarWidget" name="calendarWidget" >
+              <property name="firstDayOfWeek" >
+               <enum>Qt::Monday</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QGroupBox" name="groupBox" >
+              <property name="title" >
+               <string>Scheduled events</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4" >
+               <item row="0" column="0" >
+                <widget class="QTableWidget" name="tableWidget" >
+                 <property name="minimumSize" >
+                  <size>
+                   <width>314</width>
+                   <height>192</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabToDo" >
+         <attribute name="title" >
+          <string>To-Do</string>
+         </attribute>
+         <attribute name="icon" >
+          <iconset>
+           <normalon>:/gfx/icons/gfx/booklet.png</normalon>
+          </iconset>
+         </attribute>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>380</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_Save" />
+    <addaction name="separator" />
+    <addaction name="action_Close" />
+   </widget>
+   <widget class="QMenu" name="menu_Help" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout" />
+   </widget>
+   <addaction name="menu_File" />
+   <addaction name="menu_Help" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <action name="action_Save" >
+   <property name="text" >
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="action_Close" >
+   <property name="text" >
+    <string>&amp;Close</string>
+   </property>
+  </action>
+  <action name="actionAbout" >
+   <property name="text" >
+    <string>&amp;About...</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="tinyorganizer.qrc" />
+ </resources>
+ <connections/>
+</ui>
