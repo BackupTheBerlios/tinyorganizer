@@ -3,8 +3,11 @@ TARGET = TinyOrganizer
 QT += core \
     gui \
     xml
-HEADERS += tinyorganizer.h
-SOURCES += main.cpp \
+HEADERS += schedulewidget.h \
+    tinyorganizer.h
+SOURCES += schedulewidget.cpp \
+    main.cpp \
     tinyorganizer.cpp
-FORMS += tinyorganizer.ui
+FORMS += schedulewidget.ui \
+    tinyorganizer.ui
 RESOURCES += tinyorganizer.qrc

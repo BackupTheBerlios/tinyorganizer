@@ -1,0 +1,89 @@
+<ui version="4.0" >
+ <class>ScheduleWidgetClass</class>
+ <widget class="QWidget" name="ScheduleWidgetClass" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>354</width>
+    <height>478</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>354</width>
+    <height>478</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>ScheduleWidget</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" >
+   <property name="topMargin" >
+    <number>5</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>5</number>
+   </property>
+   <property name="spacing" >
+    <number>2</number>
+   </property>
+   <item row="0" column="0" >
+    <widget class="QCalendarWidget" name="calendarWidget" >
+     <property name="firstDayOfWeek" >
+      <enum>Qt::Monday</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="title" >
+      <string>Scheduled events</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5" >
+      <property name="topMargin" >
+       <number>2</number>
+      </property>
+      <property name="bottomMargin" >
+       <number>2</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" >
+       <widget class="QTableWidget" name="tableWidget_2" >
+        <property name="minimumSize" >
+         <size>
+          <width>314</width>
+          <height>192</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <layout class="QHBoxLayout" name="horizontalLayout_2" >
+        <item>
+         <widget class="QPushButton" name="addEventButton_2" >
+          <property name="text" >
+           <string>Add Event</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_3" >
+          <property name="text" >
+           <string>Delete Event</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <resources/>
+ <connections/>
+</ui>
