@@ -38,9 +38,8 @@
           <string>Calendar</string>
          </attribute>
          <attribute name="icon" >
-          <iconset>
-           <normalon>:/gfx/icons/gfx/calendar.png</normalon>
-          </iconset>
+          <iconset resource="tinyorganizer.qrc" >
+           <normaloff>:/gfx/icons/calendar.png</normaloff>:/gfx/icons/calendar.png</iconset>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_2" >
           <item row="0" column="0" >
@@ -94,9 +93,8 @@
           <string>To-Do</string>
          </attribute>
          <attribute name="icon" >
-          <iconset>
-           <normalon>:/gfx/icons/gfx/booklet.png</normalon>
-          </iconset>
+          <iconset resource="tinyorganizer.qrc" >
+           <normaloff>:/gfx/icons/booklet.png</normaloff>:/gfx/icons/booklet.png</iconset>
          </attribute>
         </widget>
        </widget>
@@ -111,7 +109,7 @@
      <x>0</x>
      <y>0</y>
      <width>381</width>
-     <height>27</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File" >

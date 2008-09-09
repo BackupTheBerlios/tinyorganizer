@@ -4,7 +4,7 @@
 
 void TinyOrganizer::setupTrayIcon()
 {
-    QIcon icon(":/gfx/icons/gfx/calendar.png");
+    QIcon icon(":/gfx/icons/calendar.png");
     trayIcon->setIcon(icon);
     trayIcon->setVisible(true);
 }

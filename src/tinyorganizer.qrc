@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/gfx/icons" >
+        <file alias="booklet.png" >gfx/booklet.png</file>
+        <file alias="calendar.png" >gfx/calendar.png</file>
+        <file alias="todo.png" >gfx/todo.png</file>
+    </qresource>
+</RCC>
