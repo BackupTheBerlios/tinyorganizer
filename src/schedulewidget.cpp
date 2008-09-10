@@ -8,5 +8,6 @@ ScheduleWidget::ScheduleWidget(QWidget *parent)
 
 ScheduleWidget::~ScheduleWidget()
 {
-
+	int a = 5;
+	a++;
 }

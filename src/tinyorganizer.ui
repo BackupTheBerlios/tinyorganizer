@@ -43,48 +43,7 @@
          </attribute>
          <layout class="QGridLayout" name="gridLayout_2" >
           <item row="0" column="0" >
-           <widget class="QCalendarWidget" name="calendarWidget" >
-            <property name="firstDayOfWeek" >
-             <enum>Qt::Monday</enum>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QGroupBox" name="groupBox" >
-            <property name="title" >
-             <string>Scheduled events</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_4" >
-             <item row="0" column="0" >
-              <widget class="QTableWidget" name="tableWidget" >
-               <property name="minimumSize" >
-                <size>
-                 <width>314</width>
-                 <height>192</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" >
-              <layout class="QHBoxLayout" name="horizontalLayout" >
-               <item>
-                <widget class="QPushButton" name="addEventButton" >
-                 <property name="text" >
-                  <string>Add Event</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_2" >
-                 <property name="text" >
-                  <string>Delete Event</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
+           <widget class="ScheduleWidget" native="1" name="widget" />
           </item>
          </layout>
         </widget>
@@ -146,6 +105,14 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ScheduleWidget</class>
+   <extends>QWidget</extends>
+   <header>schedulewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>tabWidget</tabstop>
  </tabstops>

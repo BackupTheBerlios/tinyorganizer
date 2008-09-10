@@ -30,8 +30,14 @@
    </property>
    <item row="0" column="0" >
     <widget class="QCalendarWidget" name="calendarWidget" >
+     <property name="contextMenuPolicy" >
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
      <property name="firstDayOfWeek" >
       <enum>Qt::Monday</enum>
+     </property>
+     <property name="gridVisible" >
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -51,7 +57,7 @@
        <number>6</number>
       </property>
       <item row="0" column="0" >
-       <widget class="QTableWidget" name="tableWidget_2" >
+       <widget class="QTableWidget" name="tableEvents" >
         <property name="minimumSize" >
          <size>
           <width>314</width>
@@ -63,16 +69,16 @@
       <item row="2" column="0" >
        <layout class="QHBoxLayout" name="horizontalLayout_2" >
         <item>
-         <widget class="QPushButton" name="addEventButton_2" >
+         <widget class="QPushButton" name="buttonAddEvent" >
           <property name="text" >
-           <string>Add Event</string>
+           <string>&amp;Add Event</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3" >
+         <widget class="QPushButton" name="buttonDeleteEvent" >
           <property name="text" >
-           <string>Delete Event</string>
+           <string>&amp;Delete Event</string>
           </property>
          </widget>
         </item>
