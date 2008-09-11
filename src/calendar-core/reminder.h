@@ -1,5 +1,5 @@
 /*
- *   addeventdialog.cpp
+ *   reminder.h
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -10,25 +10,24 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
+ *   Created on: 2008-09-11
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
-#ifndef ADDEVENTDIALOG_H
-#define ADDEVENTDIALOG_H
+#ifndef REMINDER_H_
+#define REMINDER_H_
 
-#include <QtGui/QDialog>
-#include "ui_addeventdialog.h"
+/*
+ *
+ */
+namespace TinyOrganizer {
 
-class AddEventDialog : public QDialog
-{
-    Q_OBJECT
-
+class Reminder {
 public:
-    AddEventDialog(QWidget *parent = 0);
-    ~AddEventDialog();
-
-private:
-    Ui::AddEventDialogClass ui;
+	Reminder();
+	virtual ~Reminder();
 };
 
-#endif // ADDEVENTDIALOG_H
+}
+
+#endif /* REMINDER_H_ */

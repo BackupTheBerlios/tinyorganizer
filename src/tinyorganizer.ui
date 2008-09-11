@@ -88,7 +88,6 @@
    <addaction name="menu_File" />
    <addaction name="menu_Help" />
   </widget>
-  <widget class="QStatusBar" name="statusbar" />
   <action name="action_Save" >
    <property name="text" >
     <string>&amp;Save</string>

@@ -1,5 +1,5 @@
 /*
- *   addeventdialog.cpp
+ *   event.cpp
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -10,25 +10,24 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
+ *   Created on: 2008-09-11
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
-#ifndef ADDEVENTDIALOG_H
-#define ADDEVENTDIALOG_H
+#include "event.h"
 
-#include <QtGui/QDialog>
-#include "ui_addeventdialog.h"
+#include <QDateTime>
+#include <QString>
 
-class AddEventDialog : public QDialog
-{
-    Q_OBJECT
+namespace TinyOrganizer {
 
-public:
-    AddEventDialog(QWidget *parent = 0);
-    ~AddEventDialog();
+Event::Event() {
+	// TODO Auto-generated constructor stub
 
-private:
-    Ui::AddEventDialogClass ui;
-};
+}
 
-#endif // ADDEVENTDIALOG_H
+Event::~Event() {
+	// TODO Auto-generated destructor stub
+}
+
+}
