@@ -19,14 +19,11 @@
    <string>ScheduleWidget</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" >
-   <property name="topMargin" >
-    <number>5</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>5</number>
+   <property name="margin" >
+    <number>0</number>
    </property>
    <property name="spacing" >
-    <number>2</number>
+    <number>0</number>
    </property>
    <item row="0" column="0" >
     <widget class="QCalendarWidget" name="calendarWidget" >
