@@ -1,0 +1,13 @@
+syntax: glob
+src/Makefile*
+doc/*
+build/*
+src/debug/*
+src/release/*
+
+syntax: regexp
+^src/ui_(.)*$
+^src/moc_(.)*$
+^TinyOrganizer$
+
+

@@ -7,9 +7,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-//    TinyOrganizer w;
-//    w.show();
-    AddEventDialog aed;
-    aed.show();
+    TinyOrganizer w;
+    w.show();
     return a.exec();
 }
