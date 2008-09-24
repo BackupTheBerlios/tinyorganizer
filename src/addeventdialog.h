@@ -17,6 +17,8 @@
 #define ADDEVENTDIALOG_H
 
 #include <QtGui/QDialog>
+#include <QDate>
+
 #include "ui_addeventdialog.h"
 
 class AddEventDialog : public QDialog
@@ -27,8 +29,23 @@ public:
     AddEventDialog(QWidget *parent = 0);
     ~AddEventDialog();
 
+    void setCurrentDate(QDate date);
+
+public slots:
+    void performOkClicked();
+
+private:
+    void connectSignals();
+    void reportError(const QString & msg);
+    bool checkDates();
+    bool checkDescription();
+    bool checkRecurrence();
+    bool checkReminder();
+
+
 private:
     Ui::AddEventDialogClass ui;
+    QDate mCurrentDate;
 };
 
 #endif // ADDEVENTDIALOG_H

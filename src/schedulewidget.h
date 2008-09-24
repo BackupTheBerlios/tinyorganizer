@@ -17,6 +17,7 @@
 #define SCHEDULEWIDGET_H
 
 #include <QtGui/QWidget>
+#include <QDate>
 #include "ui_schedulewidget.h"
 
 class ScheduleWidget : public QWidget
@@ -26,6 +27,19 @@ class ScheduleWidget : public QWidget
 public:
     ScheduleWidget(QWidget *parent = 0);
     ~ScheduleWidget();
+
+public slots:
+    void performAddEvent();
+    void performDeleteEvent();
+    void eventActivated(QTableWidgetItem* item);
+    void dateChanged(QDate currentDate);
+    void calendarPageChanged(int year, int month);
+
+private:
+	void connectSignals();
+	void refreshCalendarWidget(int year, int month);
+	void refreshEventListForDate(QDate date);
+
 
 private:
     Ui::ScheduleWidgetClass ui;

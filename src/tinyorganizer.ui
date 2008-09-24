@@ -5,33 +5,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>381</width>
-    <height>634</height>
+    <width>316</width>
+    <height>587</height>
    </rect>
   </property>
   <property name="minimumSize" >
    <size>
-    <width>381</width>
-    <height>634</height>
+    <width>316</width>
+    <height>587</height>
    </size>
   </property>
   <property name="windowTitle" >
    <string>TinyOrganizer</string>
   </property>
+  <property name="windowIcon" >
+   <iconset resource="tinyorganizer.qrc" >
+    <normaloff>:/gfx/icons/calendar.png</normaloff>:/gfx/icons/calendar.png</iconset>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac" >
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget" >
    <layout class="QVBoxLayout" name="verticalLayout_2" >
     <item>
      <layout class="QGridLayout" name="gridLayout" >
-      <property name="spacing" >
-       <number>0</number>
-      </property>
       <item row="1" column="0" >
        <widget class="QTabWidget" name="tabWidget" >
-        <property name="tabPosition" >
-         <enum>QTabWidget::North</enum>
-        </property>
-        <property name="tabShape" >
-         <enum>QTabWidget::Rounded</enum>
+        <property name="autoFillBackground" >
+         <bool>true</bool>
         </property>
         <property name="currentIndex" >
          <number>0</number>
@@ -45,27 +46,26 @@
         <property name="elideMode" >
          <enum>Qt::ElideNone</enum>
         </property>
+        <property name="usesScrollButtons" >
+         <bool>false</bool>
+        </property>
         <widget class="QWidget" name="tabCalendar" >
          <attribute name="title" >
           <string>Calendar</string>
          </attribute>
-         <attribute name="icon" >
-          <iconset resource="tinyorganizer.qrc" >
-           <normaloff>:/gfx/icons/calendar.png</normaloff>:/gfx/icons/calendar.png</iconset>
-         </attribute>
          <layout class="QGridLayout" name="gridLayout_2" >
           <item row="0" column="0" >
-           <widget class="ScheduleWidget" native="1" name="widget" />
+           <layout class="QGridLayout" name="gridLayout_3" >
+            <item row="0" column="0" >
+             <widget class="ScheduleWidget" native="1" name="widget" />
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
         <widget class="QWidget" name="tabToDo" >
          <attribute name="title" >
           <string>To-Do</string>
-         </attribute>
-         <attribute name="icon" >
-          <iconset resource="tinyorganizer.qrc" >
-           <normaloff>:/gfx/icons/booklet.png</normaloff>:/gfx/icons/booklet.png</iconset>
          </attribute>
         </widget>
        </widget>
@@ -79,8 +79,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>381</width>
-     <height>26</height>
+     <width>316</width>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File" >
@@ -100,6 +100,7 @@
    <addaction name="menu_File" />
    <addaction name="menu_Help" />
   </widget>
+  <widget class="QStatusBar" name="statusbar" />
   <action name="action_Save" >
    <property name="text" >
     <string>&amp;Save</string>

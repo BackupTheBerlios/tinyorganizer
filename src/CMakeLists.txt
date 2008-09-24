@@ -5,6 +5,7 @@ set(SRCS
     calendar-core/event.cpp
     calendar-core/reminder.cpp
     calendar-core/eventmanager.cpp
+    calendar-core/recurrence.cpp
     addeventdialog.cpp
     schedulewidget.cpp
     tinyorganizer.cpp

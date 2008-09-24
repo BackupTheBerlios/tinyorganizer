@@ -17,11 +17,33 @@
 #include <QtCore/QDateTime>
 
 
+void TinyOrganizer::connectSignals()
+{
+	connect(ui.action_Save, SIGNAL(triggered()), SLOT(performActionSave()));
+	connect(ui.action_Close, SIGNAL(triggered()), SLOT(performActionClose()));
+	connect(ui.actionAbout, SIGNAL(triggered()), SLOT(performActionAbout()));
+}
+
+void TinyOrganizer::performActionSave()
+{
+}
+
+void TinyOrganizer::performActionClose()
+{
+}
+
+void TinyOrganizer::performActionAbout()
+{
+}
+
 void TinyOrganizer::setupTrayIcon()
 {
     QIcon icon(":/gfx/icons/calendar.png");
     trayIcon->setIcon(icon);
     trayIcon->setVisible(true);
+
+    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+        		this, SLOT(trayIconClicked(QSystemTrayIcon::ActivationReason)));
 }
 
 TinyOrganizer::TinyOrganizer(QWidget *parent)
@@ -29,9 +51,9 @@ TinyOrganizer::TinyOrganizer(QWidget *parent)
 {
 	ui.setupUi(this);
 	trayIcon = new QSystemTrayIcon();
+	setStatusBar(0);
     setupTrayIcon();
-    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-    		this, SLOT(trayIconClicked(QSystemTrayIcon::ActivationReason)));
+    connectSignals();
 }
 
 void TinyOrganizer::saveWindowPosition()

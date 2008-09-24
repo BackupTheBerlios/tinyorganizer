@@ -21,13 +21,107 @@
 
 namespace TinyOrganizer {
 
-Event::Event() {
-	// TODO Auto-generated constructor stub
+Event::Event():
+	mAllDay(false)
+{
 
 }
 
-Event::~Event() {
-	// TODO Auto-generated destructor stub
+Event::~Event()
+{
+}
+
+void Event::setStartDateTime(const QDateTime & startTime)
+{
+	mStartDateTime = startTime;
+}
+
+QDateTime Event::startDateTime() const
+{
+	return mStartDateTime;
+}
+
+void Event::setEndDateTime(const QDateTime & endTime)
+{
+	mEndDateTime = endTime;
+}
+
+QDateTime Event::endDateTime() const
+{
+	return mEndDateTime;
+}
+
+void Event::setSummary(const QString & summary)
+{
+	mSummary = summary;
+}
+
+QString Event::summary() const
+{
+	return mSummary;
+}
+
+void Event::setLocation(const QString & location)
+{
+	mLocation = location;
+}
+
+QString Event::location() const
+{
+	return mLocation;
+}
+
+void Event::setRecurrence(const Recurrence & recurrence)
+{
+	mRecurrence = recurrence;
+	mRecurrence.setStartDateTime(mStartDateTime);
+}
+
+void Event::setAllDay(bool allDay)
+{
+	mAllDay = allDay;
+}
+
+bool Event::allDay() const
+{
+	return mAllDay;
+}
+
+Recurrence & Event::recurrence()
+{
+	return mRecurrence;
+}
+
+bool Event::RecursOn(const QDate & date) const
+{
+	if( date == mStartDateTime.date() )
+	{
+		return true;
+	}
+	else
+	{
+		if( mRecurrence.recurrenceType() != Recurrence::None )
+		{
+			return mRecurrence.recursOn(date);
+		}
+	}
+	return false;
+}
+
+bool Event::RecursOn(const QDateTime & dateTime) const
+{
+	if( dateTime == mStartDateTime )
+	{
+		return true;
+	}
+	else
+	{
+		if( mRecurrence.recurrenceType() != Recurrence::None )
+		{
+			return mRecurrence.recursOn(dateTime);
+		}
+	}
+	return false;
 }
 
 }

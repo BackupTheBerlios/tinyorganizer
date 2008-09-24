@@ -30,6 +30,12 @@ public:
 
 public slots:
     void trayIconClicked(QSystemTrayIcon::ActivationReason);
+    void performActionSave();
+    void performActionClose();
+    void performActionAbout();
+
+private:
+	void connectSignals();
 
 private:
     Ui::TinyOrganizerClass ui;
