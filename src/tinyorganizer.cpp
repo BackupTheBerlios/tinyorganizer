@@ -15,12 +15,16 @@
 
 #include "tinyorganizer.h"
 #include <QtCore/QDateTime>
+#include <QDebug>
 
+
+namespace TinyOrganizer
+{
 
 void TinyOrganizer::connectSignals()
 {
-	connect(ui.action_Save, SIGNAL(triggered()), SLOT(performActionSave()));
-	connect(ui.action_Close, SIGNAL(triggered()), SLOT(performActionClose()));
+	connect(ui.actionSave, SIGNAL(triggered()), SLOT(performActionSave()));
+	connect(ui.actionClose, SIGNAL(triggered()), SLOT(performActionClose()));
 	connect(ui.actionAbout, SIGNAL(triggered()), SLOT(performActionAbout()));
 }
 
@@ -30,6 +34,8 @@ void TinyOrganizer::performActionSave()
 
 void TinyOrganizer::performActionClose()
 {
+	qDebug() << "closing TinyOrganizer...";
+	close();
 }
 
 void TinyOrganizer::performActionAbout()
@@ -90,4 +96,6 @@ void TinyOrganizer::trayIconClicked(QSystemTrayIcon::ActivationReason reason)
 TinyOrganizer::~TinyOrganizer()
 {
 	delete trayIcon;
+}
+
 }

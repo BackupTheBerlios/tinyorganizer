@@ -143,11 +143,6 @@
         </item>
         <item>
          <property name="text" >
-          <string>every weekday</string>
-         </property>
-        </item>
-        <item>
-         <property name="text" >
           <string>every week</string>
          </property>
         </item>
@@ -188,7 +183,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateUntil" >
+           <widget class="QDateEdit" name="editUntil" >
             <property name="enabled" >
              <bool>false</bool>
             </property>
@@ -242,6 +237,9 @@
     <widget class="QGroupBox" name="groupBox_2" >
      <property name="enabled" >
       <bool>true</bool>
+     </property>
+     <property name="autoFillBackground" >
+      <bool>false</bool>
      </property>
      <property name="title" >
       <string>Reminder</string>
@@ -466,7 +464,7 @@
   <connection>
    <sender>radioUntil</sender>
    <signal>toggled(bool)</signal>
-   <receiver>dateUntil</receiver>
+   <receiver>editUntil</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel" >

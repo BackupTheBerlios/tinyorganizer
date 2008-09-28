@@ -15,15 +15,115 @@
  */
 
 #include "eventmanager.h"
+#include "event.h"
 
-namespace TinyOrganizer {
+#include <QDebug>
 
-EventManager::EventManager() {
-	// TODO Auto-generated constructor stub
+namespace TinyOrganizer
+{
 
+QList<Event*> EventManager::getEventsBetweenDates(const QDate & dateFirst, const QDate & dateLast) const
+{
+	QList<Event*> result;
+
+	QDate date(dateFirst);
+
+	qDebug() << "dateFirst: " << dateFirst.toString() << " dateLast: " << dateLast.toString();
+
+	while(date <= dateLast )
+	{
+		QList<Event*> eventsForDate = getEventsForDate(date);
+		if( eventsForDate.count() > 0 )
+		{
+			QList<Event*>::iterator it = eventsForDate.begin();
+			QList<Event*>::iterator end = eventsForDate.end();
+			while( it != end )
+			{
+				if( (*it)->recursOn(date) )
+				{
+					result.append((*it));
+				}
+				++it;
+			}
+		}
+		date = date.addDays(1);
+	}
+	return result;
 }
 
-EventManager::~EventManager() {
+QList<Event*> EventManager::getEventsForMonth(int year, int month) const
+{
+	QList<Event*> result;
+
+	QDate date;
+
+	for( int i=1; i<= 31; ++i)
+	{
+		if( date.isValid(year, month, i))
+		{
+			date.setDate(year, month, i);
+			QList<Event*> eventsForDate = getEventsForDate(date);
+			if( eventsForDate.count() > 0 )
+			{
+				QList<Event*>::iterator it = eventsForDate.begin();
+				QList<Event*>::iterator end = eventsForDate.end();
+				while( it != end )
+				{
+					result.append((*it));
+					++it;
+				}
+			}
+		}
+	}
+	return result;
+}
+
+QList<Event*> EventManager::getEventsForDate(const QDate & date) const
+{
+	QList<Event*>::const_iterator it = mEvents.begin();
+	QList<Event*>::const_iterator end = mEvents.end();
+	QList<Event*> result;
+
+	while( it != end )
+	{
+		if( (*it)->recursOn(date) )
+		{
+			result.append((*it));
+		}
+		++it;
+	}
+	return result;
+}
+
+void EventManager::addEvent(Event *e)
+{
+	mEvents.append(e);
+}
+
+void EventManager::removeEvent(Event *e)
+{
+	mEvents.removeOne(e);
+}
+
+EventManager::EventManager()
+{
+//	QDateTime date(QDateTime::currentDateTime());
+//	date = date.addYears(-1);
+//
+//	for(int i=0; i<35000; ++i)
+//	{
+//		Event * e = new Event();
+//		date = date.addSecs(3600);
+//		e->setStartDateTime(date);
+//		e->setEndDateTime(date.addSecs(3600));
+//		e->setLocation("Twoja stara");
+//		e->setSummary("Twoja stara!");
+//		mEvents.append(e);
+//	}
+}
+
+EventManager::~EventManager()
+{
 	// TODO Auto-generated destructor stub
 }
 

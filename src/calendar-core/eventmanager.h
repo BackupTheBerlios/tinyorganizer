@@ -17,15 +17,42 @@
 #ifndef EVENTMANAGER_H_
 #define EVENTMANAGER_H_
 
+#include <QList>
+#include <QMap>
+#include <QDate>
+
+#include "singleton.h"
+
 /*
  *
  */
 namespace TinyOrganizer {
 
-class EventManager {
+class Event;
+
+class EventManager: public Singleton<EventManager>
+{
+	friend class Singleton<EventManager>;
 public:
-	EventManager();
 	virtual ~EventManager();
+
+	void addEvent(Event *e);
+	void removeEvent(Event *e);
+
+	QList<Event*> getEvents() const;
+
+	QList<Event*> getEventsForMonth(int year, int month) const;
+	QList<Event*> getEventsBetweenDates(const QDate & dateFirst, const QDate & dateLast) const;
+	QList<Event*> getEventsForDate(const QDate & date) const;
+
+	bool saveEventsToFile(const QString & filename);
+	bool loadEventsFromFile(const QString & filename);
+private:
+	EventManager();
+	EventManager(const EventManager &);
+	const EventManager & operator =(const EventManager &);
+private:
+	QList<Event*> mEvents;
 };
 
 }

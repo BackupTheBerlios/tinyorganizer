@@ -17,8 +17,14 @@
 #define SCHEDULEWIDGET_H
 
 #include <QtGui/QWidget>
+#include <QModelIndex>
 #include <QDate>
-#include "ui_schedulewidget.h"
+#include <ui_schedulewidget.h>
+
+#include "eventtablemodel.h"
+
+namespace TinyOrganizer
+{
 
 class ScheduleWidget : public QWidget
 {
@@ -31,18 +37,21 @@ public:
 public slots:
     void performAddEvent();
     void performDeleteEvent();
-    void eventActivated(QTableWidgetItem* item);
+    void eventActivated(const QModelIndex & modelIndex);
     void dateChanged(QDate currentDate);
     void calendarPageChanged(int year, int month);
-
 private:
-	void connectSignals();
-	void refreshCalendarWidget(int year, int month);
-	void refreshEventListForDate(QDate date);
-
+    void connectSignals();
+    void refreshCalendarWidget(int year, int month);
+    void refreshEventListForDate(QDate date);
+    void setupTableEvents();
+    void setupTableForToday();
 
 private:
     Ui::ScheduleWidgetClass ui;
+    EventTableModel mEventsModel;
 };
+
+}
 
 #endif // SCHEDULEWIDGET_H

@@ -33,6 +33,12 @@
    </property>
    <item row="0" column="0" >
     <widget class="QCalendarWidget" name="calendarWidget" >
+     <property name="maximumSize" >
+      <size>
+       <width>16777215</width>
+       <height>214</height>
+      </size>
+     </property>
      <property name="contextMenuPolicy" >
       <enum>Qt::ActionsContextMenu</enum>
      </property>
@@ -40,7 +46,7 @@
       <enum>Qt::Monday</enum>
      </property>
      <property name="gridVisible" >
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="horizontalHeaderFormat" >
       <enum>QCalendarWidget::SingleLetterDayNames</enum>
@@ -57,56 +63,34 @@
     </widget>
    </item>
    <item row="1" column="0" >
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
-      <string>Scheduled events</string>
+    <widget class="QTableView" name="tableEvents" />
+   </item>
+   <item row="2" column="0" >
+    <layout class="QHBoxLayout" name="horizontalLayout" >
+     <property name="topMargin" >
+      <number>0</number>
      </property>
-     <layout class="QGridLayout" name="gridLayout_5" >
-      <property name="topMargin" >
-       <number>2</number>
-      </property>
-      <property name="bottomMargin" >
-       <number>2</number>
-      </property>
-      <property name="spacing" >
-       <number>6</number>
-      </property>
-      <item row="0" column="0" >
-       <widget class="QTableWidget" name="tableEvents" >
-        <property name="minimumSize" >
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="rowCount" >
-         <number>0</number>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" >
-       <layout class="QHBoxLayout" name="horizontalLayout_2" >
-        <item>
-         <widget class="QPushButton" name="buttonAddEvent" >
-          <property name="text" >
-           <string>&amp;Add Event</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="buttonDeleteEvent" >
-          <property name="enabled" >
-           <bool>false</bool>
-          </property>
-          <property name="text" >
-           <string>&amp;Delete Event</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="buttonAddEvent" >
+       <property name="text" >
+        <string>&amp;Add Event</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonDeleteEvent" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+       <property name="text" >
+        <string>&amp;Delete Event</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

@@ -6,6 +6,7 @@ set(SRCS
     calendar-core/reminder.cpp
     calendar-core/eventmanager.cpp
     calendar-core/recurrence.cpp
+    eventtablemodel.cpp
     addeventdialog.cpp
     schedulewidget.cpp
     tinyorganizer.cpp
@@ -34,7 +35,7 @@ QT4_ADD_RESOURCES(RCS_SRCS ${RCS})
 QT4_WRAP_UI(UI_HDRS ${UIS})
 QT4_WRAP_CPP(MOC_SRCS ${MOC_HDRS})
  
-include_directories(${CMAKE_BINARY_DIR})
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
  
 add_executable(TinyOrganizer ${SRCS} ${MOC_SRCS} ${RCS_SRCS} ${UI_HDRS})
  

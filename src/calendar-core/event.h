@@ -54,7 +54,7 @@ public:
 	void setRecurrence(const Recurrence& recurrence);
 	Recurrence & recurrence();
 
-	bool RecursOn(const QDate & date) const;
+	bool recursOn(const QDate & date) const;
 	bool RecursOn(const QDateTime & dateTime) const;
 
 private:

@@ -20,6 +20,9 @@
 #include <QtGui/QSystemTrayIcon>
 #include "ui_tinyorganizer.h"
 
+namespace TinyOrganizer
+{
+
 class TinyOrganizer : public QMainWindow
 {
     Q_OBJECT
@@ -45,5 +48,7 @@ private:
     void saveWindowPosition();
     void setupTrayIcon();
 };
+
+}
 
 #endif // TINYORGANIZER_H

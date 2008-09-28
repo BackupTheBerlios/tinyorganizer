@@ -15,6 +15,9 @@
 
 #include "addeventdialog.h"
 
+namespace TinyOrganizer
+{
+
 AddEventDialog::AddEventDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -27,12 +30,11 @@ AddEventDialog::~AddEventDialog()
 
 }
 
-void AddEventDialog::setCurrentDate(QDate date)
+void AddEventDialog::setCurrentDate(QDateTime dateTime)
 {
-	mCurrentDate = date;
-	ui.editEventStart->setDate(date);
-	ui.editEventEnd->setDate(date);
-	ui.editAllDay->setDate(date);
+	ui.editEventStart->setDateTime(dateTime);
+	ui.editEventEnd->setDateTime(dateTime);
+	ui.editAllDay->setDate(dateTime.date());
 }
 
 bool AddEventDialog::checkDescription()
@@ -48,21 +50,21 @@ bool AddEventDialog::checkDates()
 {
     // make the necessary checks
     if(ui.checkAllDay->isChecked()){
-        if(ui.editAllDay->date() < mCurrentDate){
+        if(ui.editAllDay->date() < QDate::currentDate()){
             reportError(tr("start date before current date."));
             ui.editAllDay->setFocus();
             return false;
         }
     }
     else{
-        if(mCurrentDate > ui.editEventStart->date()){
+        if(QDate::currentDate() > ui.editEventStart->date()){
             reportError(tr("start date before current date."));
             ui.editEventStart->setFocus();
             return false;
         }
         if(ui.editEventStart->dateTime() > ui.editEventEnd->dateTime()){
             reportError(tr("end date before start date."));
-            ui.editEventStart->setFocus();
+            ui.editEventEnd->setFocus();
             return false;
         }
     }
@@ -101,6 +103,79 @@ bool AddEventDialog::checkRecurrence()
 	return true;
 }
 
+bool AddEventDialog::allDayEvent() const
+{
+	return ui.checkAllDay->isChecked();
+}
+
+Recurrence::RecurrenceType AddEventDialog::recurrenceType() const
+{
+	int index = ui.comboRecurrence->currentIndex();
+
+	if( index != 0 )
+	{
+		if( index == 1 )
+		{
+			return Recurrence::Daily;
+		}
+		else if( index == 2)
+		{
+			return Recurrence::Weekly;
+		}
+		else if( index == 3)
+		{
+			return Recurrence::Monthly;
+		}
+		else if( index == 4 )
+		{
+			return Recurrence::Yearly;
+		}
+	}
+	return Recurrence::None;
+}
+
+QDate AddEventDialog::repeatUntil() const
+{
+	if( ui.comboRecurrence->currentIndex() != 0)
+	{
+		return ui.editUntil->date();
+	}
+	return QDate();
+}
+
+QDateTime AddEventDialog::startDate() const
+{
+	if( ui.checkAllDay->isChecked() )
+	{
+		QDateTime dateTime;
+		dateTime.setDate(ui.editAllDay->date());
+		return dateTime;
+	}
+	return ui.editEventStart->dateTime();
+}
+
+QDateTime AddEventDialog::endDate() const
+{
+	if( ui.checkAllDay->isChecked() )
+	{
+		QDateTime dateTime;
+		dateTime.setDate(ui.editAllDay->date().addDays(1));
+		dateTime = dateTime.addSecs(-1);
+		return dateTime;
+	}
+	return ui.editEventEnd->dateTime();
+}
+
+QString AddEventDialog::summary() const
+{
+	return ui.editDescription->toPlainText();
+}
+
+QString AddEventDialog::location() const
+{
+	return ui.editLocatioon->toPlainText();
+}
+
 bool AddEventDialog::checkReminder()
 {
 	return true;
@@ -109,9 +184,29 @@ bool AddEventDialog::checkReminder()
 void AddEventDialog::connectSignals()
 {
 	connect(ui.buttonOk, SIGNAL(clicked()), this, SLOT(performOkClicked()));
+	connect(ui.comboRecurrence, SIGNAL(currentIndexChanged(int)), this, SLOT(recurrenceComboChanged(int)));
+}
+
+void AddEventDialog::recurrenceComboChanged(int index)
+{
+	if( index > 0 )
+	{
+		ui.radioUntil->setChecked(true);
+		ui.radioUntil->setEnabled(true);
+		ui.radioHitCount->setEnabled(true);
+		ui.radioAlways->setEnabled(true);
+	}
+	else
+	{
+		ui.radioUntil->setEnabled(false);
+		ui.radioHitCount->setEnabled(false);
+		ui.radioAlways->setEnabled(false);
+	}
 }
 
 void AddEventDialog::reportError(const QString & msg)
 {
 	ui.labelError->setText(tr("Error: ") + msg);
+}
+
 }

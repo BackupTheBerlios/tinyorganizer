@@ -92,13 +92,13 @@ Recurrence & Event::recurrence()
 	return mRecurrence;
 }
 
-bool Event::RecursOn(const QDate & date) const
+bool Event::recursOn(const QDate & date) const
 {
 	if( date == mStartDateTime.date() )
 	{
 		return true;
 	}
-	else
+	else if( date > mStartDateTime.date() )
 	{
 		if( mRecurrence.recurrenceType() != Recurrence::None )
 		{

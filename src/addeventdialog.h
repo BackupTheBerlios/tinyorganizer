@@ -19,7 +19,12 @@
 #include <QtGui/QDialog>
 #include <QDate>
 
-#include "ui_addeventdialog.h"
+#include <ui_addeventdialog.h>
+
+#include "calendar-core/recurrence.h"
+
+namespace TinyOrganizer
+{
 
 class AddEventDialog : public QDialog
 {
@@ -29,10 +34,21 @@ public:
     AddEventDialog(QWidget *parent = 0);
     ~AddEventDialog();
 
-    void setCurrentDate(QDate date);
+    void setCurrentDate(QDateTime dateTime);
+
+    bool allDayEvent() const;
+    QDateTime startDate() const;
+    QDateTime endDate() const;
+
+    Recurrence::RecurrenceType recurrenceType() const;
+    QDate repeatUntil() const;
+
+    QString summary() const;
+    QString location() const;
 
 public slots:
     void performOkClicked();
+    void recurrenceComboChanged(int index);
 
 private:
     void connectSignals();
@@ -45,7 +61,8 @@ private:
 
 private:
     Ui::AddEventDialogClass ui;
-    QDate mCurrentDate;
 };
+
+}
 
 #endif // ADDEVENTDIALOG_H

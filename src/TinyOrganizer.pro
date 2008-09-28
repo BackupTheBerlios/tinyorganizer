@@ -3,7 +3,9 @@ TARGET = ../TinyOrganizer
 QT += core \
     gui \
     xml
-HEADERS += calendar-core/recurrence.h \
+HEADERS += eventtablemodel.h \
+    calendar-core/singleton.h \
+    calendar-core/recurrence.h \
     calendar-core/event.h \
     calendar-core/eventmanager.h \
     calendar-core/reminder.h \
@@ -13,7 +15,8 @@ HEADERS += calendar-core/recurrence.h \
     addeventdialog.h \
     schedulewidget.h \
     tinyorganizer.h
-SOURCES += calendar-core/recurrence.cpp \
+SOURCES += eventtablemodel.cpp \
+    calendar-core/recurrence.cpp \
     calendar-core/event.cpp \
     calendar-core/eventmanager.cpp \
     calendar-core/reminder.cpp \
@@ -25,3 +28,4 @@ FORMS += addeventdialog.ui \
     schedulewidget.ui \
     tinyorganizer.ui
 RESOURCES += tinyorganizer.qrc
+TRANSLATIONS += en_EN.ts
