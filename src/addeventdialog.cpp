@@ -35,6 +35,7 @@ void AddEventDialog::setCurrentDate(QDateTime dateTime)
 	ui.editEventStart->setDateTime(dateTime);
 	ui.editEventEnd->setDateTime(dateTime);
 	ui.editAllDay->setDate(dateTime.date());
+	ui.editUntil->setDate(dateTime.date());
 }
 
 bool AddEventDialog::checkDescription()
@@ -138,7 +139,12 @@ QDate AddEventDialog::repeatUntil() const
 {
 	if( ui.comboRecurrence->currentIndex() != 0)
 	{
-		return ui.editUntil->date();
+		if( ui.radioUntil->isChecked() )
+			return ui.editUntil->date();
+		else if( ui.radioHitCount->isChecked() )
+			return calculateHitCount();
+		else if( ui.radioAlways->isChecked() )
+			return QDate();
 	}
 	return QDate();
 }
@@ -207,6 +213,11 @@ void AddEventDialog::recurrenceComboChanged(int index)
 void AddEventDialog::reportError(const QString & msg)
 {
 	ui.labelError->setText(tr("Error: ") + msg);
+}
+
+QDate AddEventDialog::calculateHitCount() const
+{
+
 }
 
 }

@@ -18,6 +18,8 @@
 #include "event.h"
 
 #include <QDebug>
+#include <QDomDocument>
+#include <QFile>
 
 namespace TinyOrganizer
 {
@@ -103,6 +105,29 @@ void EventManager::addEvent(Event *e)
 void EventManager::removeEvent(Event *e)
 {
 	mEvents.removeOne(e);
+}
+
+bool EventManager::saveEventsToFile(const QString & filename)
+{
+	QDomDocument doc;
+	QFile file(filename);
+	if( !file.open(QIODevice::WriteOnly) )
+		return false;
+	return true;
+}
+
+bool EventManager::loadEventsFromFile(const QString & filename)
+{
+	 QDomDocument doc;
+	 QFile file(filename);
+	 if (!file.open(QIODevice::ReadOnly))
+	     return false;
+	 if (!doc.setContent(&file)) {
+	     file.close();
+	     return false;
+	 }
+	 file.close();
+	 return true;
 }
 
 EventManager::EventManager()

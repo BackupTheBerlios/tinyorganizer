@@ -57,6 +57,7 @@ private:
     bool checkDescription();
     bool checkRecurrence();
     bool checkReminder();
+    QDate calculateHitCount() const;
 
 
 private:
