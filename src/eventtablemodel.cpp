@@ -82,7 +82,7 @@ QVariant EventTableModel::headerData(int section, Qt::Orientation orientation, i
 		{
 			if( section == 0 )
 			{
-				return QVariant(("Start"));
+                                return QVariant(tr("Start"));
 			}
 			else if( section == 1)
 			{

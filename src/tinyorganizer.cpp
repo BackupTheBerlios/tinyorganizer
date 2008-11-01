@@ -60,6 +60,8 @@ TinyOrganizer::TinyOrganizer(QWidget *parent)
 	setStatusBar(0);
     setupTrayIcon();
     connectSignals();
+    // to repair buggy default focus on tab header
+    ui.calendarWidget->setFocus();
 }
 
 void TinyOrganizer::saveWindowPosition()
