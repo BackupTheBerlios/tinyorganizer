@@ -54,6 +54,7 @@ void ScheduleWidget::setupTableForToday()
 
 ScheduleWidget::~ScheduleWidget()
 {
+	EventManager::getSingleton().saveEventsToFile("/home/darek/events.xml");
 }
 
 void ScheduleWidget::connectSignals()

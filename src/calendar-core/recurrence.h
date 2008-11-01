@@ -29,12 +29,12 @@ public:
 	enum RecurrenceType
 	{
 		None = 0x00,
-		Minutely,
-		Hourly,
-		Daily,
-		Weekly,
-		Monthly,
-		Yearly
+		Minutely = 0x01,
+		Hourly = 0x02,
+		Daily = 0x04,
+		Weekly = 0x08,
+		Monthly = 0x10,
+		Yearly = 0x11
 	};
 
 	Recurrence();
@@ -91,8 +91,6 @@ private:
 	QList<int> mWeekdays;
 	QList<int> mMonths;
 	QList<int> mYears;
-
-	QDateTime mInitDate;
 
 	QDateTime mStartDate;
 
