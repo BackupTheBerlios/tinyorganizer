@@ -15,11 +15,11 @@
  */
 
 #include "eventmanager.h"
+#include "eventstore.h"
 #include "event.h"
 
 #include <QDebug>
-#include <QDomDocument>
-#include <QFile>
+
 
 namespace TinyOrganizer
 {
@@ -30,7 +30,9 @@ QList<Event*> EventManager::getEventsBetweenDates(const QDate & dateFirst, const
 
 	QDate date(dateFirst);
 
-	qDebug() << "dateFirst: " << dateFirst.toString() << " dateLast: " << dateLast.toString();
+#ifdef QDEBUG_H
+        qDebug() << "dateFirst: " << dateFirst.toString() << " dateLast: " << dateLast.toString();
+#endif
 
 	while(date <= dateLast )
 	{
@@ -107,27 +109,25 @@ void EventManager::removeEvent(Event *e)
 	mEvents.removeOne(e);
 }
 
+
+
 bool EventManager::saveEventsToFile(const QString & filename)
 {
-	QDomDocument doc;
-	QFile file(filename);
-	if( !file.open(QIODevice::WriteOnly) )
-		return false;
-	return true;
+	EventStore es(filename);
+	return es.saveEventsToFile(mEvents);
 }
 
 bool EventManager::loadEventsFromFile(const QString & filename)
 {
-	 QDomDocument doc;
-	 QFile file(filename);
-	 if (!file.open(QIODevice::ReadOnly))
-	     return false;
-	 if (!doc.setContent(&file)) {
-	     file.close();
-	     return false;
-	 }
-	 file.close();
-	 return true;
+	EventStore es(filename);
+	QList<Event*> events;
+
+	if( es.loadEventsFromFile(events) )
+	{
+		mEvents = events;
+		return true;
+	}
+	return false;
 }
 
 EventManager::EventManager()

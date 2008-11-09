@@ -52,10 +52,12 @@ public:
 	QString location() const;
 
 	void setRecurrence(const Recurrence& recurrence);
-	Recurrence & recurrence();
+        const Recurrence & recurrence() const;
 
 	bool recursOn(const QDate & date) const;
-	bool RecursOn(const QDateTime & dateTime) const;
+    bool RecursOn(const QDateTime & dateTime) const;
+
+    bool isValid() const;
 
 private:
 	bool mAllDay;

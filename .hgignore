@@ -8,6 +8,6 @@ src/release/*
 syntax: regexp
 ^src/ui_(.)*$
 ^src/moc_(.)*$
+^src/(.)*.cpp.*
+^src/(.)*.pro.*
 ^TinyOrganizer$
-
-

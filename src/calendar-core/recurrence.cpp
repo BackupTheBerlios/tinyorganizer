@@ -154,6 +154,11 @@ bool Recurrence::recursOn(const QDateTime & recurrDate) const
 		}
 	}
 
+	if( recurrDate < mStartDate )
+	{
+		return false;
+	}
+
 	if( mRecurrenceType == None )
 	{
 		return false;
@@ -187,6 +192,11 @@ bool Recurrence::recursOn(const QDate & recurrDate) const
 		{
 			return false;
 		}
+	}
+
+	if( recurrDate < mStartDate.date() )
+	{
+		return false;
 	}
 
 	if( mRecurrenceType != None )
