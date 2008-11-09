@@ -18,7 +18,6 @@
 #include "event.h"
 
 #include <QString>
-#include <QDomDocument>
 #include <QFile>
 #include <QTextStream>
 
@@ -34,7 +33,7 @@ EventStore::~EventStore()
 {
 }
 
-bool EventStore::saveEventsToFile(QList<Event*> events)
+bool EventStore::saveEventsToFile(const QList<Event*> events)
 {
 	QDomDocument doc;
 	QFile file(mFilename);
@@ -56,10 +55,162 @@ bool EventStore::loadEventsFromFile(QList<Event*> & events)
 	     return false;
 	 if (!doc.setContent(&file)) {
 	     file.close();
-	     return false;
-	 }
+//	     return false;
+         }
+
+     deserializeEvents(doc, events);
 	 file.close();
 	 return true;
+}
+
+void EventStore::deserializeEvents(const QDomDocument & doc, QList<Event*> & events)
+{
+    QDomNodeList eventNodes = doc.elementsByTagName("event");
+    if( eventNodes.count() > 0 )
+    {
+        for(int i=0; i<eventNodes.count(); ++i)
+        {
+            if( eventNodes.at(i).isElement() )
+            {
+                QDomElement element = eventNodes.at(i).toElement();
+                Event *event = createEventFromXml(element);
+                events.append(event);
+            }
+        }
+    }
+}
+
+Event * EventStore::createEventFromXml(const QDomElement & element)
+{
+    Event * event = new Event();
+    if( EventStore::containsElement(element, "start-date") )
+    {
+        QDomElement startDateElement = getFirstElementFromList(element, "start-date");
+        QString text = startDateElement.text();
+        bool ok = false;
+        uint timetValue = text.toUInt(&ok, 10);
+        if( ok )
+        {
+            QDateTime startDateTime = QDateTime::fromTime_t(timetValue);
+            event->setStartDateTime(startDateTime);
+        }
+    }
+    if( EventStore::containsElement(element,"end-date") )
+    {
+        QDomElement endDateElement = getFirstElementFromList(element, "end-date");
+        QString text = endDateElement.text();
+        bool ok = false;
+        uint timetValue = text.toUInt(&ok, 10);
+        if( ok )
+        {
+            QDateTime endDateTime = QDateTime::fromTime_t(timetValue);
+            event->setEndDateTime(endDateTime);
+        }
+    }
+    if( EventStore::containsElement(element, "description" ) )
+    {
+        QDomElement descriptionElement = getFirstElementFromList(element, "description");
+        QString text = descriptionElement.text();
+        event->setSummary(text);
+    }
+    if( EventStore::containsElement(element, "location") )
+    {
+        QDomElement locationElement = getFirstElementFromList(element, "location");
+        QString text = locationElement.text();
+        event->setLocation(text);
+    }
+    if( EventStore::containsElement(element, "recurrence") )
+    {
+        QDomElement recurrenceElement = getFirstElementFromList(element, "recurrence");
+        Recurrence r = parseRecurrence(recurrenceElement);
+        event->setRecurrence(r);
+    }
+
+    if( !event->isValid() )
+    {
+        delete event;
+        event = 0;
+    }
+    return event;
+}
+
+Recurrence EventStore::parseRecurrence(const QDomElement & recurElement)
+{
+    Recurrence r;
+    if( recurElement.attributes().contains("type") )
+    {
+        QString typeText = recurElement.attribute("type");
+        if( typeText == "minutely" )
+        {
+            r.setRecurrenceType(Recurrence::Minutely);
+        }
+        else if( typeText == "hourly" )
+        {
+            r.setRecurrenceType(Recurrence::Hourly);
+        }
+        else if( typeText == "daily" )
+        {
+            r.setRecurrenceType(Recurrence::Daily);
+        }
+        else if( typeText == "weekly" )
+        {
+            r.setRecurrenceType(Recurrence::Weekly);
+        }
+        else if( typeText == "monthly" )
+        {
+            r.setRecurrenceType(Recurrence::Monthly);
+        }
+        else if( typeText == "yearly" )
+        {
+            r.setRecurrenceType(Recurrence::Yearly);
+        }
+    }
+
+    if( EventStore::containsElement(recurElement, "start-date") )
+    {
+        QDomElement startDateTimeElement = EventStore::getFirstElementFromList(recurElement, "start-date");
+        bool ok = false;
+        uint timetValue = startDateTimeElement.text().toUInt(&ok, 10);
+        if( ok )
+        {
+            QDateTime startDateTime = QDateTime::fromTime_t(timetValue);
+            r.setStartDateTime(startDateTime);
+        }
+    }
+
+    if( EventStore::containsElement(recurElement, "until-date") )
+    {
+        QDomElement untilDateTimeElement = EventStore::getFirstElementFromList(recurElement, "until-date");
+        bool ok = false;
+        uint timetValue = untilDateTimeElement.text().toUInt(&ok, 10);
+        if( ok )
+        {
+            QDateTime untilDateTime = QDateTime::fromTime_t(timetValue);
+            r.setUntilDate(untilDateTime);
+        }
+    }
+
+    return r;
+}
+
+bool EventStore::containsElement(const QDomElement & element, QString tagname)
+{
+    QDomNodeList nodeList = element.elementsByTagName(tagname);
+    if( nodeList.size() > 0 )
+    {
+        return true;
+    }
+    return false;
+}
+
+QDomElement EventStore::getFirstElementFromList(const QDomElement & element, QString tagname)
+{
+    QDomNodeList nodeList = element.elementsByTagName(tagname);
+    if( nodeList.size() > 0 )
+    {
+        return nodeList.at(0).toElement();
+    }
+    return QDomElement();
 }
 
 void EventStore::serializeEvents(QDomDocument & doc, QList<Event*> events)
@@ -79,7 +230,7 @@ void EventStore::serializeEvents(QDomDocument & doc, QList<Event*> events)
 	doc.appendChild(eventsList);
 }
 
-void EventStore::appendEvent(QDomElement & eventsList, Event *event)
+void EventStore::appendEvent(QDomElement & eventsList, const Event *event)
 {
 	QDomElement eventEl = eventsList.ownerDocument().createElement("event");
 	QDomElement startDate = eventsList.ownerDocument().createElement("start-date");

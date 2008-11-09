@@ -33,20 +33,25 @@ public:
 
 public slots:
     void trayIconClicked(QSystemTrayIcon::ActivationReason);
+    void actionShowHideTriggered();
     void performActionSave();
     void performActionClose();
     void performActionAbout();
 
+    void setVisible(bool visible);
+
 private:
-	void connectSignals();
+   void connectSignals();
+   void restoreWindowPosition();
+   void saveWindowPosition();
+   void setupTrayIcon();
 
 private:
     Ui::TinyOrganizerClass ui;
-    QSystemTrayIcon *trayIcon;
     QPoint position;
-    void restoreWindowPosition();
-    void saveWindowPosition();
-    void setupTrayIcon();
+    QSystemTrayIcon *trayIcon;
+    QMenu *trayPopup;
+    QAction actionShowHide;
 };
 
 }

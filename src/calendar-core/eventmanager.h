@@ -20,7 +20,6 @@
 #include <QList>
 #include <QMap>
 #include <QDate>
-#include <QDomDocument>
 
 #include "singleton.h"
 

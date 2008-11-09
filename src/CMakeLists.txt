@@ -3,6 +3,7 @@ find_package(Qt4 REQUIRED)
 
 set(SRCS
     calendar-core/event.cpp
+    calendar-core/eventstore.cpp
     calendar-core/reminder.cpp
     calendar-core/eventmanager.cpp
     calendar-core/recurrence.cpp
@@ -41,4 +42,4 @@ add_executable(TinyOrganizer ${SRCS} ${MOC_SRCS} ${RCS_SRCS} ${UI_HDRS})
  
 install(TARGETS TinyOrganizer DESTINATION bin)
  
-target_link_libraries(TinyOrganizer ${QT_LIBRARIES})
+target_link_libraries(TinyOrganizer ${QT_LIBRARIES} QtXml)

@@ -17,29 +17,38 @@
 #ifndef EVENTSTORE_H_
 #define EVENTSTORE_H_
 
+#include "recurrence.h"
+
 #include <QList>
-#include <QDomElement>
 #include <QString>
+#include <QtXml/QDomElement>
+#include <QtXml/QDomDocument>
 
 namespace TinyOrganizer {
 
-class Event;
+    class Event;
 
-class EventStore {
-public:
-	EventStore(const QString & filename);
-	virtual ~EventStore();
+    class EventStore {
+    public:
+        EventStore(const QString & filename);
+        virtual ~EventStore();
 
-	bool saveEventsToFile(QList<Event*> events);
-	bool loadEventsFromFile(QList<Event*> & events);
+        bool saveEventsToFile(QList<Event*> events);
+        bool loadEventsFromFile(QList<Event*> & events);
 
-private:
-	void appendEvent(QDomElement & eventsList, Event *event);
-	void serializeEvents(QDomDocument & doc, QList<Event*> events);
+    private:
+        void appendEvent(QDomElement & eventsList, const Event *event);
+        void serializeEvents(QDomDocument & doc, const QList<Event*> events);
+        Event * createEventFromXml(const QDomElement & element);
+        void deserializeEvents(const QDomDocument & doc, QList<Event*> & events);
 
-private:
-	QString mFilename;
-};
+        static bool containsElement(const QDomElement & element, QString tagname);
+        static QDomElement getFirstElementFromList(const QDomElement & element, QString tagname);
+        static Recurrence parseRecurrence(const QDomElement & recurElement);
+
+    private:
+        QString mFilename;
+    };
 
 }
 

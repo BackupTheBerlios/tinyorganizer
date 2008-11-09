@@ -31,6 +31,26 @@ Event::~Event()
 {
 }
 
+bool Event::isValid() const
+{
+    if( !mStartDateTime.isValid() )
+    {
+        return false;
+    }
+
+    if( !mEndDateTime.isValid() )
+    {
+        return false;
+    }
+
+    if( !(mSummary.size() > 0 ) )
+    {
+        return false;
+    }
+
+    return true;
+}
+
 void Event::setStartDateTime(const QDateTime & startTime)
 {
 	mStartDateTime = startTime;
@@ -87,7 +107,7 @@ bool Event::allDay() const
 	return mAllDay;
 }
 
-Recurrence & Event::recurrence()
+const Recurrence & Event::recurrence() const
 {
 	return mRecurrence;
 }

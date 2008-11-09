@@ -14,6 +14,7 @@
  */
 
 #include <QDebug>
+#include <QFile>
 #include <QHeaderView>
 #include <QTextCharFormat>
 
@@ -37,7 +38,13 @@ void ScheduleWidget::setupTableEvents()
 ScheduleWidget::ScheduleWidget(QWidget *parent)
     : QWidget(parent)
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
+
+    QFile file("/home/darek/events.xml");
+    if( file.exists() )
+    {
+        EventManager::getSingleton().loadEventsFromFile(file.fileName());
+    }
 
 	connectSignals();
     setupTableEvents();
@@ -54,7 +61,7 @@ void ScheduleWidget::setupTableForToday()
 
 ScheduleWidget::~ScheduleWidget()
 {
-	EventManager::getSingleton().saveEventsToFile("/home/darek/events.xml");
+//    EventManager::getSingleton().saveEventsToFile("/home/darek/events.xml");
 }
 
 void ScheduleWidget::connectSignals()

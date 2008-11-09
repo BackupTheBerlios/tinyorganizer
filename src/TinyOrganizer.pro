@@ -10,9 +10,6 @@ HEADERS += calendar-core/eventstore.h \
     calendar-core/event.h \
     calendar-core/eventmanager.h \
     calendar-core/reminder.h \
-    calendar-core/reminder.h \
-    calendar-core/eventmanager.h \
-    calendar-core/event.h \
     addeventdialog.h \
     schedulewidget.h \
     tinyorganizer.h
@@ -31,3 +28,4 @@ FORMS += addeventdialog.ui \
     tinyorganizer.ui
 RESOURCES += tinyorganizer.qrc
 TRANSLATIONS += en_EN.ts
+DEFINES += QT_NO_DEBUG_OUTPUT

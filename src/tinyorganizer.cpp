@@ -44,20 +44,35 @@ void TinyOrganizer::performActionAbout()
 
 void TinyOrganizer::setupTrayIcon()
 {
-    QIcon icon(":/gfx/icons/calendar.png");
-    trayIcon->setIcon(icon);
-    trayIcon->setVisible(true);
+    if( trayIcon )
+    {
+        QIcon icon(":/gfx/icons/calendar.png");
+        trayIcon->setIcon(icon);
+        trayIcon->setVisible(true);
 
-    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-        		this, SLOT(trayIconClicked(QSystemTrayIcon::ActivationReason)));
+        trayPopup = new QMenu;
+        trayPopup->addAction(&actionShowHide);
+        trayPopup->addAction(ui.actionClose);
+
+        trayIcon->setContextMenu(trayPopup);
+
+        connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                        this, SLOT(trayIconClicked(QSystemTrayIcon::ActivationReason)));
+
+        connect(&actionShowHide, SIGNAL(triggered()), SLOT(actionShowHideTriggered()));
+    }
 }
 
 TinyOrganizer::TinyOrganizer(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), trayIcon(0), trayPopup(0), actionShowHide(tr("Hide"), this)
 {
-	ui.setupUi(this);
-	trayIcon = new QSystemTrayIcon();
-	setStatusBar(0);
+    ui.setupUi(this);
+    if( QSystemTrayIcon::isSystemTrayAvailable() )
+    {
+        trayIcon = new QSystemTrayIcon();
+        trayPopup = new QMenu();
+    }
+    setStatusBar(0);
     setupTrayIcon();
     connectSignals();
 }
@@ -79,23 +94,52 @@ void TinyOrganizer::trayIconClicked(QSystemTrayIcon::ActivationReason reason)
 		if( isHidden() )
 		{
 			setVisible(true);
-			restoreWindowPosition();
 		}
 		else
 		{
-			saveWindowPosition();
 			setVisible(false);
 		}
 	}
 	else if( reason == QSystemTrayIcon::Context )
-	{
+        {
+            trayIcon->contextMenu()->show();
 	}
+}
+
+void TinyOrganizer::actionShowHideTriggered()
+{
+    setVisible(!isVisible());
 }
 
 
 TinyOrganizer::~TinyOrganizer()
 {
-	delete trayIcon;
+    delete trayPopup;
+    delete trayIcon;
+}
+
+void TinyOrganizer::setVisible(bool visible)
+{
+    if( visible )
+    {
+        actionShowHide.setText(tr("&Hide"));
+    }
+    else
+    {
+        actionShowHide.setText(tr("&Show"));        
+    }
+
+    if( !visible )
+    {
+        saveWindowPosition();
+    }
+
+    QMainWindow::setVisible(visible);
+
+    if( visible )
+    {
+        restoreWindowPosition();
+    }
 }
 
 }

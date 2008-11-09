@@ -217,7 +217,8 @@ void AddEventDialog::reportError(const QString & msg)
 
 QDate AddEventDialog::calculateHitCount() const
 {
-
+    // TODO: implement the method
+    return QDate();
 }
 
 }

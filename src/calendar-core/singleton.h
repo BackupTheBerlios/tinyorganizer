@@ -24,7 +24,7 @@ template<class T>
 class Singleton
 {
 public:
-	Singleton() {};
+    Singleton() {}
 	virtual ~Singleton() = 0;
 
 	static T & getSingleton();

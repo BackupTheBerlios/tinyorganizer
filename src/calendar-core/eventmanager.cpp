@@ -30,7 +30,9 @@ QList<Event*> EventManager::getEventsBetweenDates(const QDate & dateFirst, const
 
 	QDate date(dateFirst);
 
-	qDebug() << "dateFirst: " << dateFirst.toString() << " dateLast: " << dateLast.toString();
+#ifdef QDEBUG_H
+        qDebug() << "dateFirst: " << dateFirst.toString() << " dateLast: " << dateLast.toString();
+#endif
 
 	while(date <= dateLast )
 	{
