@@ -46,7 +46,11 @@ public:
 	QList<Event*> getEventsForDate(const QDate & date) const;
 
 	bool saveEventsToFile(const QString & filename);
+	bool saveEventsToHome();
+
 	bool loadEventsFromFile(const QString & filename);
+	bool loadEventsFromHome();
+
 private:
 	EventManager();
 	EventManager(const EventManager &);

@@ -67,8 +67,8 @@ QVariant EventTableModel::data(const QModelIndex & index, int role) const
 	{
 		Event * e = mEvents[row];
 		QString s = e->startDateTime().time().toString() + " - " + e->endDateTime().time().toString();
-		s += "\n" + tr("Summary: ") + e->summary();
-		s += "\n" + tr("Location: ") + e->location();
+                s += "\n" + tr("Summary: %1").arg(e->summary());
+                s += "\n" + tr("Location: %1").arg(e->location());
 		return QVariant(s);
 	}
 	return QVariant();
@@ -78,21 +78,21 @@ QVariant EventTableModel::headerData(int section, Qt::Orientation orientation, i
 {
 	if( orientation == Qt::Horizontal)
 	{
-		if( role == Qt::DisplayRole )
-		{
-			if( section == 0 )
-			{
-                                return QVariant(tr("Start"));
-			}
-			else if( section == 1)
-			{
-				return QVariant(tr("End"));
-			}
-			else if( section == 2 )
-			{
-				return QVariant(tr("Summary"));
-			}
-		}
+                if( role == Qt::DisplayRole )
+            {
+                    if( section == 0 )
+                    {
+                        return QVariant(tr("Start"));
+                    }
+                    else if( section == 1)
+                    {
+                        return QVariant(tr("End"));
+                    }
+                    else if( section == 2 )
+                    {
+                        return QVariant(tr("Summary"));
+                    }
+                }
 		return QVariant();
 	}
 	else

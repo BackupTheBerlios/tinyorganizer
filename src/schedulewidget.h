@@ -16,42 +16,47 @@
 #ifndef SCHEDULEWIDGET_H
 #define SCHEDULEWIDGET_H
 
-#include <QtGui/QWidget>
-#include <QModelIndex>
-#include <QDate>
-#include <ui_schedulewidget.h>
-
 #include "eventtablemodel.h"
 
-namespace TinyOrganizer
-{
+#include <QtGui/QWidget>
+#include <QDate>
 
-class ScheduleWidget : public QWidget
-{
+namespace Ui {
+    class ScheduleWidget;
+}
+
+class ScheduleWidget : public QWidget {
     Q_OBJECT
-
+    Q_DISABLE_COPY(ScheduleWidget)
 public:
-    ScheduleWidget(QWidget *parent = 0);
-    ~ScheduleWidget();
+    explicit ScheduleWidget(QWidget *parent = 0);
+    virtual ~ScheduleWidget();
 
 public slots:
     void performAddEvent();
     void performDeleteEvent();
     void eventActivated(const QModelIndex & modelIndex);
-    void dateChanged(QDate currentDate);
-    void calendarPageChanged(int year, int month);
+
+protected:
+    virtual void changeEvent(QEvent *e);
+
 private:
-    void connectSignals();
     void refreshCalendarWidget(int year, int month);
     void refreshEventListForDate(QDate date);
     void setupTableEvents();
     void setupTableForToday();
 
 private:
-    Ui::ScheduleWidgetClass ui;
-    EventTableModel mEventsModel;
-};
+    Ui::ScheduleWidget *m_ui;
+    TinyOrganizer::EventTableModel mEventsModel;
 
-}
+private slots:
+    void on_calendarWidget_customContextMenuRequested(QPoint pos);
+    void on_tableEvents_customContextMenuRequested(QPoint pos);
+    void on_calendarWidget_currentPageChanged(int, int);
+    void on_calendarWidget_clicked(QDate);
+    void on_actionGo_to_today_triggered();
+    void on_actionAddEvent_triggered();
+};
 
 #endif // SCHEDULEWIDGET_H

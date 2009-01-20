@@ -13,32 +13,28 @@
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
+#include "calendar-core/eventmanager.h"
+#include "calendar-core/event.h"
+
+#include "schedulewidget.h"
+#include "addevent.h"
+#include "ui_schedulewidget.h"
+
+#include <QtGui/QCalendarWidget>
+#include <QtGui/QMenu>
+
 #include <QDebug>
 #include <QFile>
 #include <QHeaderView>
 #include <QTextCharFormat>
 
-#include "schedulewidget.h"
-#include "addeventdialog.h"
+using namespace TinyOrganizer;
 
-#include "calendar-core/eventmanager.h"
-#include "calendar-core/event.h"
-
-namespace TinyOrganizer
+ScheduleWidget::ScheduleWidget(QWidget *parent) :
+    QWidget(parent),
+    m_ui(new Ui::ScheduleWidget)
 {
-
-void ScheduleWidget::setupTableEvents()
-{
-    ui.tableEvents->setModel(&mEventsModel);
-    ui.tableEvents->resizeColumnsToContents();
-
-    ui.tableEvents->verticalHeader()->hide();
-}
-
-ScheduleWidget::ScheduleWidget(QWidget *parent)
-    : QWidget(parent)
-{
-    ui.setupUi(this);
+    m_ui->setupUi(this);
 
     QFile file("/home/darek/events.xml");
     if( file.exists() )
@@ -46,131 +42,188 @@ ScheduleWidget::ScheduleWidget(QWidget *parent)
         EventManager::getSingleton().loadEventsFromFile(file.fileName());
     }
 
-	connectSignals();
     setupTableEvents();
 
     setupTableForToday();
 }
 
-void ScheduleWidget::setupTableForToday()
-{
-	QDate currentDate(QDate::currentDate());
-	dateChanged(currentDate);
-	calendarPageChanged(currentDate.year(), currentDate.month());
-}
-
 ScheduleWidget::~ScheduleWidget()
 {
-//    EventManager::getSingleton().saveEventsToFile("/home/darek/events.xml");
+    delete m_ui;
 }
 
-void ScheduleWidget::connectSignals()
+void ScheduleWidget::changeEvent(QEvent *e)
 {
-	connect(ui.buttonAddEvent, SIGNAL(clicked()), this, SLOT(performAddEvent()));
-	connect(ui.buttonDeleteEvent, SIGNAL(clicked()), this, SLOT(performDeleteEvent()));
-	connect(ui.tableEvents, SIGNAL(clicked(const QModelIndex &)), this, SLOT(eventActivated(const QModelIndex &)));
-	connect(ui.calendarWidget, SIGNAL(clicked(QDate)), this, SLOT(dateChanged(QDate)));
-	connect(ui.calendarWidget, SIGNAL(currentPageChanged(int,int)), this, SLOT(calendarPageChanged(int,int)));
+    switch (e->type()) {
+    case QEvent::LanguageChange:
+        m_ui->retranslateUi(this);
+        break;
+    default:
+        break;
+    }
+}
+
+void ScheduleWidget::on_calendarWidget_customContextMenuRequested(QPoint pos)
+{
+    QDate selectedDate = m_ui->calendarWidget->selectedDate();
+    QMenu menu;
+    menu.setTitle(selectedDate.toString());
+    menu.addAction(m_ui->actionAddEvent);
+    if( EventManager::getSingleton().getEventsForDate(selectedDate).size() > 0 )
+    {
+        menu.addAction(m_ui->actionDelete_all_events);
+    }
+    menu.addSeparator();
+    menu.addAction(m_ui->actionGo_to_today);
+    menu.exec(mapToGlobal(pos));
+}
+
+void ScheduleWidget::on_tableEvents_customContextMenuRequested(QPoint pos)
+{
+
+    QMenu menu;
+    menu.addAction(m_ui->actionAddEvent);
+    if( m_ui->tableEvents->rowAt(pos.y()) != -1 )
+    {
+        menu.addAction(m_ui->actionDelete_event);
+    }
+
+    if( mEventsModel.rowCount() > 0 )
+    {
+        menu.addAction(m_ui->actionDelete_all_events);
+    }
+
+    menu.addSeparator();
+    menu.exec(m_ui->tableEvents->mapToGlobal(pos));
+}
+
+void ScheduleWidget::on_actionGo_to_today_triggered()
+{
+    m_ui->calendarWidget->showToday();
+    m_ui->calendarWidget->setSelectedDate(QDate::currentDate());
+}
+
+void ScheduleWidget::on_actionAddEvent_triggered()
+{
+    performAddEvent();
+}
+
+void ScheduleWidget::setupTableEvents()
+{
+    m_ui->tableEvents->setModel(&mEventsModel);
+    m_ui->tableEvents->resizeColumnsToContents();
+
+    m_ui->tableEvents->verticalHeader()->hide();
+    m_ui->tableEvents->horizontalHeader()->hide();
+}
+
+void ScheduleWidget::setupTableForToday()
+{
+        QDate currentDate(QDate::currentDate());
+        refreshEventListForDate(currentDate);
+        refreshCalendarWidget(currentDate.year(), currentDate.month());
 }
 
 void ScheduleWidget::performAddEvent()
 {
-	AddEventDialog aed(this);
-	QDateTime currentDate;
-	currentDate.setDate(ui.calendarWidget->selectedDate());
-	currentDate.setTime(QDateTime::currentDateTime().time());
-	aed.setCurrentDate(currentDate);
-	if( aed.exec() == QDialog::Accepted )
-	{
-		// colect data from dialog to create an event
-		QDateTime startDate;
-		QDateTime endDate;
-		Event * e = new Event;
-		e->setStartDateTime(aed.startDate());
-		e->setEndDateTime(aed.endDate());
-		e->setSummary(aed.summary());
-		e->setLocation(aed.location());
+        AddEvent aed(this);
+        QDateTime currentDate;
+        currentDate.setDate(m_ui->calendarWidget->selectedDate());
+        currentDate.setTime(QDateTime::currentDateTime().time());
+        aed.setCurrentDate(currentDate);
+        if( aed.exec() == QDialog::Accepted )
+        {
+                // colect data from dialog to create an event
+                QDateTime startDate;
+                QDateTime endDate;
+                Event * e = new Event;
+                e->setStartDateTime(aed.startDate());
+                e->setEndDateTime(aed.endDate());
+                e->setSummary(aed.description());
+                e->setLocation(aed.location());
 
-		if( aed.allDayEvent() )
-		{
-			e->setAllDay(true);
-		}
+                if( aed.allDayEvent() )
+                {
+                        e->setAllDay(true);
+                }
 
-		if( aed.recurrenceType() != Recurrence::None )
-		{
-			QDateTime recurrenceUntil(aed.repeatUntil());
-			Recurrence recurrence;
-			recurrence.setRecurrenceType(aed.recurrenceType());
-			recurrence.setUntilDate(recurrenceUntil);
-			e->setRecurrence(recurrence);
-		}
+                if( aed.recurrenceType() != Recurrence::None )
+                {
+                        QDateTime recurrenceUntil(aed.repeatUntil());
+                        Recurrence recurrence;
+                        recurrence.setRecurrenceType(aed.recurrenceType());
+                        recurrence.setUntilDate(recurrenceUntil);
+                        e->setRecurrence(recurrence);
+                }
 
-		EventManager::getSingleton().addEvent(e);
+                EventManager::getSingleton().addEvent(e);
 
-		// refresh calendar
-		refreshCalendarWidget(ui.calendarWidget->yearShown(), ui.calendarWidget->monthShown());
-		// refresh event list
-		refreshEventListForDate(ui.calendarWidget->selectedDate());
-	}
+                // refresh calendar
+                refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
+                // refresh event list
+                refreshEventListForDate(m_ui->calendarWidget->selectedDate());
+        }
 }
 
 void ScheduleWidget::performDeleteEvent()
 {
-	if( ui.tableEvents->selectionModel()->selectedRows().count() )
-	{
+        if( m_ui->tableEvents->selectionModel()->selectedRows().count() )
+        {
 
-	}
+        }
 }
 
 void ScheduleWidget::eventActivated(const QModelIndex & modelIndex)
 {
-	modelIndex.column();
-	ui.buttonDeleteEvent->setEnabled(true);
-}
-
-void ScheduleWidget::dateChanged(QDate date)
-{
-	qDebug() << "dateChanged: " << date.toString();
-	refreshEventListForDate(date);
-}
-
-void ScheduleWidget::calendarPageChanged(int year, int month)
-{
-	refreshCalendarWidget(year, month);
+        modelIndex.column();
 }
 
 void ScheduleWidget::refreshCalendarWidget(int year, int month)
 {
-	qDebug() << "calendar page changed: " << year << "/" << month;
-	QDate date(year, month, 1);
+        qDebug() << "calendar page changed: " << year << "/" << month;
+        QDate date(year, month, 1);
 
-	QList<Event*> events = EventManager::getSingleton().getEventsForMonth(year, month);
+        QList<Event*> events = EventManager::getSingleton().getEventsForMonth(year, month);
 
-	QTextCharFormat charFormat;
-	charFormat.setFontWeight(QFont::Bold);
-	charFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+        QTextCharFormat charFormat;
+        charFormat.setFontWeight(QFont::Bold);
+        charFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
 
-	for(int i=1; i<=date.daysInMonth(); ++i)
-	{
-		date.setDate(year, month, i);
-		QList<Event*>::iterator it = events.begin();
-		QList<Event*>::iterator end = events.end();
-		while( it != end )
-		{
-			if( (*it)->recursOn(date) )
-			{
-				ui.calendarWidget->setDateTextFormat(date, charFormat);
-			}
-			++it;
-		}
-	}
+        // check the last week of the previous month
+        QDate start = date.addDays(-7);
+        // check also the first week of the next month
+        QDate end = date.addMonths(1).addDays(7);
+        while(start <= end)
+        {
+                date = start;
+                QList<Event*>::iterator it = events.begin();
+                QList<Event*>::iterator end = events.end();
+                while( it != end )
+                {
+                        if( (*it)->recursOn(date) )
+                        {
+                                m_ui->calendarWidget->setDateTextFormat(date, charFormat);
+                        }
+                        ++it;
+                }
+                start = date.addDays(1);
+        }
 }
 
 void ScheduleWidget::refreshEventListForDate(QDate date)
 {
-	mEventsModel.setEvents(EventManager::getSingleton().getEventsForDate(date));
-	ui.tableEvents->resizeColumnsToContents();
-    ui.tableEvents->horizontalHeader()->setStretchLastSection(true);
+        mEventsModel.setEvents(EventManager::getSingleton().getEventsForDate(date));
+        m_ui->tableEvents->resizeColumnsToContents();
+    m_ui->tableEvents->horizontalHeader()->setStretchLastSection(true);
 }
 
+void ScheduleWidget::on_calendarWidget_currentPageChanged(int year, int month)
+{
+    refreshCalendarWidget(year, month);
+}
+
+void ScheduleWidget::on_calendarWidget_clicked(QDate date)
+{
+    qDebug() << "dateChanged: " << date.toString();
+    refreshEventListForDate(date);
 }
