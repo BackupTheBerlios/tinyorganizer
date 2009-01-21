@@ -18,7 +18,7 @@
 #define EVENTMANAGER_H_
 
 #include <QList>
-#include <QMap>
+#include <QSet>
 #include <QDate>
 
 #include "singleton.h"
@@ -51,12 +51,19 @@ public:
 	bool loadEventsFromFile(const QString & filename);
 	bool loadEventsFromHome();
 
+        QString getSettingsDir() const;
+        QString getEventsFilePath() const;
+
 private:
 	EventManager();
 	EventManager(const EventManager &);
 	const EventManager & operator =(const EventManager &);
+
+        QString generateId();
 private:
 	QList<Event*> mEvents;
+        QSet<QString> mUsedIds;
+
 };
 
 }

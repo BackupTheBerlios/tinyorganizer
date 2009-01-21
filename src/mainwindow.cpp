@@ -18,7 +18,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
-        m_ui(new Ui::MainWindow)
+        m_ui(new Ui::MainWindow),
+        trayIcon(0)
 {
     m_ui->setupUi(this);
     m_ui->scheduleWidget->setFocus();
@@ -47,6 +48,12 @@ void MainWindow::setupTrayIcon()
 
 MainWindow::~MainWindow()
 {
+
+    if( trayIcon )
+    {
+        trayIcon->setVisible(false);
+        delete trayIcon;
+    }
     delete m_ui;
 }
 

@@ -36,11 +36,7 @@ ScheduleWidget::ScheduleWidget(QWidget *parent) :
 {
     m_ui->setupUi(this);
 
-    QFile file("/home/darek/events.xml");
-    if( file.exists() )
-    {
-        EventManager::getSingleton().loadEventsFromFile(file.fileName());
-    }
+    EventManager::getSingleton().loadEventsFromHome();
 
     setupTableEvents();
 
@@ -50,6 +46,8 @@ ScheduleWidget::ScheduleWidget(QWidget *parent) :
 ScheduleWidget::~ScheduleWidget()
 {
     delete m_ui;
+    qDebug() << EventManager::getSingleton().getEventsFilePath() << endl;
+    EventManager::getSingleton().saveEventsToHome();
 }
 
 void ScheduleWidget::changeEvent(QEvent *e)
@@ -129,7 +127,9 @@ void ScheduleWidget::performAddEvent()
         AddEvent aed(this);
         QDateTime currentDate;
         currentDate.setDate(m_ui->calendarWidget->selectedDate());
-        currentDate.setTime(QDateTime::currentDateTime().time());
+        // round current time up
+        QTime currentTime(QTime::currentTime().hour(), QTime::currentTime().minute() + 1);
+        currentDate.setTime(currentTime);
         aed.setCurrentDate(currentDate);
         if( aed.exec() == QDialog::Accepted )
         {

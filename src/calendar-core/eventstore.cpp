@@ -83,6 +83,10 @@ void EventStore::deserializeEvents(const QDomDocument & doc, QList<Event*> & eve
 Event * EventStore::createEventFromXml(const QDomElement & element)
 {
     Event * event = new Event();
+    if( element.hasAttribute("id") )
+    {
+        event->setId(element.attribute("id"));
+    }
     if( EventStore::containsElement(element, "start-date") )
     {
         QDomElement startDateElement = getFirstElementFromList(element, "start-date");
@@ -266,6 +270,7 @@ void EventStore::appendEvent(QDomElement & eventsList, const Event *event)
 	textDescription.setNodeValue(event->summary());
 	description.appendChild(textDescription);
 	eventEl.appendChild(description);
+        eventEl.setAttribute("id", event->id());
 
 	textLocation.setNodeValue(event->location());
 	location.appendChild(textLocation);

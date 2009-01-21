@@ -20,6 +20,9 @@
 
 #include <QDebug>
 #include <QDir>
+#include <QApplication>
+#include <QMessageBox>
+#include <QtNetwork/QHostInfo>
 
 
 namespace TinyOrganizer
@@ -90,14 +93,36 @@ QList<Event*> EventManager::getEventsForDate(const QDate & date) const
 	return result;
 }
 
+QString EventManager::generateId()
+{
+    QString hostName = QHostInfo::localHostName();
+    qsrand(QDateTime::currentDateTime().toTime_t());
+    QString id;
+    do
+    {
+        int randNum = qrand() % 0xffffff;
+        id = QString("%1").arg(randNum) + "@" + hostName;
+    } while( mUsedIds.contains(id) );
+
+    mUsedIds.insert(id);
+    return id;
+}
+
 void EventManager::addEvent(Event *e)
 {
-	mEvents.append(e);
+    if( e->id().size() == 0 )
+    {
+        QString id = generateId();
+        e->setId(id);
+    }
+
+    mEvents.append(e);
 }
 
 void EventManager::removeEvent(Event *e)
 {
 	mEvents.removeOne(e);
+        mUsedIds.remove(e->id());
 }
 
 bool EventManager::saveEventsToFile(const QString & filename)
@@ -117,15 +142,51 @@ bool EventManager::loadEventsFromFile(const QString & filename)
 	return false;
 }
 
-bool TinyOrganizer::EventManager::saveEventsToHome()
+QString TinyOrganizer::EventManager::getSettingsDir() const
 {
     QString homeDirPath = QDir::homePath();
-	return true;
+    QString dot;
+#ifdef PLATFORM_UNIX
+    dot = ".";
+#endif
+    homeDirPath += QDir::separator() + dot + QApplication::instance()->applicationName();
+    return homeDirPath;
+}
+
+QString TinyOrganizer::EventManager::getEventsFilePath() const
+{
+    return getSettingsDir() + QDir::separator() + "events.xml";
+}
+
+bool TinyOrganizer::EventManager::saveEventsToHome()
+{
+    QString homeDirPath = getSettingsDir();
+    QDir dir;
+    if( !dir.exists(homeDirPath) )
+    {
+        if( !dir.mkpath(homeDirPath) )
+        {
+            // failed to create settings dir
+            QMessageBox::critical(0, "Error saving data!",
+                                  "There was an error while creating directory "
+                                  + homeDirPath + " for application data.");
+            return false;
+        }
+    }
+    // proceed with saving events
+    if( !saveEventsToFile(getEventsFilePath()) )
+    {
+        QMessageBox::critical(0,
+                              "Error saving data!",
+                              "There was an error while saving the application data.");
+    }
+
+    return true;
 }
 
 bool TinyOrganizer::EventManager::loadEventsFromHome()
 {
-	return true;
+    return loadEventsFromFile(getEventsFilePath());
 }
 
 EventManager::EventManager()

@@ -34,7 +34,10 @@ class Recurrence;
 class Event {
 public:
 	Event();
-	virtual ~Event();
+        virtual ~Event();
+
+        void setId(const QString& id);
+        QString id() const;
 
 	void setAllDay(bool allDay);
 	bool allDay() const;
@@ -61,6 +64,7 @@ public:
 
 private:
 	bool mAllDay;
+        QString mId;
 	QString mLocation;
 	QString mSummary;
 	QDateTime mStartDateTime;

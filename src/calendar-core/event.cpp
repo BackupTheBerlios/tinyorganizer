@@ -51,6 +51,16 @@ bool Event::isValid() const
     return true;
 }
 
+void Event::setId(const QString & id)
+{
+    mId = id;
+}
+
+QString Event::id() const
+{
+    return mId;
+}
+
 void Event::setStartDateTime(const QDateTime & startTime)
 {
 	mStartDateTime = startTime;

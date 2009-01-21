@@ -98,27 +98,11 @@ bool AddEvent::checkDescription()
 bool AddEvent::checkDates()
 {
     // make the necessary checks
-    if(m_ui->checkAllDay->isChecked()){
-        if(m_ui->editAllDay->date() < QDate::currentDate()){
-            reportError(tr("start date before current date."));
-            m_ui->editAllDay->setFocus();
-            return false;
-        }
+    if(m_ui->editEventStart->dateTime() > m_ui->editEventEnd->dateTime()){
+        reportError(tr("end date before start date."));
+        m_ui->editEventEnd->setFocus();
+        return false;
     }
-    else{
-        if(QDate::currentDate() > m_ui->editEventStart->date()){
-            reportError(tr("start date before current date."));
-            m_ui->editEventStart->setFocus();
-            return false;
-        }
-        if(m_ui->editEventStart->dateTime() > m_ui->editEventEnd->dateTime()){
-            reportError(tr("end date before start date."));
-            m_ui->editEventEnd->setFocus();
-            return false;
-        }
-    }
-
-
     return true;
 }
 
