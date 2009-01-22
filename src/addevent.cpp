@@ -40,6 +40,7 @@ void AddEvent::on_comboRecurrence_currentIndexChanged(int index)
                 m_ui->radioUntil->setEnabled(false);
                 m_ui->radioHitCount->setEnabled(false);
                 m_ui->radioAlways->setEnabled(false);
+                m_ui->editUntil->setEnabled(false);
         }
 }
 

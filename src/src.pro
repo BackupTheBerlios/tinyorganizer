@@ -15,8 +15,7 @@ HEADERS += calendar-core/eventstore.h \
     schedulewidget.h \
     addevent.h \
     rsswidget.h \
-    aboutbox.h \
-    main.h
+    aboutbox.h
 SOURCES += calendar-core/eventstore.cpp \
     eventtablemodel.cpp \
     calendar-core/recurrence.cpp \
@@ -29,10 +28,15 @@ SOURCES += calendar-core/eventstore.cpp \
     addevent.cpp \
     rsswidget.cpp \
     aboutbox.cpp
-FORMS += mainwindow.ui \
+FORMS += aboutbox.ui \
+    addevent.ui \
+    mainwindow.ui \
+    rsswidget.ui \
+    mainwindow.ui \
     schedulewidget.ui \
     addevent.ui \
     rsswidget.ui \
     aboutbox.ui
 RESOURCES += tinyorganizer.qrc
 TRANSLATIONS += en_EN.ts
+#DEFINES += QT_NO_DEBUG_OUTPUT

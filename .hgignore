@@ -4,6 +4,8 @@ doc/*
 build/*
 src/debug/*
 src/release/*
+*qtc-gdbmacros/*
+Makefile*
 
 syntax: regexp
 ^src/ui_(.)*$
@@ -11,3 +13,5 @@ syntax: regexp
 ^src/(.)*.cpp[.].*
 ^src/(.)*.pro[.].*
 ^TinyOrganizer$
+.orig$
+.user$
