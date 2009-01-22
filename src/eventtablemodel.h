@@ -38,6 +38,11 @@ public:
 
 	void setEvents(const QList<Event*> events);
 
+        void removeEventFromRow(int row);
+        void removeAllEvents();
+
+
+
 private:
 	QList<Event*> mEvents;
 };

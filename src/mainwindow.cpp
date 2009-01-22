@@ -16,6 +16,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QMessageBox>
+
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         m_ui(new Ui::MainWindow),
@@ -48,7 +50,6 @@ void MainWindow::setupTrayIcon()
 
 MainWindow::~MainWindow()
 {
-
     if( trayIcon )
     {
         trayIcon->setVisible(false);
@@ -95,7 +96,11 @@ void MainWindow::on_actionImport_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
+}
 
+void MainWindow::on_actionAbout_Qt_triggered()
+{
+    QMessageBox::aboutQt(this, tr("About Qt"));
 }
 
 void MainWindow::on_actionAdd_triggered()

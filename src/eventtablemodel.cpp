@@ -18,6 +18,7 @@
 #include <QDebug>
 
 #include "eventtablemodel.h"
+#include "calendar-core/eventmanager.h"
 #include "calendar-core/event.h"
 
 namespace TinyOrganizer
@@ -106,6 +107,24 @@ void EventTableModel::setEvents(const QList<Event*> events)
 {
 	mEvents = events;
 	emit layoutChanged();
+}
+
+void EventTableModel::removeAllEvents()
+{
+    Event * e;
+    foreach(e, mEvents)
+    {
+        EventManager::getSingleton().removeEvent(e);
+        mEvents.removeAll(e);
+    }
+    emit layoutChanged();
+}
+
+void EventTableModel::removeEventFromRow(int row)
+{
+    EventManager::getSingleton().removeEvent(mEvents[row]);
+    mEvents.removeAt(row);
+    emit layoutChanged();
 }
 
 }

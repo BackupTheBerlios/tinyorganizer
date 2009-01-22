@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QHeaderView>
+#include <QtGui/QTableView>
 #include <QTextCharFormat>
 
 using namespace TinyOrganizer;
@@ -110,9 +111,6 @@ void ScheduleWidget::setupTableEvents()
 {
     m_ui->tableEvents->setModel(&mEventsModel);
     m_ui->tableEvents->resizeColumnsToContents();
-
-    m_ui->tableEvents->verticalHeader()->hide();
-    m_ui->tableEvents->horizontalHeader()->hide();
 }
 
 void ScheduleWidget::setupTableForToday()
@@ -226,4 +224,31 @@ void ScheduleWidget::on_calendarWidget_clicked(QDate date)
 {
     qDebug() << "dateChanged: " << date.toString();
     refreshEventListForDate(date);
+}
+
+void ScheduleWidget::on_actionDelete_event_triggered()
+{
+    QModelIndexList selectedIndices = m_ui->tableEvents->selectionModel()->selectedIndexes();
+    QModelIndex index;
+    QList<int> rows;
+    for(int i=0; i<selectedIndices.size(); ++i)
+    {
+        index = selectedIndices[i];
+        int row = index.row();
+        if( !rows.contains(row) )
+        {
+            rows.append(row);
+        }
+    }
+
+    int rowToDelete = 0;
+    foreach(rowToDelete, rows)
+    {
+        mEventsModel.removeEventFromRow(rowToDelete);
+    }
+}
+
+void ScheduleWidget::on_actionDelete_all_events_triggered()
+{
+    mEventsModel.removeAllEvents();
 }

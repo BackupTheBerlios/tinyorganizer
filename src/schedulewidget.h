@@ -57,6 +57,8 @@ private slots:
     void on_calendarWidget_clicked(QDate);
     void on_actionGo_to_today_triggered();
     void on_actionAddEvent_triggered();
+    void on_actionDelete_event_triggered();
+    void on_actionDelete_all_events_triggered();
 };
 
 #endif // SCHEDULEWIDGET_H

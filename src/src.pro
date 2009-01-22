@@ -39,4 +39,3 @@ FORMS += aboutbox.ui \
     aboutbox.ui
 RESOURCES += tinyorganizer.qrc
 TRANSLATIONS += en_EN.ts
-#DEFINES += QT_NO_DEBUG_OUTPUT
