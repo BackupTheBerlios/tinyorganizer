@@ -35,6 +35,7 @@ public:
 
 protected:
     virtual void changeEvent(QEvent *e);
+    virtual void closeEvent(QCloseEvent * e);
     void saveWindowPosition();
     void restoreWindowPosition();
 
@@ -54,7 +55,6 @@ private slots:
     void on_actionSave_triggered();
     void on_actionImport_triggered();
     void on_actionExport_triggered();
-    void on_actionAdd_triggered();
     void on_actionAbout_Qt_triggered();
     void on_actionAbout_TinyOrganizer_triggered();
     void on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason);

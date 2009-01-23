@@ -4,10 +4,10 @@
 #include <QtGui>
 #include <QApplication>
 
-const QString APPNAME = "TinyOrganizer";
-const QString APPVENDOR = "TinyOrganizer Team";
-const QString APPDOMAIN = "tinyorganizer.org";
-const QString APPVER = "0.0.9";
+extern const QString APPNAME("TinyOrganizer");
+extern const QString APPVENDOR("TinyOrganizer Team");
+extern const QString APPDOMAIN("tinyorganizer.org");
+extern const QString APPVER("0.0.9");
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(APPVENDOR);
     QCoreApplication::setOrganizationDomain(APPDOMAIN);
     MainWindow mw;
-    mw.show();
+//    mw.show();
     return a.exec();
 }
 

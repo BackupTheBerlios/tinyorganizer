@@ -15,6 +15,7 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "main.h"
 
 #include <QMessageBox>
 #include "settingsmanager.h"
@@ -73,6 +74,11 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
+void MainWindow::closeEvent(QCloseEvent * e)
+{
+    SettingsManager::getSingleton().saveWindow(this);
+}
+
 void MainWindow::on_actionShow_Hide_triggered()
 {
     setVisible(!isVisible());
@@ -80,7 +86,6 @@ void MainWindow::on_actionShow_Hide_triggered()
 
 void MainWindow::on_actionExit_triggered()
 {
-    SettingsManager::getSingleton().saveWindow(this);
     close();
 }
 
@@ -105,17 +110,13 @@ void MainWindow::on_actionExport_triggered()
 
 void MainWindow::on_actionAbout_TinyOrganizer_triggered()
 {
-    QMessageBox::about(this, tr("TinyOrganizer"), tr("Bla bla bla bla bal bla balba sda dsa ds qwd daszczscnlqd acsdas ds asd ads ad as das aaaaaaaaaaaaa dasda"));
+    QString title = QString(tr("TinyOrganizer (%1)").arg(APPVER));
+    QMessageBox::about(this, title, tr("Bla bla bla bla bal bla balba sda dsa ds qwd daszczscnlqd acsdas ds asd ads ad as das aaaaaaaaaaaaa dasda"));
 }
 
 void MainWindow::on_actionAbout_Qt_triggered()
 {
     QMessageBox::aboutQt(this, tr("About Qt"));
-}
-
-void MainWindow::on_actionAdd_triggered()
-{
-    m_ui->scheduleWidget->performAddEvent();
 }
 
 void MainWindow::on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason)
