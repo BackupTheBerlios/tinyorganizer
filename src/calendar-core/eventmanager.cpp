@@ -146,10 +146,14 @@ QString TinyOrganizer::EventManager::getSettingsDir() const
 {
     QString homeDirPath = QDir::homePath();
     QString dot;
-#ifdef PLATFORM_UNIX
+    QString appname = QApplication::instance()->applicationName();
+
+    // special behaviour for unix-like systems
+#if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
     dot = ".";
+    appname = appname.toLower();
 #endif
-    homeDirPath += QDir::separator() + dot + QApplication::instance()->applicationName();
+    homeDirPath += QDir::separator() + dot + appname;
     return homeDirPath;
 }
 

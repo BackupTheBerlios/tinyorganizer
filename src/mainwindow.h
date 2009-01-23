@@ -56,6 +56,7 @@ private slots:
     void on_actionExport_triggered();
     void on_actionAdd_triggered();
     void on_actionAbout_Qt_triggered();
+    void on_actionAbout_TinyOrganizer_triggered();
     void on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason);
 };
 

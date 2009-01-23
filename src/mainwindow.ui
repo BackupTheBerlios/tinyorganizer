@@ -103,21 +103,6 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
-       <attribute name="title">
-        <string>To-Do</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_3">
-       <attribute name="title">
-        <string>RSS</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <widget class="RSSWidget" name="rssWidget" native="true"/>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -128,7 +113,7 @@
      <x>0</x>
      <y>0</y>
      <width>305</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -238,12 +223,6 @@
    <class>ScheduleWidget</class>
    <extends>QWidget</extends>
    <header>schedulewidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>RSSWidget</class>
-   <extends>QWidget</extends>
-   <header>rsswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

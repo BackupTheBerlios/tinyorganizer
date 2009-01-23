@@ -20,7 +20,7 @@
 #include "addevent.h"
 #include "ui_schedulewidget.h"
 
-#include <QtGui/QCalendarWidget>
+#include <QCalendarWidget>
 #include <QtGui/QMenu>
 
 #include <QDebug>
@@ -183,6 +183,8 @@ void ScheduleWidget::refreshCalendarWidget(int year, int month)
 
         QList<Event*> events = EventManager::getSingleton().getEventsForMonth(year, month);
 
+        QTextCharFormat normalCharFormat;
+
         QTextCharFormat charFormat;
         charFormat.setFontWeight(QFont::Bold);
         charFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
@@ -194,6 +196,7 @@ void ScheduleWidget::refreshCalendarWidget(int year, int month)
         while(start <= end)
         {
                 date = start;
+                m_ui->calendarWidget->setDateTextFormat(date, normalCharFormat);
                 QList<Event*>::iterator it = events.begin();
                 QList<Event*>::iterator end = events.end();
                 while( it != end )
@@ -246,6 +249,8 @@ void ScheduleWidget::on_actionDelete_event_triggered()
     {
         mEventsModel.removeEventFromRow(rowToDelete);
     }
+
+    refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
 }
 
 void ScheduleWidget::on_actionDelete_all_events_triggered()

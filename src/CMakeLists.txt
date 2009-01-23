@@ -8,22 +8,22 @@ set(SRCS
     calendar-core/eventmanager.cpp
     calendar-core/recurrence.cpp
     eventtablemodel.cpp
-    addeventdialog.cpp
+    addevent.cpp
     schedulewidget.cpp
-    tinyorganizer.cpp
+    mainwindow.cpp
     main.cpp
     )
 
 set(MOC_HDRS 
-    addeventdialog.h
+    addevent.h
     schedulewidget.h
-    tinyorganizer.h
+    mainwindow.h
     )
  
 set(UIS
-    addeventdialog.ui
+    addevent.ui
     schedulewidget.ui
-    tinyorganizer.ui
+    mainwindow.ui
     )
 
 set(RCS
@@ -38,8 +38,8 @@ QT4_WRAP_CPP(MOC_SRCS ${MOC_HDRS})
  
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
  
-add_executable(TinyOrganizer ${SRCS} ${MOC_SRCS} ${RCS_SRCS} ${UI_HDRS})
+add_executable(tinyorganizer ${SRCS} ${MOC_SRCS} ${RCS_SRCS} ${UI_HDRS})
  
-install(TARGETS TinyOrganizer DESTINATION bin)
+install(TARGETS tinyorganizer DESTINATION bin)
  
-target_link_libraries(TinyOrganizer ${QT_LIBRARIES} QtXml)
+target_link_libraries(tinyorganizer ${QT_LIBRARIES} QtXml QtNetwork)

@@ -17,6 +17,7 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
+#include "settingsmanager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -30,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // to repair buggy default focus on tab header
     m_ui->scheduleWidget->setFocus();
+
+    SettingsManager::getSingleton().restoreWindow(this);
 }
 
 void MainWindow::setupTrayIcon()
@@ -50,6 +53,7 @@ void MainWindow::setupTrayIcon()
 
 MainWindow::~MainWindow()
 {
+
     if( trayIcon )
     {
         trayIcon->setVisible(false);
@@ -76,6 +80,7 @@ void MainWindow::on_actionShow_Hide_triggered()
 
 void MainWindow::on_actionExit_triggered()
 {
+    SettingsManager::getSingleton().saveWindow(this);
     close();
 }
 
@@ -96,6 +101,11 @@ void MainWindow::on_actionImport_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
+}
+
+void MainWindow::on_actionAbout_TinyOrganizer_triggered()
+{
+    QMessageBox::about(this, tr("TinyOrganizer"), tr("Bla bla bla bla bal bla balba sda dsa ds qwd daszczscnlqd acsdas ds asd ads ad as das aaaaaaaaaaaaa dasda"));
 }
 
 void MainWindow::on_actionAbout_Qt_triggered()
@@ -138,17 +148,17 @@ void MainWindow::setVisible(bool visible)
         m_ui->actionShow_Hide->setText(tr("&Show"));
     }
 
-    if( !visible )
-    {
-        saveWindowPosition();
-    }
-
+//    if( !visible )
+//    {
+//        saveWindowPosition();
+//    }
+//
     QMainWindow::setVisible(visible);
-
-    if( visible )
-    {
-        restoreWindowPosition();
-    }
+//
+//    if( visible )
+//    {
+//        restoreWindowPosition();
+//    }
 }
 
 void MainWindow::saveWindowPosition()

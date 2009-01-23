@@ -15,7 +15,8 @@ HEADERS += calendar-core/eventstore.h \
     schedulewidget.h \
     addevent.h \
     rsswidget.h \
-    aboutbox.h
+    aboutbox.h \
+    settingsmanager.h
 SOURCES += calendar-core/eventstore.cpp \
     eventtablemodel.cpp \
     calendar-core/recurrence.cpp \
@@ -27,7 +28,9 @@ SOURCES += calendar-core/eventstore.cpp \
     schedulewidget.cpp \
     addevent.cpp \
     rsswidget.cpp \
-    aboutbox.cpp
+    aboutbox.cpp \
+    settingsmanager.cpp \
+    ../../../qtcreator-0.9.2/bin/gdbmacros/gdbmacros.cpp
 FORMS += aboutbox.ui \
     addevent.ui \
     mainwindow.ui \
