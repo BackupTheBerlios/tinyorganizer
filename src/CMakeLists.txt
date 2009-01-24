@@ -8,6 +8,7 @@ set(SRCS
     calendar-core/eventmanager.cpp
     calendar-core/recurrence.cpp
     eventtablemodel.cpp
+    aboutbox.cpp
     addevent.cpp
     schedulewidget.cpp
     mainwindow.cpp
@@ -17,12 +18,14 @@ set(SRCS
 
 set(MOC_HDRS 
     addevent.h
+    aboutbox.h
     schedulewidget.h
     mainwindow.h
     )
  
 set(UIS
     addevent.ui
+    aboutbox.ui
     schedulewidget.ui
     mainwindow.ui
     )

@@ -113,7 +113,7 @@
      <x>0</x>
      <y>0</y>
      <width>305</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -135,10 +135,20 @@
     <addaction name="actionAbout_TinyOrganizer"/>
     <addaction name="actionAbout_Qt"/>
    </widget>
+   <widget class="QMenu" name="menu_Options">
+    <property name="title">
+     <string>&amp;Options</string>
+    </property>
+    <addaction name="action_Settings"/>
+   </widget>
    <addaction name="menu_File"/>
+   <addaction name="menu_Options"/>
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionOpen">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Open...</string>
    </property>
@@ -147,6 +157,9 @@
    </property>
   </action>
   <action name="actionImport">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Import...</string>
    </property>
@@ -155,6 +168,9 @@
    </property>
   </action>
   <action name="actionExport">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Export...</string>
    </property>
@@ -171,6 +187,9 @@
    </property>
   </action>
   <action name="actionSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>&amp;Save</string>
    </property>
@@ -180,7 +199,7 @@
   </action>
   <action name="actionAbout_TinyOrganizer">
    <property name="text">
-    <string>About &amp;TinyOrganizer...</string>
+    <string>&amp;About...</string>
    </property>
   </action>
   <action name="actionAbout_Qt">
@@ -191,6 +210,11 @@
   <action name="actionShow_Hide">
    <property name="text">
     <string>Show/Hide</string>
+   </property>
+  </action>
+  <action name="action_Settings">
+   <property name="text">
+    <string>&amp;Settings...</string>
    </property>
   </action>
  </widget>

@@ -36,8 +36,7 @@ public:
 protected:
     virtual void changeEvent(QEvent *e);
     virtual void closeEvent(QCloseEvent * e);
-    void saveWindowPosition();
-    void restoreWindowPosition();
+    bool event(QEvent * e);
 
 private:
     void setupTrayIcon();
@@ -57,6 +56,7 @@ private slots:
     void on_actionExport_triggered();
     void on_actionAbout_Qt_triggered();
     void on_actionAbout_TinyOrganizer_triggered();
+    void on_action_Settings_triggered();
     void on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason);
 };
 

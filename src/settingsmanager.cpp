@@ -1,4 +1,5 @@
 #include "settingsmanager.h"
+#include "main.h"
 
 #include <QDebug>
 
@@ -29,7 +30,7 @@ bool SettingsManager::saveWindow(QMainWindow * window, const QString & title)
     return true;
 }
 
-bool SettingsManager::restoreWindow(QMainWindow * window, const QString & title)
+bool SettingsManager::restoreWindow(QMainWindow * window, const QString & title) const
 {
     qDebug() << "restoring window: " << window->windowTitle();
     QString windowTitle = title;
@@ -65,4 +66,29 @@ bool SettingsManager::restoreWindow(QMainWindow * window, const QString & title)
     qDebug() << "end of restoring window: " << window->windowTitle();
 
     return true;
+}
+
+QVariant SettingsManager::getValue(const QString & key) const
+{
+    QString settingsKey(APPNAME + "/" + key);
+    if( mSettings.contains(settingsKey) )
+    {
+        return mSettings.value(settingsKey);
+    }
+    else
+    {
+        return mDefaultValues[key];
+    }
+}
+
+void SettingsManager::setValue(const QString & key, const QVariant & value)
+{
+    QString settingsKey(APPNAME + "/" + key);
+    mSettings.setValue(key, value);
+}
+
+void SettingsManager::fillDefaultValues()
+{
+    mDefaultValues["ExitOnClose"] = QVariant(false);
+    mDefaultValues["MinimizeToTray"] = QVariant(false);
 }

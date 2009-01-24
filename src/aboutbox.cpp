@@ -15,12 +15,25 @@
 
 #include "aboutbox.h"
 #include "ui_aboutbox.h"
+#include "main.h"
 
 AboutBox::AboutBox(QWidget *parent) :
     QDialog(parent),
     m_ui(new Ui::AboutBox)
 {
     m_ui->setupUi(this);
+
+    setWindowTitle(QString(tr("About %1")).arg(APPNAME));
+
+    m_ui->mLabelTitle->setText(APPNAME);
+    m_ui->mLabelVersion->setText(QString(tr("version: %1")).arg(APPVER));
+
+    // substitute occurence of %1 with address of the website
+    m_ui->mLabelDescription->setText(m_ui->mLabelDescription->text().arg(APPWWW));
+    if( parent )
+    {
+        move(parent->pos());
+    }
 }
 
 AboutBox::~AboutBox()

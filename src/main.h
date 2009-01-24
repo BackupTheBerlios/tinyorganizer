@@ -7,5 +7,6 @@ extern const QString APPNAME;
 extern const QString APPVENDOR;
 extern const QString APPDOMAIN;
 extern const QString APPVER;
+extern const QString APPWWW;
 
 #endif // MAIN_H

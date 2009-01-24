@@ -16,9 +16,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "main.h"
+#include "aboutbox.h"
+#include "settingsmanager.h"
+#include "settingsdialog.h"
 
 #include <QMessageBox>
-#include "settingsmanager.h"
+#include <QCloseEvent>
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -54,7 +57,7 @@ void MainWindow::setupTrayIcon()
 
 MainWindow::~MainWindow()
 {
-
+    SettingsManager::getSingleton().saveWindow(this);
     if( trayIcon )
     {
         trayIcon->setVisible(false);
@@ -74,9 +77,17 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::closeEvent(QCloseEvent *)
+void MainWindow::closeEvent(QCloseEvent *e)
 {
-    SettingsManager::getSingleton().saveWindow(this);
+    if( !SettingsManager::getSingleton().getValue("ExitOnClose").value<bool>() )
+    {
+        setVisible(false);
+        e->ignore();
+    }
+    else
+    {
+        e->accept();
+    }
 }
 
 void MainWindow::on_actionShow_Hide_triggered()
@@ -86,7 +97,7 @@ void MainWindow::on_actionShow_Hide_triggered()
 
 void MainWindow::on_actionExit_triggered()
 {
-    close();
+    qApp->exit(0);
 }
 
 void MainWindow::on_actionOpen_triggered()
@@ -110,13 +121,22 @@ void MainWindow::on_actionExport_triggered()
 
 void MainWindow::on_actionAbout_TinyOrganizer_triggered()
 {
-    QString title = QString(tr("TinyOrganizer (%1)").arg(APPVER));
-    QMessageBox::about(this, title, tr("Bla bla bla bla bal bla balba sda dsa ds qwd daszczscnlqd acsdas ds asd ads ad as das aaaaaaaaaaaaa dasda"));
+    AboutBox ab(this);
+    ab.exec();
 }
 
 void MainWindow::on_actionAbout_Qt_triggered()
 {
     QMessageBox::aboutQt(this, tr("About Qt"));
+}
+
+void MainWindow::on_action_Settings_triggered()
+{
+    SettingsDialog sd(this);
+    if( sd.exec() == QDialog::Accepted )
+    {
+        sd.saveValues();
+    }
 }
 
 void MainWindow::on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason)
@@ -148,26 +168,24 @@ void MainWindow::setVisible(bool visible)
     {
         m_ui->actionShow_Hide->setText(tr("&Show"));
     }
-
-//    if( !visible )
-//    {
-//        saveWindowPosition();
-//    }
-//
     QMainWindow::setVisible(visible);
-//
-//    if( visible )
-//    {
-//        restoreWindowPosition();
-//    }
 }
 
-void MainWindow::saveWindowPosition()
+bool MainWindow::event(QEvent * e)
 {
-    pointPrevPosition = pos();
-}
-
-void MainWindow::restoreWindowPosition()
-{
-    move(pointPrevPosition);
+    if( e->type() == QEvent::WindowStateChange )
+    {
+        if( SettingsManager::getSingleton().getValue("MinimizeToTray").value<bool>() )
+        {
+            if( windowState() == Qt::WindowMinimized )
+            {
+                setVisible(false);
+                e->ignore();
+            }
+        }
+    }
+    else
+    {
+        QMainWindow::event(e);
+    }
 }
