@@ -1,4 +1,4 @@
 TEMPLATE = subdirs
 SUBDIRS += src
 
-DEFINES += QT_NO_DEBUG_OUTPUT
+

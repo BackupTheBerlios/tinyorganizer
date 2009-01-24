@@ -12,6 +12,7 @@ set(SRCS
     schedulewidget.cpp
     mainwindow.cpp
     main.cpp
+    settingsmanager.cpp
     )
 
 set(MOC_HDRS 
@@ -35,6 +36,8 @@ include( ${QT_USE_FILE} )
 QT4_ADD_RESOURCES(RCS_SRCS ${RCS})
 QT4_WRAP_UI(UI_HDRS ${UIS})
 QT4_WRAP_CPP(MOC_SRCS ${MOC_HDRS})
+
+add_definitions(-DQT_NO_DEBUG_OUTPUT)
  
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
  

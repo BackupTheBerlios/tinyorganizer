@@ -74,7 +74,7 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::closeEvent(QCloseEvent * e)
+void MainWindow::closeEvent(QCloseEvent *)
 {
     SettingsManager::getSingleton().saveWindow(this);
 }

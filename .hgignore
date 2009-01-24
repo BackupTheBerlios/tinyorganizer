@@ -10,6 +10,7 @@ Makefile*
 syntax: regexp
 ^src/ui_(.)*$
 ^src/moc_(.)*$
+^src/qrc_(.)*$
 ^src/(.)*.cpp[.].*
 ^src/(.)*.pro[.].*
 ^TinyOrganizer$

@@ -213,8 +213,8 @@ void ScheduleWidget::refreshCalendarWidget(int year, int month)
 
 void ScheduleWidget::refreshEventListForDate(QDate date)
 {
-        mEventsModel.setEvents(EventManager::getSingleton().getEventsForDate(date));
-        m_ui->tableEvents->resizeColumnsToContents();
+    mEventsModel.setEvents(EventManager::getSingleton().getEventsForDate(date));
+    m_ui->tableEvents->resizeColumnsToContents();
     m_ui->tableEvents->horizontalHeader()->setStretchLastSection(true);
 }
 

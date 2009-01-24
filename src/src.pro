@@ -1,5 +1,8 @@
 TEMPLATE = app
 TARGET = ../TinyOrganizer
+
+#DEFINES += QT_NO_DEBUG_OUTPUT
+
 QT += core \
     gui \
     xml \
