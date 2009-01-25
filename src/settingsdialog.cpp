@@ -1,5 +1,6 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
+#include "settingsmanager.h"
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
@@ -13,6 +14,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     {
         move(parent->pos());
     }
+
+    setupValues();
 }
 
 SettingsDialog::~SettingsDialog()
@@ -33,4 +36,12 @@ void SettingsDialog::changeEvent(QEvent *e)
 
 void SettingsDialog::saveValues()
 {
+    SettingsManager::getSingleton().setValue("MinimizeToTray", m_ui->checkBoxMinimizeToTray->isChecked());
+    SettingsManager::getSingleton().setValue("MinimizeOnClose", m_ui->checkBoxCloseMinimizes->isChecked());
+}
+
+void SettingsDialog::setupValues()
+{
+    m_ui->checkBoxMinimizeToTray->setChecked(SettingsManager::getSingleton().getValue("MinimizeToTray").value<bool>());
+    m_ui->checkBoxCloseMinimizes->setChecked(SettingsManager::getSingleton().getValue("MinimizeOnClose").value<bool>());
 }

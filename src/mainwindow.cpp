@@ -43,9 +43,8 @@ void MainWindow::setupTrayIcon()
 {
     if( QSystemTrayIcon::isSystemTrayAvailable() )
     {
-        QIcon icon(":/gfx/icons/calendar.png");
         trayIcon = new QSystemTrayIcon();
-        trayIcon->setIcon(icon);
+        trayIcon->setIcon(windowIcon());
         trayIcon->setVisible(true);
         connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(on_trayIcon_activated(QSystemTrayIcon::ActivationReason)));
 
@@ -79,7 +78,7 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::closeEvent(QCloseEvent *e)
 {
-    if( !SettingsManager::getSingleton().getValue("ExitOnClose").value<bool>() )
+    if( SettingsManager::getSingleton().getValue("MinimizeOnClose").value<bool>() )
     {
         setVisible(false);
         e->ignore();
@@ -163,10 +162,12 @@ void MainWindow::setVisible(bool visible)
     if( visible )
     {
         m_ui->actionShow_Hide->setText(tr("&Hide"));
+        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/minus.png"));
     }
     else
     {
         m_ui->actionShow_Hide->setText(tr("&Show"));
+         m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
     }
     QMainWindow::setVisible(visible);
 }
@@ -183,9 +184,10 @@ bool MainWindow::event(QEvent * e)
                 e->ignore();
             }
         }
+        return true;
     }
     else
     {
-        QMainWindow::event(e);
+        return QMainWindow::event(e);
     }
 }

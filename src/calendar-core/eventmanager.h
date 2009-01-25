@@ -19,6 +19,7 @@
 
 #include <QList>
 #include <QSet>
+#include <QMap>
 #include <QDate>
 
 #include "singleton.h"
@@ -62,7 +63,9 @@ private:
         QString generateId();
 private:
 	QList<Event*> mEvents;
+        QMap<QDate, QList<Event*> > mRegularEvents;
         QSet<QString> mUsedIds;
+
 
 };
 

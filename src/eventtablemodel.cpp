@@ -98,7 +98,6 @@ QVariant EventTableModel::headerData(int section, Qt::Orientation orientation, i
 	}
 	else
 	{
-//		return QAbstractTableModel::headerData(section, orientation, role);
 		return QVariant();
 	}
 }

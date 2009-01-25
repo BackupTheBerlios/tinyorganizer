@@ -20,6 +20,9 @@ protected:
     virtual void changeEvent(QEvent *e);
 
 private:
+    void setupValues();
+
+private:
     Ui::SettingsDialog *m_ui;
 };
 

@@ -22,10 +22,14 @@ private:
     SettingsManager(const SettingsManager &);
     SettingsManager & operator=(const SettingsManager &);
 
+    void fillCurrentValues();
     void fillDefaultValues();
+    bool containsValue(const QString & key) const;
+    void saveCurrentValues();
 
 private:
     QSettings mSettings;
+    QMap<QString, QVariant> mCurrentValues;
     QMap<QString, QVariant> mDefaultValues;
 };
 

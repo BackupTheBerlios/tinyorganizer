@@ -18,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="tinyorganizer.qrc">
-    <normaloff>:/gfx/icons/calendar.png</normaloff>:/gfx/icons/calendar.png</iconset>
+    <normaloff>:/gfx/icons/gfx/appointment.png</normaloff>:/gfx/icons/gfx/appointment.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">
@@ -149,6 +149,10 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/open.png</normaloff>:/gfx/icons/gfx/open.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Open...</string>
    </property>
@@ -179,6 +183,10 @@
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/exit.png</normaloff>:/gfx/icons/gfx/exit.png</iconset>
+   </property>
    <property name="text">
     <string>E&amp;xit</string>
    </property>
@@ -190,6 +198,10 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/save.png</normaloff>:/gfx/icons/gfx/save.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Save</string>
    </property>
@@ -198,21 +210,37 @@
    </property>
   </action>
   <action name="actionAbout_TinyOrganizer">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/about.png</normaloff>:/gfx/icons/gfx/about.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;About...</string>
    </property>
   </action>
   <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/qt.png</normaloff>:/gfx/icons/gfx/qt.png</iconset>
+   </property>
    <property name="text">
     <string>About &amp;Qt...</string>
    </property>
   </action>
   <action name="actionShow_Hide">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/plus.png</normaloff>:/gfx/icons/gfx/plus.png</iconset>
+   </property>
    <property name="text">
     <string>Show/Hide</string>
    </property>
   </action>
   <action name="action_Settings">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/settings.png</normaloff>:/gfx/icons/gfx/settings.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Settings...</string>
    </property>

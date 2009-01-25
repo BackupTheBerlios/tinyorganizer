@@ -1,7 +1,15 @@
 <RCC>
     <qresource prefix="/gfx/icons" >
-        <file alias="booklet.png" >gfx/booklet.png</file>
-        <file alias="calendar.png" >gfx/calendar.png</file>
-        <file alias="todo.png" >gfx/todo.png</file>
+        <file>gfx/appointment.png</file>
+        <file>gfx/exit.png</file>
+        <file>gfx/new.png</file>
+        <file>gfx/remove.png</file>
+        <file>gfx/save.png</file>
+        <file>gfx/settings.png</file>
+        <file>gfx/about.png</file>
+        <file>gfx/qt.png</file>
+        <file>gfx/open.png</file>
+        <file>gfx/minus.png</file>
+        <file>gfx/plus.png</file>
     </qresource>
 </RCC>

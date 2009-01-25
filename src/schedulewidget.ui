@@ -85,11 +85,19 @@
    </item>
   </layout>
   <action name="actionAddEvent">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/new.png</normaloff>:/gfx/icons/gfx/new.png</iconset>
+   </property>
    <property name="text">
     <string>Add event</string>
    </property>
   </action>
   <action name="actionDelete_event">
+   <property name="icon">
+    <iconset resource="tinyorganizer.qrc">
+     <normaloff>:/gfx/icons/gfx/remove.png</normaloff>:/gfx/icons/gfx/remove.png</iconset>
+   </property>
    <property name="text">
     <string>Delete event</string>
    </property>
@@ -105,7 +113,9 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="tinyorganizer.qrc"/>
+ </resources>
  <connections/>
  <slots>
   <slot>dateChanged(QDate)</slot>
