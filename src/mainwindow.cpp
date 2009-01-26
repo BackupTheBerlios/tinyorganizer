@@ -37,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent) :
     m_ui->scheduleWidget->setFocus();
 
     SettingsManager::getSingleton().restoreWindow(this);
+
+    connect(this, SIGNAL(hideRequested()), SLOT(on_hideRequested()), Qt::QueuedConnection);
+//    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), SLOT(on_trayIcon_activated(QSystemTrayIcon::ActivationReason)));
 }
 
 void MainWindow::setupTrayIcon()
@@ -70,6 +73,17 @@ void MainWindow::changeEvent(QEvent *e)
     switch (e->type()) {
     case QEvent::LanguageChange:
         m_ui->retranslateUi(this);
+        break;
+    case QEvent::WindowStateChange:
+        if( SettingsManager::getSingleton()
+            .getValue("MinimizeToTray").value<bool>() )
+        {
+            if( isMinimized() )
+            {
+                emit hideRequested();
+                e->ignore();
+            }
+        }
         break;
     default:
         break;
@@ -142,14 +156,13 @@ void MainWindow::on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason)
 {
     if( reason == QSystemTrayIcon::Trigger)
     {
-        if( isHidden() )
+        bool hidden = isHidden();
+        if( isHidden() && isMinimized() )
         {
-            setVisible(true);
+            showNormal();
         }
-        else
-        {
-            setVisible(false);
-        }
+        setVisible(hidden);
+
     }
     else if( reason == QSystemTrayIcon::Context )
     {
@@ -169,25 +182,16 @@ void MainWindow::setVisible(bool visible)
         m_ui->actionShow_Hide->setText(tr("&Show"));
          m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
     }
+
     QMainWindow::setVisible(visible);
+    if( visible )
+    {
+        activateWindow();
+    }
 }
 
-bool MainWindow::event(QEvent * e)
+
+void MainWindow::on_hideRequested()
 {
-    if( e->type() == QEvent::WindowStateChange )
-    {
-        if( SettingsManager::getSingleton().getValue("MinimizeToTray").value<bool>() )
-        {
-            if( windowState() == Qt::WindowMinimized )
-            {
-                setVisible(false);
-                e->ignore();
-            }
-        }
-        return true;
-    }
-    else
-    {
-        return QMainWindow::event(e);
-    }
+    setVisible(false);
 }

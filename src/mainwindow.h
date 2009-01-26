@@ -36,7 +36,12 @@ public:
 protected:
     virtual void changeEvent(QEvent *e);
     virtual void closeEvent(QCloseEvent * e);
-    bool event(QEvent * e);
+
+signals:
+    void hideRequested();
+
+private slots:
+    void on_hideRequested();
 
 private:
     void setupTrayIcon();
