@@ -14,6 +14,7 @@ set(SRCS
     mainwindow.cpp
     main.cpp
     settingsmanager.cpp
+    settingsdialog.cpp
     )
 
 set(MOC_HDRS 
@@ -21,6 +22,7 @@ set(MOC_HDRS
     aboutbox.h
     schedulewidget.h
     mainwindow.h
+    settingsdialog.h
     )
  
 set(UIS
@@ -28,6 +30,7 @@ set(UIS
     aboutbox.ui
     schedulewidget.ui
     mainwindow.ui
+    settingsdialog.ui
     )
 
 set(RCS

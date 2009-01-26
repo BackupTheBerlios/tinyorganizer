@@ -127,7 +127,7 @@ QVariant SettingsManager::getValue(const QString & key) const
 
 void SettingsManager::setValue(const QString & key, const QVariant & value)
 {
-    qDebug() << "[setValue]";
+    qDebug() << "[setValue]" << key << "-->" << value.toString();
 
     mCurrentValues[key] = value;
 

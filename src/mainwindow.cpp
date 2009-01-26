@@ -37,9 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_ui->scheduleWidget->setFocus();
 
     SettingsManager::getSingleton().restoreWindow(this);
-
-    connect(this, SIGNAL(hideRequested()), SLOT(on_hideRequested()), Qt::QueuedConnection);
-//    connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), SLOT(on_trayIcon_activated(QSystemTrayIcon::ActivationReason)));
+    connect(this, SIGNAL(hideRequested()), SLOT(hide()), Qt::QueuedConnection);
 }
 
 void MainWindow::setupTrayIcon()
@@ -49,7 +47,9 @@ void MainWindow::setupTrayIcon()
         trayIcon = new QSystemTrayIcon();
         trayIcon->setIcon(windowIcon());
         trayIcon->setVisible(true);
-        connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(on_trayIcon_activated(QSystemTrayIcon::ActivationReason)));
+        trayIcon->setToolTip(QDate::currentDate().toString(Qt::SystemLocaleLongDate));
+        connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                this, SLOT(on_trayIcon_activated(QSystemTrayIcon::ActivationReason)));
 
         menuTrayPopup.addAction(m_ui->actionShow_Hide);
         menuTrayPopup.addAction(m_ui->actionExit);
@@ -182,7 +182,6 @@ void MainWindow::setVisible(bool visible)
         m_ui->actionShow_Hide->setText(tr("&Show"));
          m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
     }
-
     QMainWindow::setVisible(visible);
     if( visible )
     {
