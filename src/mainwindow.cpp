@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_ui->scheduleWidget->setFocus();
 
     SettingsManager::getSingleton().restoreWindow(this);
+    pointPrevPosition = pos();
+
     connect(this, SIGNAL(hideRequested()), SLOT(hide()), Qt::QueuedConnection);
 }
 
@@ -174,23 +176,19 @@ void MainWindow::setVisible(bool visible)
 {
     if( visible )
     {
+//        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/minus.png"));
         m_ui->actionShow_Hide->setText(tr("&Hide"));
-        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/minus.png"));
     }
     else
     {
+//        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
         m_ui->actionShow_Hide->setText(tr("&Show"));
-         m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
     }
+
     QMainWindow::setVisible(visible);
+
     if( visible )
     {
         activateWindow();
     }
-}
-
-
-void MainWindow::on_hideRequested()
-{
-    setVisible(false);
 }

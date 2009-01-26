@@ -31,7 +31,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     virtual ~MainWindow();
 
-    void setVisible(bool visible);
+    virtual void setVisible(bool visible);
 
 protected:
     virtual void changeEvent(QEvent *e);
@@ -39,9 +39,6 @@ protected:
 
 signals:
     void hideRequested();
-
-private slots:
-    void on_hideRequested();
 
 private:
     void setupTrayIcon();
