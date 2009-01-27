@@ -6,7 +6,6 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 add_subdirectory(src)
 
-
 # configure CPack
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "tinyorganizer")
 SET(CPACK_PACKAGE_VENDOR "Dariusz Gadomski <dgadomski@gmail.com>")
@@ -32,10 +31,12 @@ ENDIF(WIN32 AND NOT UNIX)
 
 # configure cpack deb generator
 if( UNIX )
+    set(CPACK_GENERATOR "DEB")
     set(CPACK_DEBIAN_PACKAGE_NAME "tinyorganizer")
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>= 2.3.1-6), libgcc1 (>= 1:3.4.2-12)")
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libqt4-gui (>= 4.3.0), libqt4-network (>= 4.3.0), libc6 (>= 2.3.1-6), libgcc1 (>= 1:3.4.2-12)")
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Dariusz Gadomski <dgadomski@gmail.com>")
     set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Bla bla bla bla")
     set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
+    set(CPACK_DEBIAN_PACKAGE_SECTION "utils")
 endif( UNIX )
 include(CPack)
