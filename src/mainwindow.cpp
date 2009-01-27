@@ -103,6 +103,18 @@ void MainWindow::closeEvent(QCloseEvent *e)
     }
 }
 
+void MainWindow::keyPressEvent(QKeyEvent * e)
+{
+    if( e->key() == Qt::Key_Escape )
+    {
+        setVisible(false);
+    }
+    else
+    {
+        QMainWindow::keyPressEvent(e);
+    }
+}
+
 void MainWindow::on_actionShow_Hide_triggered()
 {
     setVisible(!isVisible());
