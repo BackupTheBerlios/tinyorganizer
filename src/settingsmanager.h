@@ -10,8 +10,8 @@ class SettingsManager: public TinyOrganizer::Singleton<SettingsManager>
 {
     friend class TinyOrganizer::Singleton<SettingsManager>;
 public:
-    bool saveWindow(QMainWindow * window, const QString & title = "");
-    bool restoreWindow(QMainWindow * window, const QString & title = "") const;
+    bool saveWindow(QWidget * window, const QString & title = "");
+    bool restoreWindow(QWidget * window, const QString & title = "") const;
 
     QVariant getValue(const QString & key) const;
     void setValue(const QString & key, const QVariant & value);

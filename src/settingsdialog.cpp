@@ -10,16 +10,14 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
     m_ui->buttonBox->setFocus();
 
-    if( parent )
-    {
-        move(parent->pos());
-    }
-
     setupValues();
+
+    SettingsManager::getSingleton().restoreWindow(this);
 }
 
 SettingsDialog::~SettingsDialog()
 {
+    SettingsManager::getSingleton().saveWindow(this);
     delete m_ui;
 }
 

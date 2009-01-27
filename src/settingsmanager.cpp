@@ -47,7 +47,7 @@ void SettingsManager::saveCurrentValues()
     qDebug() << "~[saveCurrentValues]";
 }
 
-bool SettingsManager::saveWindow(QMainWindow * window, const QString & title)
+bool SettingsManager::saveWindow(QWidget * window, const QString & title)
 {
     qDebug() << "[saveWindow]";
     qDebug() << "saving window: " << window->windowTitle();
@@ -68,7 +68,7 @@ bool SettingsManager::saveWindow(QMainWindow * window, const QString & title)
     return true;
 }
 
-bool SettingsManager::restoreWindow(QMainWindow * window, const QString & title) const
+bool SettingsManager::restoreWindow(QWidget * window, const QString & title) const
 {
     qDebug() << "[restoreWindow]";
     qDebug() << "restoring window: " << window->windowTitle();

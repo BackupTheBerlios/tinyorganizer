@@ -16,6 +16,7 @@
 #include "aboutbox.h"
 #include "ui_aboutbox.h"
 #include "main.h"
+#include "settingsmanager.h"
 
 AboutBox::AboutBox(QWidget *parent) :
     QDialog(parent),
@@ -30,14 +31,13 @@ AboutBox::AboutBox(QWidget *parent) :
 
     // substitute occurence of %1 with address of the website
     m_ui->mLabelDescription->setText(m_ui->mLabelDescription->text().arg(APPWWW));
-    if( parent )
-    {
-        move(parent->pos());
-    }
+
+    SettingsManager::getSingleton().restoreWindow(this);
 }
 
 AboutBox::~AboutBox()
 {
+    SettingsManager::getSingleton().saveWindow(this);
     delete m_ui;
 }
 

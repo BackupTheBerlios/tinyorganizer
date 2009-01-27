@@ -184,7 +184,10 @@ namespace TinyOrganizer
         QList<Event*> eventsToSave;
 
         // copy all recurrent events
-        std::copy(mEvents.begin(), mEvents.end(), eventsToSave.end());
+        foreach( Event * e, mEvents )
+        {
+            eventsToSave.append(e);
+        }
 
         // copy all regular events
         QList<QList<Event*> > values = mRegularEvents.values();

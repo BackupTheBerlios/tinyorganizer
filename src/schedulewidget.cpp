@@ -22,7 +22,7 @@
 
 #include <QCalendarWidget>
 #include <QtGui/QMenu>
-
+#include <QMessageBox>
 #include <QDebug>
 #include <QFile>
 #include <QHeaderView>
@@ -231,26 +231,32 @@ void ScheduleWidget::on_calendarWidget_clicked(QDate date)
 
 void ScheduleWidget::on_actionDelete_event_triggered()
 {
-    QModelIndexList selectedIndices = m_ui->tableEvents->selectionModel()->selectedIndexes();
-    QModelIndex index;
-    QList<int> rows;
-    for(int i=0; i<selectedIndices.size(); ++i)
+    if( QMessageBox::question(this, tr("Confirm deletion"),
+                              tr("Do you really want to delete this event?"),
+                              QMessageBox::Yes|QMessageBox::No)
+        == QMessageBox::Ok )
     {
-        index = selectedIndices[i];
-        int row = index.row();
-        if( !rows.contains(row) )
+        QModelIndexList selectedIndices = m_ui->tableEvents->selectionModel()->selectedIndexes();
+        QModelIndex index;
+        QList<int> rows;
+        for(int i=0; i<selectedIndices.size(); ++i)
         {
-            rows.append(row);
+            index = selectedIndices[i];
+            int row = index.row();
+            if( !rows.contains(row) )
+            {
+                rows.append(row);
+            }
         }
-    }
 
-    int rowToDelete = 0;
-    foreach(rowToDelete, rows)
-    {
-        mEventsModel.removeEventFromRow(rowToDelete);
-    }
+        int rowToDelete = 0;
+        foreach(rowToDelete, rows)
+        {
+            mEventsModel.removeEventFromRow(rowToDelete);
+        }
 
-    refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
+        refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
+    }
 }
 
 void ScheduleWidget::on_actionDelete_all_events_triggered()

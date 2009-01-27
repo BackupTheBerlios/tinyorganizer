@@ -53,11 +53,11 @@ QVariant EventTableModel::data(const QModelIndex & index, int role) const
 	{
 		if( column == 0 )
 		{
-			return QVariant(mEvents[row]->startDateTime().time());
+                        return QVariant(mEvents[row]->startDateTime().time().toString("h:mm"));
 		}
 		else if( column == 1 )
 		{
-			return QVariant(mEvents[row]->endDateTime().time());
+                        return QVariant(mEvents[row]->endDateTime().time().toString("h:mm"));
 		}
 		else if( column == 2 )
 		{
