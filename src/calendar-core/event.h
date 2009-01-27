@@ -26,9 +26,6 @@
 
 namespace TinyOrganizer {
 
-/*
- *
- */
 class Recurrence;
 
 class Event {

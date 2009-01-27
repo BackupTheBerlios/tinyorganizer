@@ -36,6 +36,7 @@ public:
 protected:
     virtual void changeEvent(QEvent *e);
     virtual void closeEvent(QCloseEvent * e);
+    virtual void keyPressEvent(QKeyEvent * e);
 
 signals:
     void hideRequested();

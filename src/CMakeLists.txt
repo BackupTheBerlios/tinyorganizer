@@ -49,6 +49,11 @@ include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_D
  
 add_executable(tinyorganizer ${SRCS} ${MOC_SRCS} ${RCS_SRCS} ${UI_HDRS})
  
-install(TARGETS tinyorganizer DESTINATION bin)
+install(TARGETS tinyorganizer 
+        DESTINATION bin 
+        PERMISSIONS 
+        OWNER_READ OWNER_WRITE OWNER_EXECUTE
+        GROUP_READ GROUP_EXECUTE
+        WORLD_READ WORLD_EXECUTE)
  
 target_link_libraries(tinyorganizer ${QT_LIBRARIES} QtXml QtNetwork)

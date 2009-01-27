@@ -234,7 +234,7 @@ void ScheduleWidget::on_actionDelete_event_triggered()
     if( QMessageBox::question(this, tr("Confirm deletion"),
                               tr("Do you really want to delete this event?"),
                               QMessageBox::Yes|QMessageBox::No)
-        == QMessageBox::Ok )
+        == QMessageBox::Yes )
     {
         QModelIndexList selectedIndices = m_ui->tableEvents->selectionModel()->selectedIndexes();
         QModelIndex index;
@@ -261,5 +261,11 @@ void ScheduleWidget::on_actionDelete_event_triggered()
 
 void ScheduleWidget::on_actionDelete_all_events_triggered()
 {
-    mEventsModel.removeAllEvents();
+    if( QMessageBox::question(this, tr("Confirm deletion"),
+                              tr("Do you really want to delete all events on %1?").arg(m_ui->calendarWidget->selectedDate().toString()),
+                              QMessageBox::Yes|QMessageBox::No)
+        == QMessageBox::Yes )
+    {
+        mEventsModel.removeAllEvents();
+    }
 }
