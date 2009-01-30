@@ -24,10 +24,10 @@ AboutBox::AboutBox(QWidget *parent) :
 {
     m_ui->setupUi(this);
 
-    setWindowTitle(QString(tr("About %1")).arg(APPNAME));
+    setWindowTitle(tr("About %1").arg(APPNAME));
 
     m_ui->mLabelTitle->setText(APPNAME);
-    m_ui->mLabelVersion->setText(QString(tr("version: %1")).arg(APPVER));
+    m_ui->mLabelVersion->setText(tr("version: %1").arg(APPVER));
 
     // substitute occurence of %1 with address of the website
     m_ui->mLabelDescription->setText(m_ui->mLabelDescription->text().arg(APPWWW));

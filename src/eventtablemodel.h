@@ -27,16 +27,17 @@ class Event;
 
 class EventTableModel: public QAbstractTableModel
 {
+    Q_OBJECT
 public:
-	EventTableModel();
-	virtual ~EventTableModel();
+        EventTableModel();
+        virtual ~EventTableModel();
 
-	int rowCount(const QModelIndex & parent = QModelIndex() ) const;
-	int columnCount(const QModelIndex & parent = QModelIndex() ) const;
-	QVariant data ( const QModelIndex & index, int role = Qt::DisplayRole ) const;
-	QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
+        int rowCount(const QModelIndex & parent = QModelIndex() ) const;
+        int columnCount(const QModelIndex & parent = QModelIndex() ) const;
+        QVariant data ( const QModelIndex & index, int role = Qt::DisplayRole ) const;
+        QVariant headerData ( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const;
 
-	void setEvents(const QList<Event*> events);
+        void setEvents(const QList<Event*> events);
 
         void removeEventFromRow(int row);
         void removeAllEvents();
@@ -44,7 +45,7 @@ public:
 
 
 private:
-	QList<Event*> mEvents;
+        QList<Event*> mEvents;
 };
 
 }

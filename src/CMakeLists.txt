@@ -15,11 +15,13 @@ set(SRCS
     main.cpp
     settingsmanager.cpp
     settingsdialog.cpp
+    launcher.cpp
     )
 
 set(MOC_HDRS 
     addevent.h
     aboutbox.h
+    eventtablemodel.h
     schedulewidget.h
     mainwindow.h
     settingsdialog.h

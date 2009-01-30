@@ -1,5 +1,5 @@
+#include "launcher.h"
 #include "mainwindow.h"
-#include "addevent.h"
 
 #include <QtGui>
 #include <QApplication>
@@ -17,8 +17,11 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion(APPVER);
     QCoreApplication::setOrganizationName(APPVENDOR);
     QCoreApplication::setOrganizationDomain(APPDOMAIN);
-    MainWindow mw;
-//    mw.show();
+
+//    MainWindow mw;
+    Launcher l;
+    l.start();
+
     return a.exec();
 }
 

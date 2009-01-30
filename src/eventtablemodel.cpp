@@ -66,10 +66,11 @@ QVariant EventTableModel::data(const QModelIndex & index, int role) const
 	}
 	else if( role == Qt::ToolTipRole )
 	{
-		Event * e = mEvents[row];
-                QString s = tr("%1 - %2").arg(e->startDateTime().time().toString("hh:mm")).arg(e->endDateTime().time().toString("hh:mm"));
-                s += "\n" + tr("Summary: %1").arg(e->summary());
-                s += "\n" + tr("Location: %1").arg(e->location());
+        Event * e = mEvents[row];
+        QString s = tr("%1 - %2").arg(e->startDateTime().time()
+            .toString("hh:mm")).arg(e->endDateTime().time().toString("hh:mm"));
+        s += "\n" + tr("Summary: %1").arg(e->summary());
+        s += "\n" + tr("Location: %1").arg(e->location());
 		return QVariant(s);
 	}
 	return QVariant();

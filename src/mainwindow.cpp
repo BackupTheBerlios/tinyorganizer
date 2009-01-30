@@ -16,6 +16,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "main.h"
+#include "launcher.h"
 #include "aboutbox.h"
 #include "settingsmanager.h"
 #include "settingsdialog.h"
@@ -188,12 +189,12 @@ void MainWindow::setVisible(bool visible)
 {
     if( visible )
     {
-//        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/minus.png"));
+        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/minus.png"));
         m_ui->actionShow_Hide->setText(tr("&Hide"));
     }
     else
     {
-//        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
+        m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
         m_ui->actionShow_Hide->setText(tr("&Show"));
     }
 

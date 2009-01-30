@@ -1,10 +1,7 @@
 TEMPLATE = app
 TARGET = ../TinyOrganizer
-
-!debug {
-    DEFINES += QT_NO_DEBUG_OUTPUT QT_NO_WARNING_OUTPUT
-}
-
+!debug:DEFINES += QT_NO_DEBUG_OUTPUT \
+    QT_NO_WARNING_OUTPUT
 QT += core \
     gui \
     xml \
@@ -23,7 +20,8 @@ HEADERS += calendar-core/eventstore.h \
     aboutbox.h \
     settingsmanager.h \
     main.h \
-    settingsdialog.h
+    settingsdialog.h \
+    launcher.h
 SOURCES += calendar-core/eventstore.cpp \
     eventtablemodel.cpp \
     calendar-core/recurrence.cpp \
@@ -37,7 +35,8 @@ SOURCES += calendar-core/eventstore.cpp \
     rsswidget.cpp \
     aboutbox.cpp \
     settingsmanager.cpp \
-    settingsdialog.cpp
+    settingsdialog.cpp \
+    launcher.cpp
 
 # ../../../qtcreator-0.9.2/bin/gdbmacros/gdbmacros.cpp
 FORMS += aboutbox.ui \
@@ -51,4 +50,5 @@ FORMS += aboutbox.ui \
     aboutbox.ui \
     settingsdialog.ui
 RESOURCES += tinyorganizer.qrc
-TRANSLATIONS += en_EN.ts
+TRANSLATIONS += i18n/en_EN.ts \
+                i18n/pl_PL.ts

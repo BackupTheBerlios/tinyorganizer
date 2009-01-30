@@ -30,6 +30,7 @@ public:
 
     QVariant getValue(const QString & key) const;
     void setValue(const QString & key, const QVariant & value);
+    bool containsValue(const QString & key) const;
 
 private:
     SettingsManager();
@@ -39,7 +40,6 @@ private:
 
     void fillCurrentValues();
     void fillDefaultValues();
-    bool containsValue(const QString & key) const;
     void saveCurrentValues();
 
 private:

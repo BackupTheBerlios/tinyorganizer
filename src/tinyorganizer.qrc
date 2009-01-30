@@ -9,7 +9,11 @@
         <file>gfx/about.png</file>
         <file>gfx/qt.png</file>
         <file>gfx/open.png</file>
-        <file>gfx/minus.png</file>
-        <file>gfx/plus.png</file>
+        <file alias="minus.png" >gfx/minus.png</file>
+        <file alias="plus.png" >gfx/plus.png</file>
+    </qresource>
+    <qresource prefix="/i18n" >
+        <file alias="en_EN.qm" >i18n/en_EN.qm</file>
+        <file alias="pl_PL.qm" >i18n/pl_PL.qm</file>
     </qresource>
 </RCC>

@@ -56,6 +56,7 @@ void ScheduleWidget::changeEvent(QEvent *e)
     switch (e->type()) {
     case QEvent::LanguageChange:
         m_ui->retranslateUi(this);
+        m_ui->tableEvents->resizeColumnsToContents();
         break;
     default:
         break;
@@ -267,5 +268,6 @@ void ScheduleWidget::on_actionDelete_all_events_triggered()
         == QMessageBox::Yes )
     {
         mEventsModel.removeAllEvents();
+        refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
     }
 }
