@@ -10,6 +10,11 @@ namespace Ui {
     class AddEvent;
 }
 
+namespace TinyOrganizer
+{
+    class Event;
+}
+
 class AddEvent : public QDialog {
     Q_OBJECT
     Q_DISABLE_COPY(AddEvent)
@@ -18,6 +23,7 @@ public:
     virtual ~AddEvent();
 
     void setCurrentDate(QDateTime dateTime);
+    void setEvent(TinyOrganizer::Event * e);
 
     QDateTime startDate() const;
     QDateTime endDate() const;
@@ -33,6 +39,7 @@ protected:
 private slots:
     void on_comboRecurrence_currentIndexChanged(int);
     void on_comboRemind_currentIndexChanged(int);
+    void on_editEventStart_dateTimeChanged(const QDateTime & datetime);
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
 

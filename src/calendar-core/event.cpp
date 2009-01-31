@@ -22,7 +22,7 @@
 namespace TinyOrganizer {
 
 Event::Event():
-	mAllDay(false)
+        mAllDay(false)
 {
 
 }
@@ -63,95 +63,95 @@ QString Event::id() const
 
 void Event::setStartDateTime(const QDateTime & startTime)
 {
-	mStartDateTime = startTime;
+        mStartDateTime = startTime;
 }
 
 QDateTime Event::startDateTime() const
 {
-	return mStartDateTime;
+        return mStartDateTime;
 }
 
 void Event::setEndDateTime(const QDateTime & endTime)
 {
-	mEndDateTime = endTime;
+        mEndDateTime = endTime;
 }
 
 QDateTime Event::endDateTime() const
 {
-	return mEndDateTime;
+        return mEndDateTime;
 }
 
 void Event::setSummary(const QString & summary)
 {
-	mSummary = summary;
+        mSummary = summary;
 }
 
 QString Event::summary() const
 {
-	return mSummary;
+        return mSummary;
 }
 
 void Event::setLocation(const QString & location)
 {
-	mLocation = location;
+        mLocation = location;
 }
 
 QString Event::location() const
 {
-	return mLocation;
+        return mLocation;
 }
 
 void Event::setRecurrence(const Recurrence & recurrence)
 {
-	mRecurrence = recurrence;
-	mRecurrence.setStartDateTime(mStartDateTime);
+        mRecurrence = recurrence;
+        mRecurrence.setStartDateTime(mStartDateTime);
 }
 
 void Event::setAllDay(bool allDay)
 {
-	mAllDay = allDay;
+        mAllDay = allDay;
 }
 
 bool Event::allDay() const
 {
-	return mAllDay;
+        return mAllDay;
 }
 
 const Recurrence & Event::recurrence() const
 {
-	return mRecurrence;
+        return mRecurrence;
 }
 
 bool Event::recursOn(const QDate & date) const
 {
-	if( date == mStartDateTime.date() )
-	{
-		return true;
-	}
-	else if( date > mStartDateTime.date() )
-	{
-		if( mRecurrence.recurrenceType() != Recurrence::None )
-		{
-			return mRecurrence.recursOn(date);
-		}
-	}
-	return false;
+        if( date == mStartDateTime.date() )
+        {
+                return true;
+        }
+        else if( date > mStartDateTime.date() )
+        {
+                if( mRecurrence.recurrenceType() != Recurrence::None )
+                {
+                        return mRecurrence.recursOn(date);
+                }
+        }
+        return false;
 }
 
 bool Event::RecursOn(const QDateTime & dateTime) const
 {
-	if( dateTime == mStartDateTime )
-	{
-		return true;
-	}
-	else
-	{
-		if( mRecurrence.recurrenceType() != Recurrence::None )
-		{
-			return mRecurrence.recursOn(dateTime);
-		}
-	}
-	return false;
+        if( dateTime == mStartDateTime )
+        {
+                return true;
+        }
+        else
+        {
+                if( mRecurrence.recurrenceType() != Recurrence::None )
+                {
+                        return mRecurrence.recursOn(dateTime);
+                }
+        }
+        return false;
 }
 
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>399</width>
-    <height>445</height>
+    <height>452</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -426,6 +426,9 @@
            <widget class="QDateTimeEdit" name="editRemindOther">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy-MM-dd HH:mm</string>
             </property>
            </widget>
           </item>

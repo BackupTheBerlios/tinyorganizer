@@ -26,60 +26,60 @@ namespace TinyOrganizer
 
 EventTableModel::EventTableModel()
 {
-	// TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
 }
 
 EventTableModel::~EventTableModel()
 {
-	// TODO Auto-generated destructor stub
+        // TODO Auto-generated destructor stub
 }
 
 int EventTableModel::rowCount(const QModelIndex &) const
 {
-	return mEvents.count();
+        return mEvents.count();
 }
 
 int EventTableModel::columnCount(const QModelIndex &) const
 {
-	return 3;
+        return 3;
 }
 
 QVariant EventTableModel::data(const QModelIndex & index, int role) const
 {
 //	qDebug() << "EventTableModel::data()";
-	int row = index.row();
-	int column = index.column();
-	if( role ==  Qt::DisplayRole )
-	{
-		if( column == 0 )
-		{
+        int row = index.row();
+        int column = index.column();
+        if( role ==  Qt::DisplayRole )
+        {
+                if( column == 0 )
+                {
                         return QVariant(mEvents[row]->startDateTime().time().toString("h:mm"));
-		}
-		else if( column == 1 )
-		{
+                }
+                else if( column == 1 )
+                {
                         return QVariant(mEvents[row]->endDateTime().time().toString("h:mm"));
-		}
-		else if( column == 2 )
-		{
-			return QVariant(mEvents[row]->summary());
-		}
-	}
-	else if( role == Qt::ToolTipRole )
-	{
+                }
+                else if( column == 2 )
+                {
+                        return QVariant(mEvents[row]->summary());
+                }
+        }
+        else if( role == Qt::ToolTipRole )
+        {
         Event * e = mEvents[row];
         QString s = tr("%1 - %2").arg(e->startDateTime().time()
             .toString("hh:mm")).arg(e->endDateTime().time().toString("hh:mm"));
         s += "\n" + tr("Summary: %1").arg(e->summary());
         s += "\n" + tr("Location: %1").arg(e->location());
-		return QVariant(s);
-	}
-	return QVariant();
+                return QVariant(s);
+        }
+        return QVariant();
 }
 
 QVariant EventTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-	if( orientation == Qt::Horizontal)
-	{
+        if( orientation == Qt::Horizontal)
+        {
                 if( role == Qt::DisplayRole )
             {
                     if( section == 0 )
@@ -95,18 +95,23 @@ QVariant EventTableModel::headerData(int section, Qt::Orientation orientation, i
                         return QVariant(tr("Summary"));
                     }
                 }
-		return QVariant();
-	}
-	else
-	{
-		return QVariant();
-	}
+                return QVariant();
+        }
+        else
+        {
+                return QVariant();
+        }
 }
 
 void EventTableModel::setEvents(const QList<Event*> events)
 {
-	mEvents = events;
-	emit layoutChanged();
+        mEvents = events;
+        emit layoutChanged();
+}
+
+Event * EventTableModel::getEventForRow(int row) const
+{
+    return mEvents[row];
 }
 
 void EventTableModel::removeAllEvents()

@@ -8,11 +8,13 @@ src/release/*
 Makefile*
 
 syntax: regexp
+^src/(.)*.o$
 ^src/ui_(.)*$
 ^src/moc_(.)*$
 ^src/qrc_(.)*$
 ^src/(.)*.cpp[.].*
 ^src/(.)*.pro[.].*
 ^TinyOrganizer$
+^tinyorganizer$
 .orig$
 .user$

@@ -393,17 +393,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AddEvent</name>
     <message>
-        <location filename="../addevent.cpp" line="79"/>
+        <location filename="../addevent.cpp" line="131"/>
         <source>Error: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addevent.cpp" line="95"/>
+        <location filename="../addevent.cpp" line="147"/>
         <source>event description empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addevent.cpp" line="105"/>
+        <location filename="../addevent.cpp" line="157"/>
         <source>end date before start date.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -423,7 +423,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addevent.ui" line="84"/>
+        <location filename="../addevent.ui" line="431"/>
         <source>yyyy-MM-dd HH:mm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -558,17 +558,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addevent.ui" line="435"/>
+        <location filename="../addevent.ui" line="438"/>
         <source>Remind with:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addevent.ui" line="450"/>
+        <location filename="../addevent.ui" line="453"/>
         <source>Tray baloon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../addevent.ui" line="460"/>
+        <location filename="../addevent.ui" line="463"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
@@ -702,17 +702,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ScheduleWidget</name>
     <message>
-        <location filename="../schedulewidget.cpp" line="264"/>
+        <location filename="../schedulewidget.cpp" line="312"/>
         <source>Confirm deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../schedulewidget.cpp" line="235"/>
+        <location filename="../schedulewidget.cpp" line="283"/>
         <source>Do you really want to delete this event?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../schedulewidget.cpp" line="265"/>
+        <location filename="../schedulewidget.cpp" line="313"/>
         <source>Do you really want to delete all events on %1?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -759,6 +759,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../schedulewidget.ui" line="142"/>
         <source>Ctrl+T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="147"/>
+        <source>Edit event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="150"/>
+        <source>Ctrl+E</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

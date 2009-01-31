@@ -16,6 +16,7 @@
 #ifndef SCHEDULEWIDGET_H
 #define SCHEDULEWIDGET_H
 
+#include "addevent.h"
 #include "eventtablemodel.h"
 
 #include <QtGui/QWidget>
@@ -23,6 +24,11 @@
 
 namespace Ui {
     class ScheduleWidget;
+}
+
+namespace TinyOrganizer
+{
+    class Event;
 }
 
 class ScheduleWidget : public QWidget {
@@ -45,6 +51,7 @@ private:
     void refreshEventListForDate(QDate date);
     void setupTableEvents();
     void setupTableForToday();
+    TinyOrganizer::Event * getEventFromDialog(AddEvent & aed);
 
 private:
     Ui::ScheduleWidget *m_ui;
@@ -55,6 +62,8 @@ private slots:
     void on_tableEvents_customContextMenuRequested(QPoint pos);
     void on_calendarWidget_currentPageChanged(int, int);
     void on_calendarWidget_clicked(QDate);
+    void on_calendarWidget_selectionChanged();
+    void on_actionEdit_event_triggered();
     void on_actionGo_to_today_triggered();
     void on_actionAddEvent_triggered();
     void on_actionDelete_event_triggered();

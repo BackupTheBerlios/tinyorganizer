@@ -85,6 +85,7 @@ void ScheduleWidget::on_tableEvents_customContextMenuRequested(QPoint pos)
     menu.addAction(m_ui->actionAddEvent);
     if( m_ui->tableEvents->rowAt(pos.y()) != -1 )
     {
+        menu.addAction(m_ui->actionEdit_event);
         menu.addAction(m_ui->actionDelete_event);
     }
 
@@ -95,6 +96,40 @@ void ScheduleWidget::on_tableEvents_customContextMenuRequested(QPoint pos)
 
     menu.addSeparator();
     menu.exec(m_ui->tableEvents->mapToGlobal(pos));
+}
+
+void ScheduleWidget::on_actionEdit_event_triggered()
+{
+    QModelIndexList selectedIndices = m_ui->tableEvents->selectionModel()->selectedIndexes();
+    QModelIndex index;
+    QList<int> rows;
+    for(int i=0; i<selectedIndices.size(); ++i)
+    {
+        index = selectedIndices[i];
+        int row = index.row();
+        if( !rows.contains(row) )
+        {
+            rows.append(row);
+        }
+    }
+    if( rows.size() == 1 )
+    {
+        Event * eSrc = mEventsModel.getEventForRow(rows[0]);
+        AddEvent aed(this);
+        aed.setWindowTitle(tr("Edit event"));
+        aed.setEvent(eSrc);
+        Event * eDst = getEventFromDialog(aed);
+        if( eDst )
+        {
+            EventManager::getSingleton().removeEvent(eSrc);
+            EventManager::getSingleton().addEvent(eDst);
+
+            // refresh calendar
+            refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
+            // refresh event list
+            refreshEventListForDate(m_ui->calendarWidget->selectedDate());
+        }
+    }
 }
 
 void ScheduleWidget::on_actionGo_to_today_triggered()
@@ -130,46 +165,53 @@ void ScheduleWidget::performAddEvent()
         QTime currentTime(QTime::currentTime().hour(), QTime::currentTime().minute() + 1);
         currentDate.setTime(currentTime);
         aed.setCurrentDate(currentDate);
-        if( aed.exec() == QDialog::Accepted )
+
+        Event * e = getEventFromDialog(aed);
+
+        if( e )
         {
-                // colect data from dialog to create an event
-                QDateTime startDate;
-                QDateTime endDate;
-                Event * e = new Event;
-                e->setStartDateTime(aed.startDate());
-                e->setEndDateTime(aed.endDate());
-                e->setSummary(aed.description());
-                e->setLocation(aed.location());
+            EventManager::getSingleton().addEvent(e);
 
-                if( aed.allDayEvent() )
-                {
-                        e->setAllDay(true);
-                }
-
-                if( aed.recurrenceType() != Recurrence::None )
-                {
-                        QDateTime recurrenceUntil(aed.repeatUntil());
-                        Recurrence recurrence;
-                        recurrence.setRecurrenceType(aed.recurrenceType());
-                        recurrence.setUntilDate(recurrenceUntil);
-                        e->setRecurrence(recurrence);
-                }
-
-                EventManager::getSingleton().addEvent(e);
-
-                // refresh calendar
-                refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
-                // refresh event list
-                refreshEventListForDate(m_ui->calendarWidget->selectedDate());
+            // refresh calendar
+            refreshCalendarWidget(m_ui->calendarWidget->yearShown(), m_ui->calendarWidget->monthShown());
+            // refresh event list
+            refreshEventListForDate(m_ui->calendarWidget->selectedDate());
         }
+}
+
+Event * ScheduleWidget::getEventFromDialog(AddEvent & aed)
+{
+    if( aed.exec() == QDialog::Accepted )
+    {
+        // colect data from dialog to create an event
+        QDateTime startDate;
+        QDateTime endDate;
+        Event * e = new Event;
+        e->setStartDateTime(aed.startDate());
+        e->setEndDateTime(aed.endDate());
+        e->setSummary(aed.description());
+        e->setLocation(aed.location());
+
+        if( aed.allDayEvent() )
+        {
+            e->setAllDay(true);
+        }
+
+        if( aed.recurrenceType() != Recurrence::None )
+        {
+            QDateTime recurrenceUntil(aed.repeatUntil());
+            Recurrence recurrence;
+            recurrence.setRecurrenceType(aed.recurrenceType());
+            recurrence.setUntilDate(recurrenceUntil);
+            e->setRecurrence(recurrence);
+        }
+        return e;
+    }
+    return 0;
 }
 
 void ScheduleWidget::performDeleteEvent()
 {
-        if( m_ui->tableEvents->selectionModel()->selectedRows().count() )
-        {
-
-        }
 }
 
 void ScheduleWidget::eventActivated(const QModelIndex & modelIndex)
@@ -228,6 +270,11 @@ void ScheduleWidget::on_calendarWidget_clicked(QDate date)
 {
     qDebug() << "dateChanged: " << date.toString();
     refreshEventListForDate(date);
+}
+
+void ScheduleWidget::on_calendarWidget_selectionChanged()
+{
+    on_calendarWidget_clicked(m_ui->calendarWidget->selectedDate());
 }
 
 void ScheduleWidget::on_actionDelete_event_triggered()

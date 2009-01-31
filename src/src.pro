@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = ../TinyOrganizer
+TARGET = ../tinyorganizer
 !debug:DEFINES += QT_NO_DEBUG_OUTPUT \
     QT_NO_WARNING_OUTPUT
 QT += core \

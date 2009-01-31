@@ -1,4 +1,5 @@
 #include "addevent.h"
+#include "calendar-core/event.h"
 #include "ui_addevent.h"
 
 using namespace TinyOrganizer;
@@ -44,28 +45,79 @@ void AddEvent::on_comboRecurrence_currentIndexChanged(int index)
     }
 }
 
+void AddEvent::setEvent(Event * e)
+{
+    m_ui->checkAllDay->setChecked(e->allDay());
+    if( m_ui->checkAllDay->isChecked() )
+    {
+        m_ui->editAllDay->setDate(e->startDateTime().date());
+    }
+    else
+    {
+        m_ui->editEventStart->setDateTime(e->startDateTime());
+        m_ui->editEventEnd->setDateTime(e->endDateTime());
+    }
+
+    m_ui->editDescription->setPlainText(e->summary());
+    m_ui->editLocatioon->setPlainText(e->location());
+
+    if( e->recurrence().recurrenceType() != Recurrence::None )
+    {
+        Recurrence r(e->recurrence());
+        if( r.recurrenceType() == Recurrence::Minutely )
+        {
+            m_ui->comboRecurrence->setCurrentIndex(1);
+        }
+        else if( r.recurrenceType() == Recurrence::Hourly )
+        {
+            m_ui->comboRecurrence->setCurrentIndex(2);
+        }
+        else if( r.recurrenceType() == Recurrence::Daily )
+        {
+            m_ui->comboRecurrence->setCurrentIndex(3);
+        }
+        else if( r.recurrenceType() == Recurrence::Weekly )
+        {
+            m_ui->comboRecurrence->setCurrentIndex(4);
+        }
+        else if( r.recurrenceType() == Recurrence::Monthly )
+        {
+            m_ui->comboRecurrence->setCurrentIndex(5);
+        }
+        else if( r.recurrenceType() == Recurrence::Yearly )
+        {
+            m_ui->comboRecurrence->setCurrentIndex(6);
+        }
+    }
+}
+
+void AddEvent::on_editEventStart_dateTimeChanged(const QDateTime & datetime)
+{
+    m_ui->editRemindOther->setDateTime(datetime);
+}
+
 void AddEvent::on_buttonBox_accepted()
 {
     if( !checkDates() )
     {
         return;
     }
-    
+
     if( !checkDescription() )
     {
         return;
     }
-    
+
     if( !this->checkRecurrence() )
     {
         return;
     }
-    
+
     if( !this->checkReminder())
     {
         return;
     }
-    
+
     accept();
 }
 
@@ -123,7 +175,7 @@ bool AddEvent::allDayEvent() const
 Recurrence::RecurrenceType AddEvent::recurrenceType() const
 {
     int index = m_ui->comboRecurrence->currentIndex();
-    
+
     if( index != 0 )
     {
         if( index == 1 )

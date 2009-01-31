@@ -39,6 +39,7 @@ public:
 
         void setEvents(const QList<Event*> events);
 
+        Event * getEventForRow(int row) const;
         void removeEventFromRow(int row);
         void removeAllEvents();
 

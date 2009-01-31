@@ -30,43 +30,43 @@ class Recurrence;
 
 class Event {
 public:
-	Event();
+        Event();
         virtual ~Event();
 
         void setId(const QString& id);
         QString id() const;
 
-	void setAllDay(bool allDay);
-	bool allDay() const;
+        void setAllDay(bool allDay);
+        bool allDay() const;
 
-	void setStartDateTime(const QDateTime& startTime);
-	QDateTime startDateTime() const;
+        void setStartDateTime(const QDateTime& startTime);
+        QDateTime startDateTime() const;
 
-	void setEndDateTime(const QDateTime& endTime);
-	QDateTime endDateTime() const;
+        void setEndDateTime(const QDateTime& endTime);
+        QDateTime endDateTime() const;
 
-	void setSummary(const QString& summary);
-	QString summary() const;
+        void setSummary(const QString& summary);
+        QString summary() const;
 
-	void setLocation(const QString& location);
-	QString location() const;
+        void setLocation(const QString& location);
+        QString location() const;
 
-	void setRecurrence(const Recurrence& recurrence);
+        void setRecurrence(const Recurrence& recurrence);
         const Recurrence & recurrence() const;
 
-	bool recursOn(const QDate & date) const;
+        bool recursOn(const QDate & date) const;
     bool RecursOn(const QDateTime & dateTime) const;
 
     bool isValid() const;
 
 private:
-	bool mAllDay;
+        bool mAllDay;
         QString mId;
-	QString mLocation;
-	QString mSummary;
-	QDateTime mStartDateTime;
-	QDateTime mEndDateTime;
-	Recurrence mRecurrence;
+        QString mLocation;
+        QString mSummary;
+        QDateTime mStartDateTime;
+        QDateTime mEndDateTime;
+        Recurrence mRecurrence;
 };
 
 }
