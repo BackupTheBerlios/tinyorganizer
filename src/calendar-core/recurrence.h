@@ -10,7 +10,6 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
- *   Created on: 2008-09-21
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
@@ -26,77 +25,77 @@ namespace TinyOrganizer
 
 class Recurrence {
 public:
-	enum RecurrenceType
-	{
-		None = 0x00,
-		Minutely = 0x01,
-		Hourly = 0x02,
-		Daily = 0x04,
-		Weekly = 0x08,
-		Monthly = 0x10,
-		Yearly = 0x11
-	};
+        enum RecurrenceType
+        {
+                None = 0x00,
+                Minutely = 0x01,
+                Hourly = 0x02,
+                Daily = 0x04,
+                Weekly = 0x08,
+                Monthly = 0x10,
+                Yearly = 0x11
+        };
 
-	Recurrence();
-	virtual ~Recurrence();
+        Recurrence();
+        virtual ~Recurrence();
 
-	QDateTime startDateTime() const;
-	void setStartDateTime(QDateTime stDate);
+        QDateTime startDateTime() const;
+        void setStartDateTime(QDateTime stDate);
 
-	void addMinute(int minute);
-	void removeMinute(int minute);
-	QList<int> minute() const;
+        void addMinute(int minute);
+        void removeMinute(int minute);
+        QList<int> minute() const;
 
-	void addHour(int hour);
-	void removeHour(int hour);
-	QList<int> hour() const;
+        void addHour(int hour);
+        void removeHour(int hour);
+        QList<int> hour() const;
 
-	void addDay(int day);
-	void removeDay(int day);
-	QList<int> day() const;
+        void addDay(int day);
+        void removeDay(int day);
+        QList<int> day() const;
 
-	void addWeekday(int weekday);
-	void removeWeekday(int weekday);
-	QList<int> weekday() const;
+        void addWeekday(int weekday);
+        void removeWeekday(int weekday);
+        QList<int> weekday() const;
 
-	void addMonth(int month);
-	void removeMonth(int month);
-	QList<int> month() const;
+        void addMonth(int month);
+        void removeMonth(int month);
+        QList<int> month() const;
 
-	void addYear(int year);
-	void removeYear(int year);
-	QList<int> year() const;
+        void addYear(int year);
+        void removeYear(int year);
+        QList<int> year() const;
 
-	void setUntilDate(const QDateTime& untilDate);
-	QDateTime untilDate() const;
+        void setUntilDate(const QDateTime& untilDate);
+        QDateTime untilDate() const;
 
-	bool recursOn(const QDateTime& recurrDate) const;
-	bool recursOn(const QDate& recurrDate) const;
+        bool recursOn(const QDateTime& recurrDate) const;
+        bool recursOn(const QDate& recurrDate) const;
 
-	int TimesRecursOn(const QDate& recurrDate) const;
+        int TimesRecursOn(const QDate& recurrDate) const;
 
-	void setRecurrenceType(RecurrenceType recurrenceType);
-	RecurrenceType recurrenceType() const;
+        void setRecurrenceType(RecurrenceType recurrenceType);
+        RecurrenceType recurrenceType() const;
 private:
-	bool matchesMonth(const QDateTime& recurrDate) const;
-	bool matchesDay(const QDateTime& recurrDate) const;
-	bool matchesWeekday(const QDateTime& recurrDate) const;
-	bool matchesHour(const QDateTime& recurrDate) const;
-	bool matchesMinute(const QDateTime& recurrDate) const;
-	bool matchesYear(const QDateTime& recurrDate) const;
+        bool matchesMonth(const QDateTime& recurrDate) const;
+        bool matchesDay(const QDateTime& recurrDate) const;
+        bool matchesWeekday(const QDateTime& recurrDate) const;
+        bool matchesHour(const QDateTime& recurrDate) const;
+        bool matchesMinute(const QDateTime& recurrDate) const;
+        bool matchesYear(const QDateTime& recurrDate) const;
 private:
-	QList<int> mMinutes;
-	QList<int> mHours;
-	QList<int> mDays;
-	QList<int> mWeekdays;
-	QList<int> mMonths;
-	QList<int> mYears;
+        QList<int> mMinutes;
+        QList<int> mHours;
+        QList<int> mDays;
+        QList<int> mWeekdays;
+        QList<int> mMonths;
+        QList<int> mYears;
 
-	QDateTime mStartDate;
+        QDateTime mStartDate;
 
-	QDateTime mUntilDate;
+        QDateTime mUntilDate;
 
-	RecurrenceType mRecurrenceType;
+        RecurrenceType mRecurrenceType;
 };
 
 }

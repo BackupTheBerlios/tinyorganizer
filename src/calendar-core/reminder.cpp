@@ -10,7 +10,6 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
- *   Created on: 2008-09-11
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
@@ -19,12 +18,12 @@
 namespace TinyOrganizer {
 
 Reminder::Reminder() {
-	// TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
 
 }
 
 Reminder::~Reminder() {
-	// TODO Auto-generated destructor stub
+        // TODO Auto-generated destructor stub
 }
 
 }

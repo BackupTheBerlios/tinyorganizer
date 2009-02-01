@@ -10,7 +10,6 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
- *   Created on: 2008-09-11
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
@@ -33,36 +32,36 @@ class Event;
 
 class EventManager: public Singleton<EventManager>
 {
-	friend class Singleton<EventManager>;
+        friend class Singleton<EventManager>;
 public:
-	virtual ~EventManager();
+        virtual ~EventManager();
 
-	void addEvent(Event *e);
-	void removeEvent(Event *e);
+        void addEvent(Event *e);
+        void removeEvent(Event *e);
 
-	QList<Event*> getEvents() const;
+        QList<Event*> getEvents() const;
 
-	QList<Event*> getEventsForMonth(int year, int month) const;
-	QList<Event*> getEventsBetweenDates(const QDate & dateFirst, const QDate & dateLast) const;
-	QList<Event*> getEventsForDate(const QDate & date) const;
+        QList<Event*> getEventsForMonth(int year, int month) const;
+        QList<Event*> getEventsBetweenDates(const QDate & dateFirst, const QDate & dateLast) const;
+        QList<Event*> getEventsForDate(const QDate & date) const;
 
-	bool saveEventsToFile(const QString & filename);
-	bool saveEventsToHome();
+        bool saveEventsToFile(const QString & filename);
+        bool saveEventsToHome();
 
-	bool loadEventsFromFile(const QString & filename);
-	bool loadEventsFromHome();
+        bool loadEventsFromFile(const QString & filename);
+        bool loadEventsFromHome();
 
         QString getSettingsDir() const;
         QString getEventsFilePath() const;
 
 private:
-	EventManager();
-	EventManager(const EventManager &);
-	const EventManager & operator =(const EventManager &);
+        EventManager();
+        EventManager(const EventManager &);
+        const EventManager & operator =(const EventManager &);
 
         QString generateId();
 private:
-	QList<Event*> mEvents;
+        QList<Event*> mEvents;
         QMap<QDate, QList<Event*> > mRegularEvents;
         QSet<QString> mUsedIds;
 

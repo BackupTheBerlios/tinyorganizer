@@ -10,7 +10,6 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
- *   Created on: 2008-09-21
  *   Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
@@ -20,283 +19,283 @@ namespace TinyOrganizer
 {
 
 Recurrence::Recurrence():
-	mRecurrenceType(None)
+        mRecurrenceType(None)
 {
 }
 
 Recurrence::~Recurrence()
 {
-	// TODO Auto-generated destructor stub
+        // TODO Auto-generated destructor stub
 }
 
 void Recurrence::setUntilDate(const QDateTime & untilDate)
 {
-	mUntilDate = untilDate;
+        mUntilDate = untilDate;
 }
 
 void Recurrence::setStartDateTime(QDateTime stDate)
 {
-	mStartDate = stDate;
+        mStartDate = stDate;
 }
 
 QDateTime Recurrence::startDateTime() const
 {
-	return mStartDate;
+        return mStartDate;
 }
 
 void Recurrence::addMinute(int minute)
 {
-	if( !mMinutes.contains(minute) )
-		mMinutes.append(minute);
+        if( !mMinutes.contains(minute) )
+                mMinutes.append(minute);
 }
 
 void Recurrence::removeMinute(int minute)
 {
-	mMinutes.removeOne(minute);
+        mMinutes.removeOne(minute);
 }
 
 QList<int> Recurrence::minute() const
 {
-	return mMinutes;
+        return mMinutes;
 }
 
 void Recurrence::addHour(int hour)
 {
-	if( !mHours.contains(hour) )
-		mHours.append(hour);
+        if( !mHours.contains(hour) )
+                mHours.append(hour);
 }
 
 void Recurrence::removeHour(int hour)
 {
-	mHours.removeOne(hour);
+        mHours.removeOne(hour);
 }
 
 QList<int> Recurrence::hour() const
 {
-	return mHours;
+        return mHours;
 }
 
 void Recurrence::addDay(int day)
 {
-	mDays.append(day);
+        mDays.append(day);
 }
 
 void Recurrence::removeDay(int day)
 {
-	mDays.removeOne(day);
+        mDays.removeOne(day);
 }
 
 QList<int> Recurrence::day() const
 {
-	return mDays;
+        return mDays;
 }
 
 void Recurrence::addWeekday(int weekday)
 {
-	if( !mWeekdays.contains(weekday) )
-		mWeekdays.append(weekday);
+        if( !mWeekdays.contains(weekday) )
+                mWeekdays.append(weekday);
 }
 
 void Recurrence::removeWeekday(int weekday)
 {
-	mWeekdays.removeOne(weekday);
+        mWeekdays.removeOne(weekday);
 }
 
 QList<int> Recurrence::weekday() const
 {
-	return mWeekdays;
+        return mWeekdays;
 }
 
 void Recurrence::addMonth(int month)
 {
-	if( !mMonths.contains(month) )
-		mMonths.append(month);
+        if( !mMonths.contains(month) )
+                mMonths.append(month);
 }
 
 void Recurrence::removeMonth(int month)
 {
-	mMonths.removeOne(month);
+        mMonths.removeOne(month);
 }
 
 QList<int> Recurrence::month() const
 {
-	return mMonths;
+        return mMonths;
 }
 
 void Recurrence::addYear(int year)
 {
-	if( !mYears.contains(year) )
-		mYears.append(year);
+        if( !mYears.contains(year) )
+                mYears.append(year);
 }
 
 void Recurrence::removeYear(int year)
 {
-	mYears.removeOne(year);
+        mYears.removeOne(year);
 }
 
 QList<int> Recurrence::year() const
 {
-	return mYears;
+        return mYears;
 }
 
 QDateTime Recurrence::untilDate() const
 {
-	return mUntilDate;
+        return mUntilDate;
 }
 
 bool Recurrence::recursOn(const QDateTime & recurrDate) const
 {
-	if( mUntilDate.isValid() )
-	{
-		if( recurrDate > mUntilDate )
-		{
-			return false;
-		}
-	}
+        if( mUntilDate.isValid() )
+        {
+                if( recurrDate > mUntilDate )
+                {
+                        return false;
+                }
+        }
 
-	if( recurrDate < mStartDate )
-	{
-		return false;
-	}
+        if( recurrDate < mStartDate )
+        {
+                return false;
+        }
 
-	if( mRecurrenceType == None )
-	{
-		return false;
-	}
-	else if( mRecurrenceType == Hourly )
-	{
-		return (matchesHour(recurrDate) && matchesMinute(recurrDate));
-	}
-	else if( mRecurrenceType == Minutely )
-	{
-		return matchesMinute(recurrDate);
-	}
-	else
-	{
-		if( recursOn(recurrDate.date()) )
-		{
-			if( matchesHour(recurrDate) && matchesMinute(recurrDate) )
-			{
-				return true;
-			}
-		}
-	}
-	return false;
+        if( mRecurrenceType == None )
+        {
+                return false;
+        }
+        else if( mRecurrenceType == Hourly )
+        {
+                return (matchesHour(recurrDate) && matchesMinute(recurrDate));
+        }
+        else if( mRecurrenceType == Minutely )
+        {
+                return matchesMinute(recurrDate);
+        }
+        else
+        {
+                if( recursOn(recurrDate.date()) )
+                {
+                        if( matchesHour(recurrDate) && matchesMinute(recurrDate) )
+                        {
+                                return true;
+                        }
+                }
+        }
+        return false;
 }
 
 bool Recurrence::recursOn(const QDate & recurrDate) const
 {
-	if( mUntilDate.isValid() )
-	{
-		if( recurrDate > mUntilDate.date() )
-		{
-			return false;
-		}
-	}
+        if( mUntilDate.isValid() )
+        {
+                if( recurrDate > mUntilDate.date() )
+                {
+                        return false;
+                }
+        }
 
-	if( recurrDate < mStartDate.date() )
-	{
-		return false;
-	}
+        if( recurrDate < mStartDate.date() )
+        {
+                return false;
+        }
 
-	if( mRecurrenceType != None )
-	{
-		QDateTime dateTime(recurrDate);
+        if( mRecurrenceType != None )
+        {
+                QDateTime dateTime(recurrDate);
 
-		if( mRecurrenceType == Yearly )
-		{
-			return matchesMonth(dateTime) && matchesDay(dateTime);
-		}
-		else if( mRecurrenceType == Monthly )
-		{
-			return matchesDay(dateTime);
-		}
-		else if( mRecurrenceType == Weekly )
-		{
-			return matchesWeekday(dateTime);
-		}
-		else if( mRecurrenceType == Daily )
-		{
-			return true;
-		}
-	}
-	return false;
+                if( mRecurrenceType == Yearly )
+                {
+                        return matchesMonth(dateTime) && matchesDay(dateTime);
+                }
+                else if( mRecurrenceType == Monthly )
+                {
+                        return matchesDay(dateTime);
+                }
+                else if( mRecurrenceType == Weekly )
+                {
+                        return matchesWeekday(dateTime);
+                }
+                else if( mRecurrenceType == Daily )
+                {
+                        return true;
+                }
+        }
+        return false;
 }
 
 int Recurrence::TimesRecursOn(const QDate & recurrDate) const
 {
-	recurrDate.isValid();
-	return false;
+        recurrDate.isValid();
+        return false;
 }
 
 bool Recurrence::matchesMonth(const QDateTime & recurrDate) const
 {
-	int month = recurrDate.date().month();
-	if( mMonths.contains(month))
-		return true;
-	if( month == mStartDate.date().month() )
-		return true;
-	return false;
+        int month = recurrDate.date().month();
+        if( mMonths.contains(month))
+                return true;
+        if( month == mStartDate.date().month() )
+                return true;
+        return false;
 }
 
 bool Recurrence::matchesDay(const QDateTime & recurrDate) const
 {
-	int day = recurrDate.date().day();
-	if( mDays.contains(day))
-		return true;
-	if( day == mStartDate.date().day() )
-		return true;
-	return false;
+        int day = recurrDate.date().day();
+        if( mDays.contains(day))
+                return true;
+        if( day == mStartDate.date().day() )
+                return true;
+        return false;
 }
 
 bool Recurrence::matchesWeekday(const QDateTime & recurrDate) const
 {
-	int weekday = recurrDate.date().dayOfWeek();
-	if( mWeekdays.contains(weekday))
-		return true;
-	if( weekday == mStartDate.date().dayOfWeek() )
-		return true;
-	return false;
+        int weekday = recurrDate.date().dayOfWeek();
+        if( mWeekdays.contains(weekday))
+                return true;
+        if( weekday == mStartDate.date().dayOfWeek() )
+                return true;
+        return false;
 }
 
 bool Recurrence::matchesHour(const QDateTime & recurrDate) const
 {
-	int hour = recurrDate.time().hour();
-	if( mHours.contains(hour))
-		return true;
-	if( hour == mStartDate.time().hour() )
-		return true;
-	return false;
+        int hour = recurrDate.time().hour();
+        if( mHours.contains(hour))
+                return true;
+        if( hour == mStartDate.time().hour() )
+                return true;
+        return false;
 }
 
 bool Recurrence::matchesMinute(const QDateTime & recurrDate) const
 {
-	int minute = recurrDate.time().minute();
-	if( mMonths.contains(minute))
-		return true;
-	if( minute == mStartDate.time().minute() )
-		return true;
-	return false;
+        int minute = recurrDate.time().minute();
+        if( mMonths.contains(minute))
+                return true;
+        if( minute == mStartDate.time().minute() )
+                return true;
+        return false;
 }
 
 void Recurrence::setRecurrenceType(RecurrenceType recurrenceType)
 {
-	mRecurrenceType = recurrenceType;
+        mRecurrenceType = recurrenceType;
 }
 
 Recurrence::RecurrenceType Recurrence::recurrenceType() const
 {
-	return mRecurrenceType;
+        return mRecurrenceType;
 }
 
 bool Recurrence::matchesYear(const QDateTime & recurrDate) const
 {
-	int month = recurrDate.date().month();
-	if( mMonths.contains(month))
-		return true;
-	if( month == mStartDate.date().month() )
-		return true;
-	return false;
+        int month = recurrDate.date().month();
+        if( mMonths.contains(month))
+                return true;
+        if( month == mStartDate.date().month() )
+                return true;
+        return false;
 }
 
 }

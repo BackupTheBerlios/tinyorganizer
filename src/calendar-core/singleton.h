@@ -10,7 +10,6 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *   GNU General Public License for more details.
  *
- *  Created on: 2008-09-24
  *  Author: Dariusz Gadomski <dgadomski@gmail.com>
  */
 
@@ -25,9 +24,9 @@ class Singleton
 {
 public:
     Singleton() {}
-	virtual ~Singleton() = 0;
+        virtual ~Singleton() = 0;
 
-	static T & getSingleton();
+        static T & getSingleton();
 
 private:
 
@@ -36,14 +35,14 @@ private:
 template<class T>
 T & Singleton<T>::getSingleton()
 {
-	static T instance;
-	return instance;
+        static T instance;
+        return instance;
 }
 
 template<class T>
 Singleton<T>::~Singleton()
 {
-	// dummy Singleton destructor
+        // dummy Singleton destructor
 }
 
 }
