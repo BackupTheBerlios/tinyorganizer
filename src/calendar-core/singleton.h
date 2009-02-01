@@ -27,9 +27,6 @@ public:
         virtual ~Singleton() = 0;
 
         static T & getSingleton();
-
-private:
-
 };
 
 template<class T>

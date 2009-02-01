@@ -20,6 +20,8 @@
 #include "addevent.h"
 #include "ui_schedulewidget.h"
 
+#include <algorithm>
+
 #include <QCalendarWidget>
 #include <QtGui/QMenu>
 #include <QMessageBox>
@@ -223,8 +225,24 @@ void ScheduleWidget::refreshCalendarWidget(int year, int month)
 {
         qDebug() << "calendar page changed: " << year << "/" << month;
         QDate date(year, month, 1);
+        QDate prevMonth = date.addMonths(-1);
+        QDate nextMonth = date.addMonths(1);
 
         QList<Event*> events = EventManager::getSingleton().getEventsForMonth(year, month);
+        // there are some days visible on the calendar from the previous and the next months
+        // it is needed to collect events for that days and mark them if there are events planned on them
+        // collect events for previous month and append them to list
+        QList<Event*> eventsPrev = EventManager::getSingleton().getEventsForMonth(prevMonth.year(), prevMonth.month());
+        foreach( Event * e, eventsPrev )
+        {
+            events.append(e);
+        }
+        // collect events for next month and append them to list
+        QList<Event*> eventsNext = EventManager::getSingleton().getEventsForMonth(nextMonth.year(), nextMonth.month());
+        foreach( Event * e, eventsNext )
+        {
+            events.append(e);
+        }
 
         QTextCharFormat normalCharFormat;
 
@@ -238,17 +256,16 @@ void ScheduleWidget::refreshCalendarWidget(int year, int month)
         QDate end = date.addMonths(1).addDays(7);
         while(start <= end)
         {
+            qDebug() << "checking: " << start.toString();
                 date = start;
                 m_ui->calendarWidget->setDateTextFormat(date, normalCharFormat);
-                QList<Event*>::iterator it = events.begin();
-                QList<Event*>::iterator end = events.end();
-                while( it != end )
+                foreach( Event * e, events )
                 {
-                        if( (*it)->recursOn(date) )
-                        {
-                                m_ui->calendarWidget->setDateTextFormat(date, charFormat);
-                        }
-                        ++it;
+                    if( e->recursOn(date) )
+                    {
+                        qDebug() << "marking: " << start.toString();
+                        m_ui->calendarWidget->setDateTextFormat(date, charFormat);
+                    }
                 }
                 start = date.addDays(1);
         }
