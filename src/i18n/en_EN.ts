@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="en_GB">
-<defaultcodec></defaultcodec>
 <context>
     <name>AboutBox</name>
     <message>
@@ -832,7 +831,13 @@ p, li { white-space: pre-wrap; }
         <location filename="../eventtablemodel.cpp" line="69"/>
         <source>%1 - %2</source>
         <comment>date format in event tooltip</comment>
-        <translation>%1 - %2</translation>
+        <translation type="obsolete">%1 - %2</translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="69"/>
+        <source>%1 - %2</source>
+        <comment>event begin-end format in event tooltip</comment>
+        <translation type="unfinished">%1 - %2</translation>
     </message>
 </context>
 </TS>

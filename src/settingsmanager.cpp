@@ -70,7 +70,7 @@ bool SettingsManager::saveWindow(QWidget * window, const QString & title)
 
     if( title.size() == 0 )
     {
-        windowTitle = window->windowTitle();
+        windowTitle = window->objectName();
     }
 
     setValue(windowTitle + "/position", window->pos());
@@ -91,7 +91,7 @@ bool SettingsManager::restoreWindow(QWidget * window, const QString & title) con
 
     if( title.size() == 0 )
     {
-        windowTitle = window->windowTitle();
+        windowTitle = window->objectName();
     }
 
     if( containsValue(windowTitle + "/position") )
