@@ -6,6 +6,9 @@ src/debug/*
 src/release/*
 *qtc-gdbmacros/*
 Makefile*
+src/gfx/Thumbs.db
+src/TinyOrganizer.exe
+src/object_script.TinyOrganizer.*
 
 syntax: regexp
 ^src/(.)*.o$
@@ -18,3 +21,7 @@ syntax: regexp
 ^tinyorganizer$
 .orig$
 .user$
+glob:src/gfx/Thumbs.db
+glob:src/TinyOrganizer.exe
+glob:src/object_script.TinyOrganizer.Debug
+glob:src/object_script.TinyOrganizer.Release

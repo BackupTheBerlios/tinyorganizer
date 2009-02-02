@@ -14,7 +14,7 @@
    <enum>Qt::NoFocus</enum>
   </property>
   <property name="windowTitle">
-   <string>TinyOrganizer</string>
+   <string>@TinyOrganizer</string>
   </property>
   <property name="windowIcon">
    <iconset resource="tinyorganizer.qrc">
@@ -95,7 +95,7 @@
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Calendar</string>
+        <string>@Calendar</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -113,12 +113,12 @@
      <x>0</x>
      <y>0</y>
      <width>305</width>
-     <height>25</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
     <property name="title">
-     <string>&amp;File</string>
+     <string>@&amp;File</string>
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
@@ -130,14 +130,14 @@
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>&amp;Help</string>
+     <string>@&amp;Help</string>
     </property>
     <addaction name="actionAbout_TinyOrganizer"/>
     <addaction name="actionAbout_Qt"/>
    </widget>
    <widget class="QMenu" name="menu_Options">
     <property name="title">
-     <string>&amp;Options</string>
+     <string>@&amp;Options</string>
     </property>
     <addaction name="action_Settings"/>
    </widget>
@@ -154,7 +154,7 @@
      <normaloff>:/gfx/icons/gfx/open.png</normaloff>:/gfx/icons/gfx/open.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Open...</string>
+    <string>@&amp;Open...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -165,7 +165,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>&amp;Import...</string>
+    <string>@&amp;Import...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+I</string>
@@ -176,7 +176,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>&amp;Export...</string>
+    <string>@&amp;Export...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
@@ -188,7 +188,7 @@
      <normaloff>:/gfx/icons/gfx/exit.png</normaloff>:/gfx/icons/gfx/exit.png</iconset>
    </property>
    <property name="text">
-    <string>E&amp;xit</string>
+    <string>@E&amp;xit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -203,7 +203,7 @@
      <normaloff>:/gfx/icons/gfx/save.png</normaloff>:/gfx/icons/gfx/save.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Save</string>
+    <string>@&amp;Save</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -215,7 +215,7 @@
      <normaloff>:/gfx/icons/gfx/about.png</normaloff>:/gfx/icons/gfx/about.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;About...</string>
+    <string>@&amp;About...</string>
    </property>
   </action>
   <action name="actionAbout_Qt">
@@ -224,7 +224,7 @@
      <normaloff>:/gfx/icons/gfx/qt.png</normaloff>:/gfx/icons/gfx/qt.png</iconset>
    </property>
    <property name="text">
-    <string>About &amp;Qt...</string>
+    <string>@About &amp;Qt...</string>
    </property>
   </action>
   <action name="actionShow_Hide">
@@ -233,7 +233,7 @@
      <normaloff>:/gfx/icons/gfx/plus.png</normaloff>:/gfx/icons/gfx/plus.png</iconset>
    </property>
    <property name="text">
-    <string>Show/Hide</string>
+    <string>@Show/Hide</string>
    </property>
   </action>
   <action name="action_Settings">
@@ -242,7 +242,7 @@
      <normaloff>:/gfx/icons/gfx/settings.png</normaloff>:/gfx/icons/gfx/settings.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Settings...</string>
+    <string>@&amp;Settings...</string>
    </property>
   </action>
  </widget>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Settings</string>
+   <string>@Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -27,7 +27,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>System</string>
+       <string>@System</string>
       </attribute>
       <layout class="QFormLayout" name="formLayout_2">
        <item row="0" column="0">
@@ -36,14 +36,14 @@
        <item row="0" column="1">
         <widget class="QCheckBox" name="checkBoxCloseMinimizes">
          <property name="text">
-          <string>Closing window minimazes the application</string>
+          <string>@Closing window minimazes the application</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
         <widget class="QCheckBox" name="checkBoxMinimizeToTray">
          <property name="text">
-          <string>Minimize to tray</string>
+          <string>@Minimize to tray</string>
          </property>
         </widget>
        </item>
@@ -51,7 +51,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Appearance</string>
+       <string>@Appearance</string>
       </attribute>
      </widget>
     </widget>

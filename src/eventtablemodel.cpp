@@ -66,10 +66,10 @@ QVariant EventTableModel::data(const QModelIndex & index, int role) const
         else if( role == Qt::ToolTipRole )
         {
         Event * e = mEvents[row];
-        QString s = tr("%1 - %2").arg(e->startDateTime().time()
+        QString s = tr("%1 - %2", "event begin-end format in event tooltip").arg(e->startDateTime().time()
             .toString("hh:mm")).arg(e->endDateTime().time().toString("hh:mm"));
-        s += "\n" + tr("Summary: %1").arg(e->summary());
-        s += "\n" + tr("Location: %1").arg(e->location());
+        s += "\n" + tr("@Summary: %1").arg(e->summary());
+        s += "\n" + tr("@Location: %1").arg(e->location());
                 return QVariant(s);
         }
         return QVariant();
@@ -83,15 +83,15 @@ QVariant EventTableModel::headerData(int section, Qt::Orientation orientation, i
             {
                     if( section == 0 )
                     {
-                        return QVariant(tr("Start"));
+                        return QVariant(tr("@Start"));
                     }
                     else if( section == 1)
                     {
-                        return QVariant(tr("End"));
+                        return QVariant(tr("@End"));
                     }
                     else if( section == 2 )
                     {
-                        return QVariant(tr("Summary"));
+                        return QVariant(tr("@Summary"));
                     }
                 }
                 return QVariant();

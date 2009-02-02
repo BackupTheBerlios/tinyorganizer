@@ -118,7 +118,7 @@ void ScheduleWidget::on_actionEdit_event_triggered()
     {
         Event * eSrc = mEventsModel.getEventForRow(rows[0]);
         AddEvent aed(this);
-        aed.setWindowTitle(tr("Edit event"));
+        aed.setWindowTitle(tr("@Edit event"));
         aed.setEvent(eSrc);
         Event * eDst = getEventFromDialog(aed);
         if( eDst )
@@ -296,8 +296,8 @@ void ScheduleWidget::on_calendarWidget_selectionChanged()
 
 void ScheduleWidget::on_actionDelete_event_triggered()
 {
-    if( QMessageBox::question(this, tr("Confirm deletion"),
-                              tr("Do you really want to delete this event?"),
+    if( QMessageBox::question(this, tr("@Confirm deletion"),
+                              tr("@Do you really want to delete this event?"),
                               QMessageBox::Yes|QMessageBox::No)
         == QMessageBox::Yes )
     {
@@ -326,8 +326,8 @@ void ScheduleWidget::on_actionDelete_event_triggered()
 
 void ScheduleWidget::on_actionDelete_all_events_triggered()
 {
-    if( QMessageBox::question(this, tr("Confirm deletion"),
-                              tr("Do you really want to delete all events on %1?").arg(m_ui->calendarWidget->selectedDate().toString()),
+    if( QMessageBox::question(this, tr("@Confirm deletion"),
+                              tr("@Do you really want to delete all events on %1?").arg(m_ui->calendarWidget->selectedDate().toString()),
                               QMessageBox::Yes|QMessageBox::No)
         == QMessageBox::Yes )
     {

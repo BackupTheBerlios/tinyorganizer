@@ -1,32 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1">
+<!DOCTYPE TS><TS version="1.1" language="en_GB">
+<defaultcodec></defaultcodec>
 <context>
     <name>AboutBox</name>
-    <message>
-        <location filename="../aboutbox.cpp" line="27"/>
-        <source>About %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutbox.cpp" line="30"/>
-        <source>version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutbox.ui" line="20"/>
-        <source>About TinyOrganizer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutbox.ui" line="33"/>
-        <source>TinyOrganizer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutbox.ui" line="40"/>
-        <source>version 0.0.0</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../aboutbox.ui" line="53"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -35,7 +11,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TinyOrganizer is distributed under the General Public License Version 2 (GPLv2) which makes it Free Software. &lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The official website of this application is &lt;a href=&quot;%1&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;%1&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../aboutbox.ui" line="83"/>
@@ -382,313 +358,338 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans&apos;; font-size:10pt;&quot;&gt;consider it more useful to permit linking proprietary applications with the&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans&apos;; font-size:10pt;&quot;&gt;library.  If this is what you want to do, use the GNU Lesser General&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans&apos;; font-size:10pt;&quot;&gt;Public License instead of this License.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="33"/>
+        <source>@TinyOrganizer</source>
+        <translation>TinyOrganizer</translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="40"/>
+        <source>@version 0.0.0</source>
+        <translation>version 0.0.0</translation>
     </message>
     <message>
         <location filename="../aboutbox.ui" line="447"/>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
+        <source>@Close</source>
+        <translation>Close</translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.cpp" line="27"/>
+        <source>@About %1</source>
+        <translation>About %1</translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.cpp" line="30"/>
+        <source>@version: %1</source>
+        <translation>@version: %1</translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="20"/>
+        <source>@About TinyOrganizer</source>
+        <translation>About TinyOrganizer</translation>
     </message>
 </context>
 <context>
     <name>AddEvent</name>
     <message>
-        <location filename="../addevent.cpp" line="131"/>
-        <source>Error: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.cpp" line="147"/>
-        <source>event description empty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.cpp" line="157"/>
-        <source>end date before start date.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="24"/>
-        <source>Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="30"/>
-        <source>Event details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="48"/>
-        <source>Event starts:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../addevent.ui" line="431"/>
         <source>yyyy-MM-dd HH:mm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="68"/>
-        <source>Event ends:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="94"/>
-        <source>Description:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="129"/>
-        <source>Location:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="152"/>
-        <source>All day event</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="266"/>
         <source>yyyy-MM-dd</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="24"/>
+        <source>@Event</source>
+        <translation>Event</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="30"/>
+        <source>@Event details</source>
+        <translation>Event details</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="48"/>
+        <source>@Event starts:</source>
+        <translation>Event starts:</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="68"/>
+        <source>@Event ends:</source>
+        <translation>Event ends:</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="94"/>
+        <source>@Description:</source>
+        <translation>Description:</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="152"/>
+        <source>@All day event</source>
+        <translation>All day event</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="182"/>
-        <source>Recurrence</source>
-        <translation type="unfinished"></translation>
+        <source>@Recurrence</source>
+        <translation>Recurrence</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="197"/>
-        <source>Period:</source>
-        <translation type="unfinished"></translation>
+        <source>@Period:</source>
+        <translation>Period:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="208"/>
-        <source>no recurrence</source>
-        <translation type="unfinished"></translation>
+        <source>@no recurrence</source>
+        <translation>no recurrence</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="213"/>
-        <source>every day</source>
-        <translation type="unfinished"></translation>
+        <source>@every day</source>
+        <translation>every day</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="218"/>
-        <source>every week</source>
-        <translation type="unfinished"></translation>
+        <source>@every week</source>
+        <translation>every week</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="223"/>
-        <source>every month</source>
-        <translation type="unfinished"></translation>
+        <source>@every month</source>
+        <translation>every month</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="228"/>
-        <source>every year</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../addevent.ui" line="236"/>
-        <source>Repeat:</source>
-        <translation type="unfinished"></translation>
+        <source>@every year</source>
+        <translation>every year</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="253"/>
-        <source>until</source>
-        <translation type="unfinished"></translation>
+        <source>@until</source>
+        <translation>until</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="289"/>
-        <source>hit count</source>
-        <translation type="unfinished"></translation>
+        <source>@hit count</source>
+        <translation>hit count</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="308"/>
-        <source>always</source>
-        <translation type="unfinished"></translation>
+        <source>@always</source>
+        <translation>always</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="333"/>
-        <source>Reminder</source>
-        <translation type="unfinished"></translation>
+        <source>@Reminder</source>
+        <translation>Reminder</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="348"/>
-        <source>Enable reminder</source>
-        <translation type="unfinished"></translation>
+        <source>@Enable reminder</source>
+        <translation>Enable reminder</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="368"/>
-        <source>Remind time:</source>
-        <translation type="unfinished"></translation>
+        <source>@Remind time:</source>
+        <translation>Remind time:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="385"/>
-        <source>on time</source>
-        <translation type="unfinished"></translation>
+        <source>@on time</source>
+        <translation>on time</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="390"/>
-        <source>5 minutes before</source>
-        <translation type="unfinished"></translation>
+        <source>@5 minutes before</source>
+        <translation>5 minutes before</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="395"/>
-        <source>10 minutes before</source>
-        <translation type="unfinished"></translation>
+        <source>@10 minutes before</source>
+        <translation>10 minutes before</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="400"/>
-        <source>15 minutes before</source>
-        <translation type="unfinished"></translation>
+        <source>@15 minutes before</source>
+        <translation>15 minutes before</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="405"/>
-        <source>30 minutes before</source>
-        <translation type="unfinished"></translation>
+        <source>@30 minutes before</source>
+        <translation>30 minutes before</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="410"/>
-        <source>other</source>
-        <translation type="unfinished"></translation>
+        <source>@other</source>
+        <translation>other</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="418"/>
-        <source>Other:</source>
-        <translation type="unfinished"></translation>
+        <source>@Other:</source>
+        <translation>Other:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="438"/>
-        <source>Remind with:</source>
-        <translation type="unfinished"></translation>
+        <source>@Remind with:</source>
+        <translation>Remind with:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="453"/>
-        <source>Tray baloon</source>
-        <translation type="unfinished"></translation>
+        <source>@Tray baloon</source>
+        <translation>tray balloon</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="463"/>
-        <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <source>@Sound</source>
+        <translation>sound</translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="157"/>
+        <source>@Error: %1</source>
+        <translation>Error: %1</translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="173"/>
+        <source>@event description empty</source>
+        <translation>event description empty</translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="183"/>
+        <source>@end date before start date.</source>
+        <translation>end date before start date</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="14"/>
-        <source>Add event</source>
-        <translation type="unfinished"></translation>
+        <source>@Add event</source>
+        <translation>Add event</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="129"/>
+        <source>@Location:</source>
+        <translation>Location:</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="236"/>
+        <source>@Repeat:</source>
+        <translation>Repeat:</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="158"/>
-        <source>About Qt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="193"/>
-        <source>&amp;Hide</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="198"/>
-        <source>&amp;Show</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="17"/>
-        <source>TinyOrganizer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="98"/>
-        <source>Calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="121"/>
-        <source>&amp;File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="133"/>
-        <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="140"/>
-        <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="157"/>
-        <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="160"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="168"/>
-        <source>&amp;Import...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="171"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="179"/>
-        <source>&amp;Export...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="182"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="191"/>
-        <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="194"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="206"/>
-        <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="209"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="195"/>
+        <source>@&amp;Hide</source>
+        <translation>&amp;Hide</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="202"/>
+        <source>@&amp;Show</source>
+        <translation>&amp;Show</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="98"/>
+        <source>@Calendar</source>
+        <translation>Calendar</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="121"/>
+        <source>@&amp;File</source>
+        <translation>&amp;File</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="133"/>
+        <source>@&amp;Help</source>
+        <translation>&amp;Help</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="140"/>
+        <source>@&amp;Options</source>
+        <translation>&amp;Options</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="157"/>
+        <source>@&amp;Open...</source>
+        <translation>&amp;Open...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="168"/>
+        <source>@&amp;Import...</source>
+        <translation>&amp;Import...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="179"/>
+        <source>@&amp;Export...</source>
+        <translation>&amp;Export...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="191"/>
+        <source>@E&amp;xit</source>
+        <translation>E&amp;xit</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="206"/>
+        <source>@&amp;Save</source>
+        <translation>&amp;Save</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="218"/>
-        <source>&amp;About...</source>
-        <translation type="unfinished"></translation>
+        <source>@&amp;About...</source>
+        <translation>&amp;About...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="227"/>
-        <source>About &amp;Qt...</source>
-        <translation type="unfinished"></translation>
+        <source>@About &amp;Qt...</source>
+        <translation>About &amp;Qt...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="236"/>
-        <source>Show/Hide</source>
-        <translation type="unfinished"></translation>
+        <source>@Show/Hide</source>
+        <translation>Show/Hide</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="245"/>
-        <source>&amp;Settings...</source>
-        <translation type="unfinished"></translation>
+        <source>@&amp;Settings...</source>
+        <translation>&amp;Settings...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="160"/>
+        <source>@About Qt</source>
+        <translation>About Qt</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="17"/>
+        <source>@TinyOrganizer</source>
+        <translation>TinyOrganizer</translation>
     </message>
 </context>
 <context>
@@ -696,141 +697,142 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../rsswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>ScheduleWidget</name>
     <message>
-        <location filename="../schedulewidget.cpp" line="312"/>
-        <source>Confirm deletion</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.cpp" line="283"/>
-        <source>Do you really want to delete this event?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.cpp" line="313"/>
-        <source>Do you really want to delete all events on %1?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../schedulewidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.ui" line="111"/>
-        <source>Add event</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="114"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.ui" line="123"/>
-        <source>Delete event</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="126"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.ui" line="131"/>
-        <source>Delete all events</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="134"/>
         <source>Ctrl+Del</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.ui" line="139"/>
-        <source>Go to &amp;today</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="142"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../schedulewidget.ui" line="147"/>
-        <source>Edit event</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="150"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="111"/>
+        <source>@Add event</source>
+        <translation>Add event</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="123"/>
+        <source>@Delete event</source>
+        <translation>Delete event</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="131"/>
+        <source>@Delete all events</source>
+        <translation>Delete all events</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="139"/>
+        <source>@Go to &amp;today</source>
+        <translation>Go to &amp;today</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="147"/>
+        <source>@Edit event</source>
+        <translation>Edit event</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.cpp" line="329"/>
+        <source>@Confirm deletion</source>
+        <translation>Confirm deletion</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.cpp" line="300"/>
+        <source>@Do you really want to delete this event?</source>
+        <translation>Do you really want to delete this event?</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.cpp" line="330"/>
+        <source>@Do you really want to delete all events on %1?</source>
+        <translation>Do you really want to delete all events on %1?</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <location filename="../settingsdialog.ui" line="14"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <source>@Settings</source>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="30"/>
-        <source>System</source>
-        <translation type="unfinished"></translation>
+        <source>@System</source>
+        <translation>System</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="39"/>
-        <source>Closing window minimazes the application</source>
-        <translation type="unfinished"></translation>
+        <source>@Closing window minimazes the application</source>
+        <translation>Closing window minimizes the application</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="46"/>
-        <source>Minimize to tray</source>
-        <translation type="unfinished"></translation>
+        <source>@Minimize to tray</source>
+        <translation>Minimize to tray</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="54"/>
-        <source>Appearance</source>
-        <translation type="unfinished"></translation>
+        <source>@Appearance</source>
+        <translation>Appearance</translation>
     </message>
 </context>
 <context>
     <name>TinyOrganizer::EventTableModel</name>
     <message>
-        <location filename="../eventtablemodel.cpp" line="70"/>
-        <source>%1 - %2</source>
-        <translation type="unfinished"></translation>
+        <location filename="../eventtablemodel.cpp" line="86"/>
+        <source>@Start</source>
+        <translation>Start</translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="90"/>
+        <source>@End</source>
+        <translation>End</translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="94"/>
+        <source>@Summary</source>
+        <translation>Summary</translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="71"/>
+        <source>@Summary: %1</source>
+        <translation>Summary: %1</translation>
     </message>
     <message>
         <location filename="../eventtablemodel.cpp" line="72"/>
-        <source>Summary: %1</source>
-        <translation type="unfinished"></translation>
+        <source>@Location: %1</source>
+        <translation>Location: %1</translation>
     </message>
     <message>
-        <location filename="../eventtablemodel.cpp" line="73"/>
-        <source>Location: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../eventtablemodel.cpp" line="87"/>
-        <source>Start</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../eventtablemodel.cpp" line="91"/>
-        <source>End</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../eventtablemodel.cpp" line="95"/>
-        <source>Summary</source>
-        <translation type="unfinished"></translation>
+        <location filename="../eventtablemodel.cpp" line="69"/>
+        <source>%1 - %2</source>
+        <comment>date format in event tooltip</comment>
+        <translation>%1 - %2</translation>
     </message>
 </context>
 </TS>

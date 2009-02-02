@@ -27,7 +27,9 @@
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         m_ui(new Ui::MainWindow),
-        trayIcon(0)
+        trayIcon(0),
+        iconShow(":/gfx/icons/plus.png"),
+        iconHide(":/gfx/icons/minus.png")
 {
     m_ui->setupUi(this);
     m_ui->scheduleWidget->setFocus();
@@ -155,7 +157,7 @@ void MainWindow::on_actionAbout_TinyOrganizer_triggered()
 
 void MainWindow::on_actionAbout_Qt_triggered()
 {
-    QMessageBox::aboutQt(this, tr("About Qt"));
+    QMessageBox::aboutQt(this, tr("@About Qt"));
 }
 
 void MainWindow::on_action_Settings_triggered()
@@ -190,12 +192,16 @@ void MainWindow::setVisible(bool visible)
     if( visible )
     {
         m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/minus.png"));
-        m_ui->actionShow_Hide->setText(tr("&Hide"));
+        m_ui->actionShow_Hide->setText(tr("@&Hide"));
+        m_ui->actionShow_Hide->setIconVisibleInMenu(true);
+        m_ui->actionShow_Hide->setIcon(iconHide);
     }
     else
     {
         m_ui->actionShow_Hide->setIcon(QIcon(":/gfx/icons/plus.png"));
-        m_ui->actionShow_Hide->setText(tr("&Show"));
+        m_ui->actionShow_Hide->setText(tr("@&Show"));
+        m_ui->actionShow_Hide->setIconVisibleInMenu(true);
+        m_ui->actionShow_Hide->setIcon(iconShow);
     }
 
     QMainWindow::setVisible(visible);

@@ -11,23 +11,23 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add event</string>
+   <string>@Add event</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Event</string>
+       <string>@Event</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Event details</string>
+          <string>@Event details</string>
          </property>
          <layout class="QFormLayout" name="formLayout_2">
           <property name="fieldGrowthPolicy">
@@ -45,7 +45,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Event starts:</string>
+             <string>@Event starts:</string>
             </property>
             <property name="buddy">
              <cstring>editEventStart</cstring>
@@ -65,7 +65,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Event ends:</string>
+             <string>@Event ends:</string>
             </property>
             <property name="buddy">
              <cstring>editEventEnd</cstring>
@@ -91,7 +91,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Description:</string>
+             <string>@Description:</string>
             </property>
             <property name="buddy">
              <cstring>editDescription</cstring>
@@ -126,7 +126,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>Location:</string>
+             <string>@Location:</string>
             </property>
             <property name="buddy">
              <cstring>editLocatioon</cstring>
@@ -149,7 +149,7 @@
           <item row="4" column="1">
            <widget class="QCheckBox" name="checkAllDay">
             <property name="text">
-             <string>All day event</string>
+             <string>@All day event</string>
             </property>
            </widget>
           </item>
@@ -173,13 +173,13 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Recurrence</string>
+       <string>@Recurrence</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>Recurrence</string>
+          <string>@Recurrence</string>
          </property>
          <layout class="QFormLayout" name="formLayout_3">
           <property name="fieldGrowthPolicy">
@@ -194,7 +194,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Period:</string>
+             <string>@Period:</string>
             </property>
             <property name="buddy">
              <cstring>comboRecurrence</cstring>
@@ -205,27 +205,27 @@
            <widget class="QComboBox" name="comboRecurrence">
             <item>
              <property name="text">
-              <string>no recurrence</string>
+              <string>@no recurrence</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>every day</string>
+              <string>@every day</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>every week</string>
+              <string>@every week</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>every month</string>
+              <string>@every month</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>every year</string>
+              <string>@every year</string>
              </property>
             </item>
            </widget>
@@ -233,7 +233,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>Repeat:</string>
+             <string>@Repeat:</string>
             </property>
             <property name="buddy">
              <cstring>radioUntil</cstring>
@@ -250,7 +250,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>until</string>
+                 <string>@until</string>
                 </property>
                 <property name="checked">
                  <bool>false</bool>
@@ -286,7 +286,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>hit count</string>
+                 <string>@hit count</string>
                 </property>
                </widget>
               </item>
@@ -305,7 +305,7 @@
                <bool>false</bool>
               </property>
               <property name="text">
-               <string>always</string>
+               <string>@always</string>
               </property>
              </widget>
             </item>
@@ -318,7 +318,7 @@
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Reminder</string>
+       <string>@Reminder</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
@@ -330,7 +330,7 @@
           <bool>false</bool>
          </property>
          <property name="title">
-          <string>Reminder</string>
+          <string>@Reminder</string>
          </property>
          <layout class="QFormLayout" name="formLayout_4">
           <property name="fieldGrowthPolicy">
@@ -345,7 +345,7 @@
           <item row="1" column="0">
            <widget class="QCheckBox" name="checkReminder">
             <property name="text">
-             <string>Enable reminder</string>
+             <string>@Enable reminder</string>
             </property>
            </widget>
           </item>
@@ -365,7 +365,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>Remind time:</string>
+             <string>@Remind time:</string>
             </property>
             <property name="buddy">
              <cstring>comboRemind</cstring>
@@ -382,32 +382,32 @@
             </property>
             <item>
              <property name="text">
-              <string>on time</string>
+              <string>@on time</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>5 minutes before</string>
+              <string>@5 minutes before</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>10 minutes before</string>
+              <string>@10 minutes before</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>15 minutes before</string>
+              <string>@15 minutes before</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>30 minutes before</string>
+              <string>@30 minutes before</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>other</string>
+              <string>@other</string>
              </property>
             </item>
            </widget>
@@ -415,7 +415,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
-             <string>Other:</string>
+             <string>@Other:</string>
             </property>
             <property name="buddy">
              <cstring>editRemindOther</cstring>
@@ -435,7 +435,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>Remind with:</string>
+             <string>@Remind with:</string>
             </property>
             <property name="buddy">
              <cstring>checkTray</cstring>
@@ -450,7 +450,7 @@
                <bool>false</bool>
               </property>
               <property name="text">
-               <string>Tray baloon</string>
+               <string>@Tray baloon</string>
               </property>
              </widget>
             </item>
@@ -460,7 +460,7 @@
                <bool>false</bool>
               </property>
               <property name="text">
-               <string>Sound</string>
+               <string>@Sound</string>
               </property>
              </widget>
             </item>

@@ -106,11 +106,6 @@ void AddEvent::setEvent(Event * e)
     }
 }
 
-void AddEvent::on_editEventStart_dateTimeChanged(const QDateTime & datetime)
-{
-    m_ui->editRemindOther->setDateTime(datetime);
-}
-
 void AddEvent::on_buttonBox_accepted()
 {
     if( !checkDates() )
@@ -141,9 +136,25 @@ void AddEvent::on_buttonBox_rejected()
     reject();
 }
 
+void AddEvent::on_editAllDay_dateTimeChanged(const QDateTime & dateTime)
+{
+    updateUntilAndOtherDates(dateTime);
+}
+
+void AddEvent::updateUntilAndOtherDates(const QDateTime & dateTime)
+{
+    m_ui->editRemindOther->setDateTime(dateTime);
+    m_ui->editUntil->setDateTime(dateTime);
+}
+
+void AddEvent::on_editEventStart_dateTimeChanged(const QDateTime & dateTime)
+{
+    updateUntilAndOtherDates(dateTime);
+}
+
 void AddEvent::reportError(const QString & msg)
 {
-    m_ui->labelError->setText(tr("Error: %1").arg(msg));
+    m_ui->labelError->setText(tr("@Error: %1").arg(msg));
 }
 
 void AddEvent::setCurrentDate(QDateTime dateTime)
@@ -159,7 +170,7 @@ bool AddEvent::checkDescription()
     if(m_ui->editDescription->toPlainText().trimmed().length() == 0){
         m_ui->tabWidget->setCurrentIndex(0);
         m_ui->editDescription->setFocus();
-        reportError(tr("event description empty"));
+        reportError(tr("@event description empty"));
         return false;
     }
     return true;
@@ -169,7 +180,7 @@ bool AddEvent::checkDates()
 {
     // make the necessary checks
     if(m_ui->editEventStart->dateTime() > m_ui->editEventEnd->dateTime()){
-        reportError(tr("end date before start date."));
+        reportError(tr("@end date before start date."));
         m_ui->tabWidget->setCurrentIndex(0);
         m_ui->editEventEnd->setFocus();
         return false;

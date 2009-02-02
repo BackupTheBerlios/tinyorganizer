@@ -57,6 +57,8 @@ private slots:
     void on_editEventStart_dateTimeChanged(const QDateTime & datetime);
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
+    void on_editAllDay_dateTimeChanged(const QDateTime &);
+
 
 private:
     bool checkDates();
@@ -65,6 +67,7 @@ private:
     bool checkReminder();
     QDate calculateHitCount() const;
     void reportError(const QString & msg);
+    void updateUntilAndOtherDates(const QDateTime & dateTime);
 
 private:
     Ui::AddEvent *m_ui;

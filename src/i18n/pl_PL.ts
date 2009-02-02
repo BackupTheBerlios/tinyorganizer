@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="pl_PL">
-<defaultcodec></defaultcodec>
 <context>
     <name>AboutBox</name>
     <message>
         <location filename="../aboutbox.cpp" line="27"/>
         <source>About %1</source>
-        <translation>O programie %1</translation>
+        <translation type="obsolete">O programie %1</translation>
     </message>
     <message>
         <location filename="../aboutbox.cpp" line="30"/>
         <source>version: %1</source>
-        <translation>wersja: %1</translation>
+        <translation type="obsolete">wersja: %1</translation>
     </message>
     <message>
         <location filename="../aboutbox.ui" line="20"/>
         <source>About TinyOrganizer</source>
-        <translation>O programie TinyOrganizer</translation>
-    </message>
-    <message>
-        <location filename="../aboutbox.ui" line="33"/>
-        <source>TinyOrganizer</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../aboutbox.ui" line="40"/>
-        <source>version 0.0.0</source>
-        <translation></translation>
+        <translation type="obsolete">O programie TinyOrganizer</translation>
     </message>
     <message>
         <location filename="../aboutbox.ui" line="53"/>
@@ -388,40 +377,70 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../aboutbox.ui" line="447"/>
         <source>Close</source>
-        <translation>Zamknij</translation>
+        <translation type="obsolete">Zamknij</translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="33"/>
+        <source>@TinyOrganizer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="40"/>
+        <source>@version 0.0.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="447"/>
+        <source>@Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.cpp" line="27"/>
+        <source>@About %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.cpp" line="30"/>
+        <source>@version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutbox.ui" line="20"/>
+        <source>@About TinyOrganizer</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddEvent</name>
     <message>
-        <location filename="../addevent.cpp" line="131"/>
-        <source>Error: %1</source>
-        <translation>Błąd: %1</translation>
-    </message>
-    <message>
-        <location filename="../addevent.cpp" line="147"/>
-        <source>event description empty</source>
-        <translation>pusty opis zdarzenia</translation>
-    </message>
-    <message>
         <location filename="../addevent.cpp" line="157"/>
+        <source>Error: %1</source>
+        <translation type="obsolete">Błąd: %1</translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="173"/>
+        <source>event description empty</source>
+        <translation type="obsolete">pusty opis zdarzenia</translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="183"/>
         <source>end date before start date.</source>
-        <translation>data zakończenia poprzedza datę rozpoczęcia.</translation>
+        <translation type="obsolete">data zakończenia poprzedza datę rozpoczęcia.</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="24"/>
         <source>Event</source>
-        <translation>Zdarzenie</translation>
+        <translation type="obsolete">Zdarzenie</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="30"/>
         <source>Event details</source>
-        <translation>Szczegóły zdarzenia</translation>
+        <translation type="obsolete">Szczegóły zdarzenia</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="48"/>
         <source>Event starts:</source>
-        <translation>Rozpoczęcie zdarzenia:</translation>
+        <translation type="obsolete">Rozpoczęcie zdarzenia:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="431"/>
@@ -431,22 +450,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../addevent.ui" line="68"/>
         <source>Event ends:</source>
-        <translation>Zakończenie zdarzenia:</translation>
+        <translation type="obsolete">Zakończenie zdarzenia:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="94"/>
         <source>Description:</source>
-        <translation>Opis:</translation>
+        <translation type="obsolete">Opis:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="129"/>
         <source>Location:</source>
-        <translation>Miejsce:</translation>
+        <translation type="obsolete">Miejsce:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="152"/>
         <source>All day event</source>
-        <translation>Zdarzenie całodniowe</translation>
+        <translation type="obsolete">Zdarzenie całodniowe</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="266"/>
@@ -456,175 +475,345 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../addevent.ui" line="182"/>
         <source>Recurrence</source>
-        <translation>Powtarzalność</translation>
+        <translation type="obsolete">Powtarzalność</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="197"/>
         <source>Period:</source>
-        <translation>Okres:</translation>
+        <translation type="obsolete">Okres:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="208"/>
         <source>no recurrence</source>
-        <translation>brak</translation>
+        <translation type="obsolete">brak</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="213"/>
         <source>every day</source>
-        <translation>każdego dnia</translation>
+        <translation type="obsolete">każdego dnia</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="218"/>
         <source>every week</source>
-        <translation>każdego tygodnia</translation>
+        <translation type="obsolete">każdego tygodnia</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="223"/>
         <source>every month</source>
-        <translation>każdego miesiąca</translation>
+        <translation type="obsolete">każdego miesiąca</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="228"/>
         <source>every year</source>
-        <translation>każdego roku</translation>
+        <translation type="obsolete">każdego roku</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="236"/>
         <source>Repeat:</source>
-        <translation>Powtarzaj:</translation>
+        <translation type="obsolete">Powtarzaj:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="253"/>
         <source>until</source>
-        <translation>do</translation>
+        <translation type="obsolete">do</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="289"/>
         <source>hit count</source>
-        <translation>ilość razy</translation>
+        <translation type="obsolete">ilość razy</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="308"/>
         <source>always</source>
-        <translation>zawsze</translation>
+        <translation type="obsolete">zawsze</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="333"/>
         <source>Reminder</source>
-        <translation>Przypomnienie</translation>
+        <translation type="obsolete">Przypomnienie</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="348"/>
         <source>Enable reminder</source>
-        <translation>Włącz przypomnienie</translation>
+        <translation type="obsolete">Włącz przypomnienie</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="368"/>
         <source>Remind time:</source>
-        <translation>Przypomnij:</translation>
+        <translation type="obsolete">Przypomnij:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="385"/>
         <source>on time</source>
-        <translation>na czas</translation>
+        <translation type="obsolete">na czas</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="390"/>
         <source>5 minutes before</source>
-        <translation>5 minut przed</translation>
+        <translation type="obsolete">5 minut przed</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="395"/>
         <source>10 minutes before</source>
-        <translation>10 minut przed</translation>
+        <translation type="obsolete">10 minut przed</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="400"/>
         <source>15 minutes before</source>
-        <translation>15 minut przed</translation>
+        <translation type="obsolete">15 minut przed</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="405"/>
         <source>30 minutes before</source>
-        <translation>30 minut przed</translation>
+        <translation type="obsolete">30 minut przed</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="410"/>
         <source>other</source>
-        <translation>inny</translation>
+        <translation type="obsolete">inny</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="418"/>
         <source>Other:</source>
-        <translation>Inny:</translation>
+        <translation type="obsolete">Inny:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="438"/>
         <source>Remind with:</source>
-        <translation>Przypomnij za pomocą:</translation>
+        <translation type="obsolete">Przypomnij za pomocą:</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="453"/>
         <source>Tray baloon</source>
-        <translation>powiadomienia systemowego</translation>
+        <translation type="obsolete">powiadomienia systemowego</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="463"/>
         <source>Sound</source>
-        <translation>dźwięku</translation>
+        <translation type="obsolete">dźwięku</translation>
     </message>
     <message>
         <location filename="../addevent.ui" line="14"/>
         <source>Add event</source>
-        <translation>Dodaj zdarzenie</translation>
+        <translation type="obsolete">Dodaj zdarzenie</translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="24"/>
+        <source>@Event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="30"/>
+        <source>@Event details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="48"/>
+        <source>@Event starts:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="68"/>
+        <source>@Event ends:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="94"/>
+        <source>@Description:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="152"/>
+        <source>@All day event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="182"/>
+        <source>@Recurrence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="197"/>
+        <source>@Period:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="208"/>
+        <source>@no recurrence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="213"/>
+        <source>@every day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="218"/>
+        <source>@every week</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="223"/>
+        <source>@every month</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="228"/>
+        <source>@every year</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="253"/>
+        <source>@until</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="289"/>
+        <source>@hit count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="308"/>
+        <source>@always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="333"/>
+        <source>@Reminder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="348"/>
+        <source>@Enable reminder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="368"/>
+        <source>@Remind time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="385"/>
+        <source>@on time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="390"/>
+        <source>@5 minutes before</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="395"/>
+        <source>@10 minutes before</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="400"/>
+        <source>@15 minutes before</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="405"/>
+        <source>@30 minutes before</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="410"/>
+        <source>@other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="418"/>
+        <source>@Other:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="438"/>
+        <source>@Remind with:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="453"/>
+        <source>@Tray baloon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="463"/>
+        <source>@Sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="157"/>
+        <source>@Error: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="173"/>
+        <source>@event description empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.cpp" line="183"/>
+        <source>@end date before start date.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="14"/>
+        <source>@Add event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="129"/>
+        <source>@Location:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../addevent.ui" line="236"/>
+        <source>@Repeat:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="158"/>
+        <location filename="../mainwindow.cpp" line="160"/>
         <source>About Qt</source>
-        <translation>O Qt</translation>
+        <translation type="obsolete">O Qt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>&amp;Hide</source>
-        <translation>&amp;Ukryj</translation>
+        <translation type="obsolete">&amp;Ukryj</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="198"/>
         <source>&amp;Show</source>
-        <translation>&amp;Pokaż</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="17"/>
-        <source>TinyOrganizer</source>
-        <translation></translation>
+        <translation type="obsolete">&amp;Pokaż</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="98"/>
         <source>Calendar</source>
-        <translation>Kalendarz</translation>
+        <translation type="obsolete">Kalendarz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="121"/>
         <source>&amp;File</source>
-        <translation>&amp;Plik</translation>
+        <translation type="obsolete">&amp;Plik</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>&amp;Help</source>
-        <translation>Po&amp;moc</translation>
+        <translation type="obsolete">Po&amp;moc</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="140"/>
         <source>&amp;Options</source>
-        <translation>&amp;Opcie</translation>
+        <translation type="obsolete">&amp;Opcie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="157"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Otwórz</translation>
+        <translation type="obsolete">&amp;Otwórz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="160"/>
@@ -634,7 +823,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="168"/>
         <source>&amp;Import...</source>
-        <translation>&amp;Importuj...</translation>
+        <translation type="obsolete">&amp;Importuj...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="171"/>
@@ -644,7 +833,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="179"/>
         <source>&amp;Export...</source>
-        <translation>&amp;Exportuj</translation>
+        <translation type="obsolete">&amp;Exportuj</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="182"/>
@@ -654,7 +843,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="191"/>
         <source>E&amp;xit</source>
-        <translation>&amp;Wyjście</translation>
+        <translation type="obsolete">&amp;Wyjście</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="194"/>
@@ -664,7 +853,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="206"/>
         <source>&amp;Save</source>
-        <translation>Zapi&amp;z</translation>
+        <translation type="obsolete">Zapi&amp;z</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="209"/>
@@ -674,22 +863,107 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="218"/>
         <source>&amp;About...</source>
-        <translation>&amp;O programie...</translation>
+        <translation type="obsolete">&amp;O programie...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="227"/>
         <source>About &amp;Qt...</source>
-        <translation>O &amp;Qt...</translation>
+        <translation type="obsolete">O &amp;Qt...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="236"/>
         <source>Show/Hide</source>
-        <translation>Pokaż/Ukryj</translation>
+        <translation type="obsolete">Pokaż/Ukryj</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="245"/>
         <source>&amp;Settings...</source>
-        <translation>U&amp;stawienia...</translation>
+        <translation type="obsolete">U&amp;stawienia...</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="195"/>
+        <source>@&amp;Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="202"/>
+        <source>@&amp;Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="98"/>
+        <source>@Calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="121"/>
+        <source>@&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="133"/>
+        <source>@&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="140"/>
+        <source>@&amp;Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="157"/>
+        <source>@&amp;Open...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="168"/>
+        <source>@&amp;Import...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="179"/>
+        <source>@&amp;Export...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="191"/>
+        <source>@E&amp;xit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="206"/>
+        <source>@&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="218"/>
+        <source>@&amp;About...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="227"/>
+        <source>@About &amp;Qt...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="236"/>
+        <source>@Show/Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="245"/>
+        <source>@&amp;Settings...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="160"/>
+        <source>@About Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="17"/>
+        <source>@TinyOrganizer</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -703,19 +977,19 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ScheduleWidget</name>
     <message>
-        <location filename="../schedulewidget.cpp" line="312"/>
+        <location filename="../schedulewidget.cpp" line="329"/>
         <source>Confirm deletion</source>
-        <translation>Potwierdź usunięcie</translation>
+        <translation type="obsolete">Potwierdź usunięcie</translation>
     </message>
     <message>
-        <location filename="../schedulewidget.cpp" line="283"/>
+        <location filename="../schedulewidget.cpp" line="300"/>
         <source>Do you really want to delete this event?</source>
-        <translation>Czy naprawdę chcesz usunąć to zdarzenie?</translation>
+        <translation type="obsolete">Czy naprawdę chcesz usunąć to zdarzenie?</translation>
     </message>
     <message>
-        <location filename="../schedulewidget.cpp" line="313"/>
+        <location filename="../schedulewidget.cpp" line="330"/>
         <source>Do you really want to delete all events on %1?</source>
-        <translation>Czy naprawdę chcesz usunąć wszystkie zdarzenia dn. %1?</translation>
+        <translation type="obsolete">Czy naprawdę chcesz usunąć wszystkie zdarzenia dn. %1?</translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="14"/>
@@ -725,7 +999,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../schedulewidget.ui" line="111"/>
         <source>Add event</source>
-        <translation>Dodaj zdarzenie</translation>
+        <translation type="obsolete">Dodaj zdarzenie</translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="114"/>
@@ -735,7 +1009,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../schedulewidget.ui" line="123"/>
         <source>Delete event</source>
-        <translation>Usuń zdarzenie</translation>
+        <translation type="obsolete">Usuń zdarzenie</translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="126"/>
@@ -745,7 +1019,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../schedulewidget.ui" line="131"/>
         <source>Delete all events</source>
-        <translation>Usuń wszystkie zdarzenia</translation>
+        <translation type="obsolete">Usuń wszystkie zdarzenia</translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="134"/>
@@ -755,7 +1029,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../schedulewidget.ui" line="139"/>
         <source>Go to &amp;today</source>
-        <translation>Idź do daty dzisiejszej</translation>
+        <translation type="obsolete">Idź do daty dzisiejszej</translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="142"/>
@@ -763,14 +1037,54 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../schedulewidget.ui" line="147"/>
+        <location filename="../schedulewidget.cpp" line="121"/>
         <source>Edit event</source>
-        <translation>Edycja zdarzenia</translation>
+        <translation type="obsolete">Edycja zdarzenia</translation>
     </message>
     <message>
         <location filename="../schedulewidget.ui" line="150"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="111"/>
+        <source>@Add event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="123"/>
+        <source>@Delete event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="131"/>
+        <source>@Delete all events</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="139"/>
+        <source>@Go to &amp;today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.ui" line="147"/>
+        <source>@Edit event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.cpp" line="329"/>
+        <source>@Confirm deletion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.cpp" line="300"/>
+        <source>@Do you really want to delete this event?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../schedulewidget.cpp" line="330"/>
+        <source>@Do you really want to delete all events on %1?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -778,60 +1092,111 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../settingsdialog.ui" line="14"/>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="obsolete">Ustawienia</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="30"/>
         <source>System</source>
-        <translation>Systemowe</translation>
+        <translation type="obsolete">Systemowe</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="39"/>
         <source>Closing window minimazes the application</source>
-        <translation>Zamknięcie aplikacji powoduje minimalizację</translation>
+        <translation type="obsolete">Zamknięcie aplikacji powoduje minimalizację</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="46"/>
         <source>Minimize to tray</source>
-        <translation>Minimalizuj do tacki systemowej</translation>
+        <translation type="obsolete">Minimalizuj do tacki systemowej</translation>
     </message>
     <message>
         <location filename="../settingsdialog.ui" line="54"/>
         <source>Appearance</source>
-        <translation>Wygląd</translation>
+        <translation type="obsolete">Wygląd</translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="14"/>
+        <source>@Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="30"/>
+        <source>@System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="39"/>
+        <source>@Closing window minimazes the application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="46"/>
+        <source>@Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settingsdialog.ui" line="54"/>
+        <source>@Appearance</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TinyOrganizer::EventTableModel</name>
     <message>
-        <location filename="../eventtablemodel.cpp" line="70"/>
-        <source>%1 - %2</source>
-        <translation></translation>
+        <location filename="../eventtablemodel.cpp" line="71"/>
+        <source>Summary: %1</source>
+        <translation type="obsolete">Opis: %1</translation>
     </message>
     <message>
         <location filename="../eventtablemodel.cpp" line="72"/>
-        <source>Summary: %1</source>
-        <translation>Opis: %1</translation>
-    </message>
-    <message>
-        <location filename="../eventtablemodel.cpp" line="73"/>
         <source>Location: %1</source>
-        <translation>Miejsce: %1</translation>
+        <translation type="obsolete">Miejsce: %1</translation>
     </message>
     <message>
         <location filename="../eventtablemodel.cpp" line="87"/>
         <source>Start</source>
-        <translation>Pocz.</translation>
+        <translation type="obsolete">Pocz.</translation>
     </message>
     <message>
         <location filename="../eventtablemodel.cpp" line="91"/>
         <source>End</source>
-        <translation>Koniec</translation>
+        <translation type="obsolete">Koniec</translation>
     </message>
     <message>
         <location filename="../eventtablemodel.cpp" line="95"/>
         <source>Summary</source>
-        <translation>Opis</translation>
+        <translation type="obsolete">Opis</translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="86"/>
+        <source>@Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="90"/>
+        <source>@End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="94"/>
+        <source>@Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="71"/>
+        <source>@Summary: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="72"/>
+        <source>@Location: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../eventtablemodel.cpp" line="69"/>
+        <source>%1 - %2</source>
+        <comment>date format in event tooltip</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

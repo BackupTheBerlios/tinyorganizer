@@ -49,6 +49,8 @@ private:
     QSystemTrayIcon * trayIcon;
     QMenu menuTrayPopup;
     QPoint pointPrevPosition;
+    QIcon iconShow;
+    QIcon iconHide;
 
 private slots:
     void on_actionShow_Hide_triggered();

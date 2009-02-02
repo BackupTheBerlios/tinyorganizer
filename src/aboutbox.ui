@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>About TinyOrganizer</string>
+   <string>@About TinyOrganizer</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -30,14 +30,14 @@
       </font>
      </property>
      <property name="text">
-      <string>TinyOrganizer</string>
+      <string>@TinyOrganizer</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QLabel" name="mLabelVersion">
      <property name="text">
-      <string>version 0.0.0</string>
+      <string>@version 0.0.0</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -444,7 +444,7 @@ p, li { white-space: pre-wrap; }
      <item>
       <widget class="QPushButton" name="mButtonClose">
        <property name="text">
-        <string>Close</string>
+        <string>@Close</string>
        </property>
        <property name="default">
         <bool>true</bool>
